@@ -9,16 +9,19 @@ import Experience from "./sections/Experience.jsx";
 
 const App = () => {
     return (
-        <main className="max-w-7xl mx-auto">
+        <div className="flex flex-col min-h-screen"> {/* Updated to use Flexbox */}
             <Navbar />
-            <Hero />
-            <About />
-            <Projects />
-            <Contact />
-            <Experience />
-            <Footer />
-        </main>
-    )
-}
+            <main className="flex-grow max-w-7xl mx-auto"> {/* Allows content to grow */}
+                <Hero />
+                <About />
+                <Projects />
+                <Experience />
+                <Contact />
+            </main>
+            <Footer /> {/* Footer will stay at the bottom */}
+        </div>
+    );
+};
 
-export default App
+export default App;
+

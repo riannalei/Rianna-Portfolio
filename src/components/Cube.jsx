@@ -10,7 +10,7 @@ import { Float, useGLTF, useTexture } from '@react-three/drei';
 const Cube = ({ ...props }) => {
     const { nodes } = useGLTF('models/cube.glb');
 
-    const texture = useTexture('textures/cube.png');
+    const texture = useTexture('textures/ball.png');
 
     const cubeRef = useRef();
     const [hovered, setHovered] = useState(false);

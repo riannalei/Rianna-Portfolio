@@ -1,28 +1,50 @@
-import { useGLTF } from '@react-three/drei';
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { useRef, useState } from 'react';
+import { Float, useGLTF, useTexture } from '@react-three/drei';
 
-const Target = (props) => {
-    const targetRef = useRef();
-    const { scene } = useGLTF(
-        'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/target-stand/model.gltf',
-    );
+const Target = ({ ...props }) => {
+    const { nodes } = useGLTF('models/cube.glb');
+
+    const texture = useTexture('textures/ball.png');
+
+    const cubeRef = useRef();
+    const [hovered, setHovered] = useState(false);
 
     useGSAP(() => {
-        gsap.to(targetRef.current.position, {
-            y: targetRef.current.position.y + 0.5,
-            duration: 1.5,
-            repeat: -1,
-            yoyo: true,
-        });
+        gsap
+            .timeline({
+                repeat: -1,
+                repeatDelay: 0.5,
+            })
+            .to(cubeRef.current.rotation, {
+                y: hovered ? '+=2' : `+=${Math.PI * 2}`,
+                x: hovered ? '+=2' : `-=${Math.PI * 2}`,
+                duration: 2.5,
+                stagger: {
+                    each: 0.15,
+                },
+            });
     });
 
     return (
-        <mesh {...props} ref={targetRef} rotation={[0, Math.PI / 5, 0]} scale={1.5}>
-            <primitive object={scene} />
-        </mesh>
+        <Float floatIntensity={2}>
+            {/* Adjusted y position from 0 to 2 to move the object further up */}
+            <group position={[6, 5, 0]} rotation={[2.6, 0.8, -1.8]} scale={0.74} dispose={null} {...props}>
+                <mesh
+                    ref={cubeRef}
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Cube.geometry}
+                    material={nodes.Cube.material}
+                    onPointerEnter={() => setHovered(true)}>
+                    <meshMatcapMaterial matcap={texture} toneMapped={false} />
+                </mesh>
+            </group>
+        </Float>
     );
 };
+
+useGLTF.preload('models/cube.glb');
 
 export default Target;

@@ -26,84 +26,10 @@ export const myProjects = [
         title: 'Leaf & Carry',
         desc: 'Leaf & Carry is a customizable e-commerce platform for eco-friendly tote bags, built with Next.js, React, Node.js, and MongoDB. It features a sleek user interface, secure payments, and a dynamic tote bag configurator to personalize designs effortlessly.',
         subdesc:
-            'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
+            'Leaf & Carry includes an admin dashboard for managing orders and tracking customer engagement, enhancing operational efficiency. It integrates secure authentication and payment processing with Kinde, and offers real-time drag-and-drop file uploads, providing a seamless and secure shopping experience.',
         href: 'https://leaf-and-carry.vercel.app/',
         texture: '/textures/project/project1.mp4',
-        logo: '/assets/project-logo1.png',
-        logoStyle: {
-            backgroundColor: '#2A1816',
-            border: '0.2px solid #36201D',
-            boxShadow: '0px 0px 60px 0px #AA3C304D',
-        },
-        spotlight: '/assets/spotlight1.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
-            },
-            {
-                id: 3,
-                name: 'TypeScript',
-                path: '/assets/typescript.png',
-            },
-            {
-                id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
-            },
-        ],
-    },
-    {
-        title: 'TaskStars',
-        desc: 'An AI-powered task management app with real-time productivity tracking and social leaderboards to promote user engagement and competition.. Built with Next.js, React, Node.js/Express, and MongoDB.',
-        subdesc:
-            'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-        href: 'https://github.com/taskStars/TaskStarsProd',
-        texture: '/textures/project/project2.mp4',
-        logo: '/assets/project-logo2.png',
-        logoStyle: {
-            backgroundColor: '#13202F',
-            border: '0.2px solid #17293E',
-            boxShadow: '0px 0px 60px 0px #2F6DB54D',
-        },
-        spotlight: '/assets/spotlight2.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
-            },
-            {
-                id: 3,
-                name: 'TypeScript',
-                path: '/assets/typescript.png',
-            },
-            {
-                id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
-            },
-        ],
-    },
-    {
-        title: 'SurveySage',
-        desc: 'Full-stack app for creating surveys, collecting feedback, and managing responses. Built with Node.js, React, and MongoDB, it supports Google OAuth and Stripe payments for seamless user experience.',
-        subdesc:
-            'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-        href: 'https://github.com/riannalei/SurveySage',
-        texture: '/textures/project/project3.mp4',
-        logo: '/assets/project-logo3.png',
+        logo: '/assets/cactuspointy.svg',
         logoStyle: {
             backgroundColor: '#60f5a1',
             background:
@@ -120,8 +46,8 @@ export const myProjects = [
             },
             {
                 id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
+                name: 'Next.js',
+                path: '/assets/nextjs.png',
             },
             {
                 id: 3,
@@ -130,19 +56,56 @@ export const myProjects = [
             },
             {
                 id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
+                name: 'Node.js',
+                path: '/assets/nodejs.png',
             },
         ],
     },
     {
-        title: 'Riannas Personal Portfolio',
-        desc: 'this app!',
+        title: 'TaskStars',
+        desc: 'An AI-powered task management app with real-time productivity tracking and social leaderboards to promote user engagement and competition. Built with Next.js, React, Node.js/Express, and MongoDB.',
         subdesc:
-            'Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.',
+            'The TaskStars app features intelligent task planning with OpenAI integration to auto-fill outlines and notes, helping users stay organized and productive. It also includes a \'lock-in\' mode to track focused work time, along with friend challenges and leaderboards to add a social and competitive element to task management.',
+        href: 'https://github.com/taskStars/TaskStarsProd',
+        texture: '/textures/project/project2.mp4',
+        logo: '/assets/iconstar.svg',
+        logoStyle: {
+            backgroundColor: '#13202F',
+            border: '0.2px solid #17293E',
+            boxShadow: '0px 0px 60px 0px #2F6DB54D',
+        },
+        spotlight: '/assets/spotlight2.png',
+        tags: [
+            {
+                id: 1,
+                name: 'Next.js',
+                path: '/assets/nextjs.png',
+            },
+            {
+                id: 2,
+                name: 'React.js',
+                path: '/assets/react.svg',
+            },
+            {
+                id: 3,
+                name: 'Node.js',
+                path: '/assets/nodejs.png',
+            },
+            {
+                id: 4,
+                name: 'Mongo DB',
+                path: '/assets/mongodb.png',
+            },
+        ],
+    },
+    {
+        title: 'Personal Portfolio',
+        desc: 'My personal portfolio! A 3D personal website using three.js',
+        subdesc:
+            'It showcases interactive 3D elements using Three.js, creating a visually engaging experience. It highlights Rianna\'s skills and projects with dynamic animations, responsive design, and smooth navigation, offering an immersive way to explore their work and expertise in web development.',
         href: 'https://riannalei.com',
         texture: '/textures/project/project4.mp4',
-        logo: '/assets/project-logo4.png',
+        logo: '/assets/portfo.png',
         logoStyle: {
             backgroundColor: '#0E1F38',
             border: '0.2px solid #0E2D58',
@@ -157,18 +120,18 @@ export const myProjects = [
             },
             {
                 id: 2,
-                name: 'TailwindCSS',
-                path: 'assets/tailwindcss.png',
+                name: 'Three.js',
+                path: 'assets/threejs.png',
             },
             {
                 id: 3,
-                name: 'TypeScript',
-                path: '/assets/typescript.png',
+                name: 'Node.js',
+                path: '/assets/nodejs.png',
             },
             {
                 id: 4,
-                name: 'Framer Motion',
-                path: '/assets/framer.png',
+                name: 'Tailwind CSS',
+                path: '/assets/tailwindcss.png',
             },
         ],
     },
@@ -191,8 +154,8 @@ export const workExperiences = [
         name: 'CodePath Web Development',
         pos: 'Scholar',
         duration: '2023 - 2024',
-        title: "Completed three accelerated bootcamps focused on front-end web development and technical interview preparation, including practice with data structures and algorithms alongside software engineers.",
-        icon: '/assets/framer.svg',
+        title: "Completed three bootcamps in front-end web development and technical interview prep. Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React to create interactive user experiences.",
+        icon: '/assets/codepath.png',
         animation: 'victory',
     },
     {
@@ -200,8 +163,8 @@ export const workExperiences = [
         name: 'Google’s Computer Science Summer Institute',
         pos: 'Intern/Scholar',
         duration: '2022 - 2022',
-        title: "I participated in a four-week intensive web development course led by Google engineers. The program focused on enhancing my technical skills in HTML, CSS, and JavaScript through daily coding challenges and collaborative projects. I attended workshops that covered product design, resume building, and software engineering interview preparation, providing me with a comprehensive understanding of the tech industry and its expectations. Additionally, I worked closely with fellow scholars to develop a final web project, which we successfully presented to Google employees, showcasing our teamwork, problem-solving abilities, and technical skills.",
-        icon: '/assets/figma.svg',
+        title: "Participated in a four-week intensive web development course led by Google engineers, enhancing skills in HTML, CSS, and JavaScript through daily challenges and collaborative projects. Developed a final web project presented to Google employees, showcasing teamwork, problem-solving, and technical expertise.",
+        icon: '/assets/google.png',
         animation: 'clapping',
     },
 ];
