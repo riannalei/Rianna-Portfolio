@@ -45,12 +45,11 @@ const Rings = ({ position }) => {
 
     return (
         <Center>
-            {/* Added position property to move the group down */}
-            <group scale={0.5} position={[3, -4, 0]}> {/* Adjusted y position to -2 to move down */}
-                {Array.from({ length: 4 }, (_, index) => (
+            <group scale={0.5} position={[9, 0, 0]}>
+                {Array.from({length: 4}, (_, index) => (
                     <mesh key={index} ref={getRef}>
                         <torusGeometry args={[(index + 1) * 0.5, 0.1]}></torusGeometry>
-                        <meshMatcapMaterial matcap={texture} toneMapped={false} />
+                        <meshMatcapMaterial matcap={texture} toneMapped={false}/>
                     </mesh>
                 ))}
             </group>
