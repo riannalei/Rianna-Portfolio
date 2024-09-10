@@ -12,7 +12,7 @@ import Target from '../components/Target.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
-import { HackerRoom } from '../components/HackerRoom.jsx';
+import { Model as MacBook } from '../components/MacBook.jsx'; // Import the MacBook model component
 
 const Hero = () => {
     // Use media queries to determine screen size
@@ -39,7 +39,8 @@ const Hero = () => {
                         <PerspectiveCamera makeDefault position={[0, 0, 30]} />
 
                         <HeroCamera isMobile={isMobile}>
-                            <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition} rotation={[0.1, -Math.PI, 0]} />
+                            {/* Adjust the position to move the MacBook down */}
+                            <MacBook scale={2.8} position={[0, -6, 0]} rotation={[0, 0.5, 0]} />
                         </HeroCamera>
 
                         <group>

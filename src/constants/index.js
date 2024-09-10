@@ -100,9 +100,9 @@ export const myProjects = [
     },
     {
         title: 'Personal Portfolio',
-        desc: 'My personal portfolio! A 3D personal website using three.js',
+        desc: 'My personal portfolio!',
         subdesc:
-            'It showcases interactive 3D elements using Three.js, creating a visually engaging experience. It highlights Rianna\'s skills and projects with dynamic animations, responsive design, and smooth navigation, offering an immersive way to explore their work and expertise in web development.',
+            'It showcases interactive 3D elements using Three.js, creating a visually engaging experience. It highlights Rianna\'s skills and projects with dynamic animations, responsive design, and smooth navigation, offering an immersive way to explore my work and expertise in web development.',
         href: 'https://riannalei.com',
         texture: '/textures/project/project4.mp4',
         logo: '/assets/portfo.png',
