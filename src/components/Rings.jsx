@@ -11,7 +11,7 @@ const Rings = ({ position }) => {
         }
     }, []);
 
-    const texture = useTexture('textures/rings.png');
+    const texture = useTexture('textures/ball.png');
 
     useGSAP(
         () => {
@@ -45,7 +45,8 @@ const Rings = ({ position }) => {
 
     return (
         <Center>
-            <group scale={0.5}>
+            {/* Added position property to move the group down */}
+            <group scale={0.5} position={[3, -4, 0]}> {/* Adjusted y position to -2 to move down */}
                 {Array.from({ length: 4 }, (_, index) => (
                     <mesh key={index} ref={getRef}>
                         <torusGeometry args={[(index + 1) * 0.5, 0.1]}></torusGeometry>

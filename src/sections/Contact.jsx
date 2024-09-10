@@ -19,115 +19,113 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-//service_nezdps2
-    //template_kjk7k8t
+
     emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: 'Rianna Lei',
-          from_email: form.email,
-          to_email: 'rxlei@calpoly.edu',
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-          //YFTzBohADF16IlMI0
-      )
-      .then(
-        () => {
-          setLoading(false);
-          showAlert({
-            show: true,
-            text: 'Thank you for your message 😃',
-            type: 'success',
-          });
+        .send(
+            import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+            {
+              from_name: form.name,
+              to_name: 'JavaScript Mastery',
+              from_email: form.email,
+              to_email: 'sujata@jsmastery.pro',
+              message: form.message,
+            },
+            import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+        )
+        .then(
+            () => {
+              setLoading(false);
+              showAlert({
+                show: true,
+                text: 'Thank you for your message 😃',
+                type: 'success',
+              });
 
-          setTimeout(() => {
-            hideAlert(false);
-            setForm({
-              name: '',
-              email: '',
-              message: '',
-            });
-          }, [3000]);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
+              setTimeout(() => {
+                hideAlert(false);
+                setForm({
+                  name: '',
+                  email: '',
+                  message: '',
+                });
+              }, [3000]);
+            },
+            (error) => {
+              setLoading(false);
+              console.error(error);
 
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: 'danger',
-          });
-        },
-      );
+              showAlert({
+                show: true,
+                text: "I didn't receive your message 😢",
+                type: 'danger',
+              });
+            },
+        );
   };
 
   return (
-    <section className="c-space my-20" id="contact">
-      {alert.show && <Alert {...alert} />}
+      <section className="c-space my-20" id="contact">
+        {alert.show && <Alert {...alert} />}
 
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
+        <div className="relative min-h-screen flex items-center justify-center flex-col">
+          <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
 
-        <div className="contact-container">
-          <h3 className="head-text">Let's talk</h3>
-          <p className="text-lg text-white-600 mt-3">
-            change THIS to I. NENEDEDED A JPOB ASAAPPPP
-          </p>
+          <div className="contact-container">
+            <h3 className="head-text">Let's talk</h3>
+            <p className="text-lg text-white-600 mt-1">
+              I am actively seeking a software engineering internship where I can apply my skills in full-stack development and problem-solving.
+            </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
-            <label className="space-y-3">
-              <span className="field-label">Full Name</span>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="field-input"
-                placeholder="ex., John Doe"
-              />
-            </label>
+            <form ref={formRef} onSubmit={handleSubmit} className="mt-6 flex flex-col space-y-3">
+              <label className="space-y-3">
+                <span className="field-label">Full Name</span>
+                <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                    className="field-input"
+                    placeholder="ex., John Doe"
+                />
+              </label>
 
-            <label className="space-y-3">
-              <span className="field-label">Email address</span>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                className="field-input"
-                placeholder="ex., johndoe@gmail.com"
-              />
-            </label>
+              <label className="space-y-3">
+                <span className="field-label">Email address</span>
+                <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                    className="field-input"
+                    placeholder="ex., johndoe@gmail.com"
+                />
+              </label>
 
-            <label className="space-y-3">
-              <span className="field-label">Your message</span>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="field-input"
-                placeholder="Share your thoughts or inquiries..."
-              />
-            </label>
+              <label className="space-y-3">
+                <span className="field-label">Your message</span>
+                <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="field-input"
+                    placeholder="Share your thoughts or inquiries..."
+                />
+              </label>
 
-            <button className="field-btn" type="submit" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message'}
+              <button className="field-btn" type="submit" disabled={loading}>
+                {loading ? 'Sending...' : 'Send Message'}
 
-              <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
-            </button>
-          </form>
+                <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 

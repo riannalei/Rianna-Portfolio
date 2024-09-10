@@ -33,12 +33,9 @@ const Developer = ({ animationName = 'idle', ...props }) => {
         const { animations: clappingAnimation } = useFBX('/models/animations/clapping.fbx');
         clappingAnimation[0].name = 'clapping';
 
-        const { animations: victoryAnimation } = useFBX('/models/animations/victory.fbx');
-        victoryAnimation[0].name = 'victory';
-
         // Bind animations to group
         const { actions } = useAnimations(
-            [idleAnimation[0], saluteAnimation[0], clappingAnimation[0], victoryAnimation[0]],
+            [idleAnimation[0], saluteAnimation[0], clappingAnimation[0]],
             group
         );
 
