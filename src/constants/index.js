@@ -2,22 +2,22 @@ export const navLinks = [
     {
         id: 1,
         name: 'Home',
-        href: '#home',
+        href: '/',
     },
     {
         id: 2,
         name: 'About',
-        href: '#about',
+        href: '/about',
     },
     {
         id: 3,
-        name: 'Work',
-        href: '#work',
+        name: 'Projects',
+        href: '/projects',
     },
     {
         id: 4,
         name: 'Contact',
-        href: '#contact',
+        href: '/contact',
     },
 ];
 
@@ -192,9 +192,7 @@ export const workExperiences = [
         pos: 'Techology and Client Experience Intern',
         duration: '2025 - present',
         titles: [
-            "Completed three bootcamps in front-end web development and technical interview prep.",
-            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
-            "Focused on creating interactive user experiences.",
+            "",
         ],
         icon: '/assets/codepath.png',
         animation: 'victory',
@@ -205,9 +203,7 @@ export const workExperiences = [
         pos: 'ML/AI Fellow',
         duration: '2025 - present',
         titles: [
-            "Completed three bootcamps in front-end web development and technical interview prep.",
-            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
-            "Focused on creating interactive user experiences.",
+            "",
         ],
         icon: '/assets/codepath.png',
         animation: 'victory',
@@ -218,9 +214,7 @@ export const workExperiences = [
         pos: 'Web Developer',
         duration: '2024 - present',
         titles: [
-            "Completed three bootcamps in front-end web development and technical interview prep.",
-            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
-            "Focused on creating interactive user experiences.",
+            "",
         ],
         icon: '/assets/codepath.png',
         animation: 'victory',
@@ -231,24 +225,9 @@ export const workExperiences = [
         pos: 'Intern/Scholar',
         duration: '2022 - 2022',
         titles: [
-            "Participated in a four-week intensive web development course led by Google engineers.",
-            "Enhanced skills in HTML, CSS, and JavaScript through challenges and collaborative projects.",
-            "Developed and presented a final web project to Google employees.",
+            "",
         ],
         icon: '/assets/google.png',
         animation: 'clapping',
-    },
-    {
-        id: 5,
-        name: 'Kode With Klossy',
-        pos: 'Scholar/Intern',
-        duration: '2021 - 2021',
-        titles: [
-            "Participated in a two-week program dedicated to educating and empowering young women and non-binary students in STEM.",
-            "Utilized HTML, CSS, and JavaScript to develop a website in three days.",
-            "Developed a website to educate people about fast fashion in a group of four.",
-        ],
-        icon: '/assets/kwk.png', // Replace with the appropriate icon path
-        animation: 'spin',
     },
 ];

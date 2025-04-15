@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #010103;
+  background: #ffffff;
   font-family: 'General Sans', sans-serif;
 }
 
@@ -19,7 +19,11 @@ body {
   }
 
   .head-text {
-    @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
+    @apply text-4xl font-medium text-gray-900;
+  }
+
+  .subhead-text {
+    @apply text-lg text-gray-600;
   }
 
   .nav-ul {
@@ -27,15 +31,15 @@ body {
   }
 
   .nav-li {
-    @apply text-neutral-400 hover:text-white font-generalsans max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+    @apply text-gray-600 hover:text-gray-900 font-generalsans max-sm:hover:bg-gray-50 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
   }
 
   .nav-li_a {
-    @apply text-lg md:text-base hover:text-white transition-colors;
+    @apply text-lg md:text-base transition-colors;
   }
 
   .nav-sidebar {
-    @apply absolute left-0 right-0 bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block;
+    @apply absolute left-0 right-0 bg-white shadow-sm backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block;
   }
 
   .text-gray_gradient {
@@ -44,7 +48,7 @@ body {
 
   /* button component */
   .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+    @apply flex gap-4 items-center justify-center cursor-pointer px-6 py-3 rounded-lg bg-[#B7C4AC] text-gray-900 hover:bg-[#a5b399] transition-colors font-medium;
   }
 
   .btn-ping {
@@ -62,19 +66,19 @@ body {
 
   /* about section */
   .grid-container {
-    @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    @apply w-full h-full bg-gray-50 rounded-lg shadow-sm border border-gray-100 p-8;
   }
 
   .grid-headtext {
-    @apply text-xl font-semibold mb-2 text-white font-generalsans;
+    @apply text-2xl font-medium text-gray-900 mb-4;
   }
 
   .grid-subtext {
-    @apply text-[#afb0b6] text-base font-generalsans;
+    @apply text-gray-600 text-base;
   }
 
   .copy-container {
-    @apply cursor-pointer flex justify-center items-center gap-2;
+    @apply cursor-pointer flex justify-center items-center gap-2 hover:text-[#B7C4AC] transition-colors;
   }
 
   /* projects section  */
@@ -130,15 +134,15 @@ body {
   }
 
   .field-label {
-    @apply text-lg text-white-600;
+    @apply text-gray-900 font-medium;
   }
 
   .field-input {
-    @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    @apply w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-1 focus:ring-[#B7C4AC] outline-none transition-colors;
   }
 
   .field-btn {
-    @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+    @apply w-full bg-[#B7C4AC] text-gray-900 py-3 px-6 rounded-lg font-medium hover:bg-[#a5b399] transition-colors flex items-center justify-center gap-2;
   }
 
   .field-btn_arrow {
@@ -148,6 +152,11 @@ body {
   /*  footer */
   .social-icon {
     @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+  }
+
+  /* tech icons */
+  .tech-icon {
+    @apply w-12 h-12 rounded-lg p-2 bg-white shadow-sm flex justify-center items-center hover:bg-[#B7C4AC] transition-colors;
   }
 }
 
@@ -170,28 +179,12 @@ body {
 }
 
 @keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  15% {
-    transform: rotate(14deg);
-  }
-  30% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(14deg);
-  }
-  50% {
-    transform: rotate(-4deg);
-  }
-  60% {
-    transform: rotate(10deg);
-  }
-  70% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  40% { transform: rotate(14deg); }
+  50% { transform: rotate(-4deg); }
+  60% { transform: rotate(10deg); }
+  70% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }

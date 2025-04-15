@@ -1,40 +1,40 @@
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
 import Hero from './sections/Hero.jsx';
-import Navbar from "./sections/Navbar.jsx";
 import About from "./sections/About.jsx";
 import Projects from "./sections/Projects.jsx";
 import Contact from "./sections/Contact.jsx";
 import Footer from "./sections/Footer.jsx";
-import Experience from "./sections/Experience.jsx";
+import Navigation from "./components/Navigation.jsx";
+
+// Wrapper component for animations
+const AnimatedRoutes = () => {
+    const location = useLocation();
+    
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Hero />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </AnimatePresence>
+    );
+};
 
 const App = () => {
     return (
-        <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Responsive padding */}
-                <Hero />
-
-                {/* About Section with Responsive Margin */}
-                <div className="my-10 sm:my-16 lg:my-12 xl:my-8"> {/* Adjusted margin for larger screens */}
-                    <About />
-                </div>
-
-                {/* Projects Section with Responsive Margin */}
-                <div className="my-10 sm:my-16 lg:my-12 xl:my-8"> {/* Adjusted margin for larger screens */}
-                    <Projects />
-                </div>
-
-                {/* Experience Section */}
-                <div className="my-10 sm:my-16 lg:my-12 xl:my-8">
-                    <Experience />
-                </div>
-
-                {/* Contact Section */}
-                <div className="my-10 sm:my-16 lg:my-12 xl:my-8">
-                    <Contact />
-                </div>
-            </main>
+        <Router>
+            <div className="min-h-screen bg-white flex">
+                <Navigation />
+                <main className="flex-1 pl-32">
+                    <AnimatedRoutes />
+                </main>
+            </div>
             <Footer />
-        </div>
+        </Router>
     );
 };
 

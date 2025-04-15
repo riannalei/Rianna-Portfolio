@@ -1,197 +1,172 @@
 import { useState } from 'react';
-import Button from '../components/Button.jsx';
+import PageTransition from '../components/PageTransition.jsx';
+import { workExperiences } from '../constants/index.js';
 
 const About = () => {
-  const [hasCopied, setHasCopied] = useState(false);
+    const [activeTab, setActiveTab] = useState('about');
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText('rxlei@calpoly.edu');
-    setHasCopied(true);
+    const tabs = [
+        { id: 'about', label: 'About' },
+        { id: 'skills', label: 'Skills' },
+        { id: 'experience', label: 'Experience' }
+    ];
 
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 2000);
-  };
+    const renderTabContent = () => {
+        switch (activeTab) {
+            case 'about':
+                return (
+                    <div className="flex gap-16">
+                        {/* Left Side - Image */}
+                        <div className="w-[350px]">
+                            <div className="relative">
+                                <img 
+                                    src="/assets/about-image.jpg" 
+                                    alt="Rianna Lei" 
+                                    className="w-[350px] h-[350px] object-cover rounded-lg shadow-lg"
+                                />
+                                <div className="absolute inset-0 bg-[#B7C4AC] opacity-10 rounded-lg"></div>
+                            </div>
+                        </div>
 
-  return (
-      <section className="c-space my-10" id="about">
-        {/* About Title */}
-        <div className="text-center mb-16">
-          <p className="text-4xl font-bold text-white">About</p>
-          <p className="text-lg text-gray-400">My Introduction</p>
-        </div>
+                        {/* Right Side - Content */}
+                        <div className="flex-1 max-w-lg">
+                            <div className="space-y-6">
+                                <p className="text-lg text-gray-600 leading-relaxed">
+                                    I'm a Junior Computer Science student at California Polytechnic University, 
+                                    San Luis Obispo, with a passion for creating innovative digital experiences. 
+                                    My journey in tech is driven by curiosity and a desire to build solutions 
+                                    that make a difference.
+                                </p>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Beyond coding, I find joy in exploring new places, discovering cozy coffee spots, 
+                                    and immersing myself in nature. My love for art and music often inspires creative 
+                                    approaches to my technical projects.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            case 'skills':
+                return (
+                    <div className="flex gap-16">
+                        {/* Left Side - Skills Cluster */}
+                        <div className="w-[350px]">
+                            <div className="relative">
+                                <img 
+                                    src="/assets/skills-cluster.png" 
+                                    alt="Skills Visualization" 
+                                    className="w-[350px] h-[350px] object-contain"
+                                />
+                            </div>
+                        </div>
 
-        <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 h-full mb-16">
-          {/* About Me Section */}
-          <div className="col-span-1">
-            <div className="grid-container flex flex-col items-center justify-center text-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-              <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain mb-4"/>
-              <div>
-                <p className="grid-headtext text-white text-2xl font-bold">Hi, I’m Rianna Lei</p>
-                <p className="grid-subtext text-white text-base mt-4">
-                  I am a Junior Computer Science student at California Polytechnic University, San Luis Obispo,
-                  passionate about full-stack development and AI technologies. I love building innovative applications and
-                  exploring new technologies!
-                </p>
-              </div>
-            </div>
-          </div>
+                        {/* Right Side - Skills List */}
+                        <div className="flex-1 max-w-lg">
+                            <div className="space-y-8">
+                                <div>
+                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Languages</h3>
+                                    <p className="text-lg text-gray-600">
+                                        Python, JavaScript, TypeScript, Java, HTML/CSS
+                                    </p>
+                                </div>
 
-          {/* Passions and Hobbies Section */}
-          <div className="col-span-1">
-            <div className="grid-container flex flex-col items-center justify-center text-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-              <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[266px] h-fit object-contain mb-4"/>
-              <div>
-                <p className="grid-headtext text-white text-2xl font-bold">Passions & Hobbies</p>
-                <p className="grid-subtext text-white text-base mt-4">
-                  Outside of coding, I enjoy exploring new places, finding cozy coffee spots, and being in nature. I'm also passionate about art and music, which keep me inspired and spark creative side projects that blend tech and discovery.
-                </p>
-              </div>
-            </div>
-          </div>
+                                <div>
+                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Technologies</h3>
+                                    <p className="text-lg text-gray-600">
+                                        React, Node.js, Next.js, Tailwind CSS, Three.js, Figma, TensorFlow, PyTorch
+                                    </p>
+                                </div>
 
-          {/* Contact Section (without title) */}
-          {/* Contact Section (without title) */}
-          <div className="col-span-1">
-            <div className="grid-container flex flex-col justify-center items-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-              <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain mb-4"/>
-              <div className="text-center">
-                {/* Resume Button */}
-                <div className="mt-4">
-                  <a
-                      href="/resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 text-white bg-blue-500 rounded-lg shadow-lg hover:bg-blue-400 transition duration-300"
-                  >
-                    View My Resume
-                  </a>
+                                <div>
+                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Tools & Infrastructure</h3>
+                                    <p className="text-lg text-gray-600">
+                                        MySQL, PostgreSQL, Linux, Git, GitHub, CI/CD Pipelines, Kaggle
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            case 'experience':
+                return (
+                    <div className="max-w-2xl mx-auto">
+                        <div className="space-y-10">
+                            {workExperiences.map((item, index) => (
+                                <div key={index} className="space-y-2">
+                                    <h3 className="text-xl font-medium text-gray-900">{item.name}</h3>
+                                    <p className="text-lg text-gray-600">
+                                        {item.pos} — <span className="text-[#B7C4AC]">{item.duration}</span>
+                                    </p>
+                                    <ul className="space-y-2 mt-3">
+                                        {item.titles.map((title, i) => (
+                                            <li key={i} className="text-lg text-gray-600 flex items-start">
+                                                <span className="text-[#B7C4AC] mr-2">•</span>
+                                                {title}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <PageTransition>
+            <section className="min-h-screen w-full bg-white flex flex-col pt-32 px-4">
+                <div className="max-w-[1000px] mx-auto w-full">
+                    <div className="flex justify-between items-center mb-16">
+                        {/* Tabs */}
+                        <div className="flex gap-12">
+                            {tabs.map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`text-2xl font-medium transition-colors ${
+                                        activeTab === tab.id 
+                                            ? 'text-[#B7C4AC]' 
+                                            : 'text-gray-400 hover:text-gray-600'
+                                    }`}
+                                >
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Contact Info - Always visible */}
+                        <div className="flex items-center divide-x divide-gray-200">
+                            <a 
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-5 text-[#B7C4AC] hover:text-[#95a68b] transition-colors font-medium"
+                            >
+                                View Resume
+                            </a>
+                            <div className="px-5 flex items-center gap-2">
+                                <span className="text-gray-400">Get in touch:</span>
+                                <a 
+                                    href="mailto:rxlei@calpoly.edu"
+                                    className="text-gray-600 hover:text-[#B7C4AC] transition-colors font-medium"
+                                >
+                                    rxlei@calpoly.edu
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Tab Content */}
+                    <div className="min-h-[400px] pb-32">
+                        {renderTabContent()}
+                    </div>
                 </div>
-
-                {/* Language Fluency and Contact Me Text - Smaller Size */}
-                <div className="mt-6 text-white">
-                  <p className="text-base mt-2">I'm fluent in English and Chinese (Mandarin & Cantonese)</p>
-                  <p className="text-base mt-1">Feel free to contact me!</p>
-                </div>
-
-                {/* Email and Copy Button */}
-                <div className="copy-container mt-4" onClick={handleCopy}>
-                  <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy"/>
-                  <p className="lg:text-xl md:text-xl font-medium text-white mt-2">rxlei@calpoly.edu</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Tech Stack Title with Better Spacing */}
-        <div className="text-center xl:col-span-3 mb-10 mt-20">
-          <p className="text-4xl font-bold text-white">Tech Stack</p>
-          <p className="text-lg text-gray-400 mt-2">My Technical Skills</p>
-        </div>
-
-        {/* Tech Stack Boxes (3x2 Grid) */}
-        <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-          {/* Programming Languages & Core Skills */}
-          <div className="grid-container flex flex-col justify-center items-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-            <p className="grid-headtext text-xl font-bold text-white mb-4">Programming Languages & Core Skills</p>
-            {/* Grid Layout for Skills */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="tech-icon text-center">
-                <img src="assets/pyt.svg" alt="Python" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Python</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/java.svg" alt="Java" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Java</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/js.svg" alt="JavaScript" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">JavaScript</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/ts.svg" alt="TypeScript" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">TypeScript</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/c.svg" alt="C" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">C</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/html.svg" alt="HTML/CSS" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">HTML/CSS</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Web Development Frameworks & Libraries */}
-          <div className="grid-container flex flex-col justify-center items-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-            <p className="grid-headtext text-xl font-bold text-white mb-4">Web Dev Frameworks & Libraries</p>
-            {/* Grid Layout for Skills */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="tech-icon text-center">
-                <img src="assets/reac.svg" alt="React" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">React</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/next.svg" alt="Next.js" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Next.js</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/node.svg" alt="Node.js" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Node.js</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/matui.svg" alt="Material-UI" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Material-UI</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/twcss.svg" alt="Tailwind CSS" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Tailwind CSS</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/json.svg" alt="Express.js" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Express.js</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Tools, Databases, & Cloud Services */}
-          <div className="grid-container flex flex-col justify-center items-center p-6 bg-[#1E1E1E] rounded-lg shadow-lg">
-            <p className="grid-headtext text-xl font-bold text-white mb-4">Tools, Databases, & Cloud Services</p>
-            {/* Grid Layout for Skills */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="tech-icon text-center">
-                <img src="assets/awss.svg" alt="AWS" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">AWS</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/firebase.svg" alt="Firebase" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Firebase</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/mongo.svg" alt="MongoDB" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">MongoDB</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/postgre.svg" alt="PostgreSQL" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">PostgreSQL</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/json.svg" alt="Prisma" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">Prisma</p>
-              </div>
-              <div className="tech-icon text-center">
-                <img src="assets/cicd.svg" alt="CI/CD Pipelines" className="w-10 h-10 mx-auto"/>
-                <p className="text-sm text-white mt-2">CI/CD Pipelines</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-  );
+            </section>
+        </PageTransition>
+    );
 };
 
 export default About;

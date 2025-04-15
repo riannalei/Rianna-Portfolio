@@ -3,70 +3,56 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { PerspectiveCamera } from '@react-three/drei';
+import PageTransition from '../components/PageTransition.jsx';
 
-import Cube from '../components/Cube.jsx';
-import Rings from '../components/Rings.jsx';
-import ReactLogo from '../components/ReactLogo.jsx';
-import Button from '../components/Button.jsx';
-import Target from '../components/Target.jsx';
+import { Model as Macbook } from '../components/Macbook.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
-import { calculateSizes } from '../constants/index.js';
-import { Model as Macbook } from '../components/Macbook.jsx';
 
 const Hero = () => {
-    // Use media queries to determine screen size
-    const isSmall = useMediaQuery({ maxWidth: 440 });
     const isMobile = useMediaQuery({ maxWidth: 768 });
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-
-    const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
     return (
-        <section className="min-h-screen w-full flex flex-col relative" id="home">
-            <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
-                <p className="sm:text-4xl text-2xl font-medium text-white text-center font-generalsans">
-                    Hello, I am Rianna Lei<span className="waving-hand">👋</span>
-                </p>
-                {/* Updated text for the new subtitle with larger size */}
-                <p className="text-xl text-white text-center font-generalsans">Software Developer</p>
-                {/* New small section for a brief description with a slightly larger size */}
-                <p className="text-base text-gray-400 text-center font-generalsans mt-2">
-                    I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life.
-                </p>
-            </div>
+        <PageTransition>
+            <section className="min-h-screen w-full bg-white flex items-center justify-center px-8">
+                <div className="max-w-5xl mx-auto flex items-center justify-between">
+                    {/* Left Side - Text Content */}
+                    <div className="w-[45%] flex flex-col gap-12">
+                        <div>
+                            <h1 className="text-6xl font-medium text-gray-900 mb-6 font-generalsans">
+                                Hello, I am Rianna Lei
+                            </h1>
+                            <h2 className="text-2xl text-gray-700 mb-6 font-generalsans">
+                                Software Developer
+                            </h2>
+                            <p className="text-lg text-gray-600 font-generalsans max-w-md leading-relaxed">
+                                I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life.
+                            </p>
+                        </div>
+                    </div>
 
-            <div className="w-full h-full absolute inset-0">
-                <Canvas className="w-full h-full">
-                    <Suspense fallback={<CanvasLoader />}>
-                        {/* To hide controller */}
-                        <Leva hidden />
-                        <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-
-                        <HeroCamera isMobile={isMobile}>
-                            {/* Adjust the position to move the MacBook down */}
-                            <Macbook scale={2.8} position={[0, -6, 0]} rotation={[0, 0.5, 0]} />
-                        </HeroCamera>
-
-                        <group>
-                            <Target position={sizes.targetPosition} />
-                            <ReactLogo position={sizes.reactLogoPosition} />
-                            <Rings position={sizes.ringPosition} />
-                            <Cube position={sizes.cubePosition} />
-                        </group>
-
-                        <ambientLight intensity={1} />
-                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
-                    </Suspense>
-                </Canvas>
-            </div>
-
-            <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-                <a href="#about" className="w-fit">
-                    <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
-                </a>
-            </div>
-        </section>
+                    {/* Right Side - MacBook */}
+                    <div className="w-[55%] h-[700px]">
+                        <Canvas className="w-full h-full">
+                            <Suspense fallback={<CanvasLoader />}>
+                                <Leva hidden />
+                                <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+                                <ambientLight intensity={1.5} />
+                                <directionalLight position={[10, 10, 10]} intensity={0.8} />
+                                
+                                <HeroCamera isMobile={isMobile}>
+                                    <Macbook 
+                                        scale={5} 
+                                        rotation={[0, 0.2, 0]}
+                                        position={[0.5, -6.5, 0]}
+                                    />
+                                </HeroCamera>
+                            </Suspense>
+                        </Canvas>
+                    </div>
+                </div>
+            </section>
+        </PageTransition>
     );
 };
 
