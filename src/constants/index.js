@@ -23,45 +23,6 @@ export const navLinks = [
 
 export const myProjects = [
     {
-        title: 'Leaf & Carry',
-        desc: 'Leaf & Carry is a customizable e-commerce platform for eco-friendly tote bags, built with Next.js, React, Node.js, and MongoDB. It features a sleek user interface, secure payments, and a dynamic tote bag configurator to personalize designs effortlessly.',
-        subdesc:
-            'Leaf & Carry includes an admin dashboard for managing orders and tracking customer engagement, enhancing operational efficiency. It integrates secure authentication and payment processing with Kinde, and offers real-time drag-and-drop file uploads, providing a seamless and secure shopping experience.',
-        href: 'https://leaf-and-carry.vercel.app/',
-        texture: '/textures/project/project1.mp4',
-        logo: '/assets/cactuspointy.svg',
-        logoStyle: {
-            backgroundColor: '#60f5a1',
-            background:
-                'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
-            border: '0.2px solid rgba(208, 213, 221, 1)',
-            boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
-        },
-        spotlight: '/assets/spotlight3.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'Next.js',
-                path: '/assets/nextjs.png',
-            },
-            {
-                id: 3,
-                name: 'TypeScript',
-                path: '/assets/typescript.png',
-            },
-            {
-                id: 4,
-                name: 'Node.js',
-                path: '/assets/nodejs.png',
-            },
-        ],
-    },
-    {
         title: 'TaskStars',
         desc: 'An AI-powered task management app with real-time productivity tracking and social leaderboards to promote user engagement and competition. Built with Next.js, React, Node.js/Express, and MongoDB.',
         subdesc:
@@ -99,12 +60,88 @@ export const myProjects = [
         ],
     },
     {
+        title: 'aKDPhi Official Website',
+        desc: '///',
+        subdesc:
+            'The TaskStars app features intelligent task planning with OpenAI integration to auto-fill outlines and notes, helping users stay organized and productive. It also includes a \'lock-in\' mode to track focused work time, along with friend challenges and leaderboards to add a social and competitive element to task management.',
+        href: 'https://github.com/taskStars/TaskStarsProd',
+        texture: '/textures/project/project2.mp4',
+        logo: '/assets/iconstar.svg',
+        logoStyle: {
+            backgroundColor: '#13202F',
+            border: '0.2px solid #17293E',
+            boxShadow: '0px 0px 60px 0px #2F6DB54D',
+        },
+        spotlight: '/assets/spotlight2.png',
+        tags: [
+            {
+                id: 1,
+                name: 'Next.js',
+                path: '/assets/nextjs.png',
+            },
+            {
+                id: 2,
+                name: 'React.js',
+                path: '/assets/react.svg',
+            },
+            {
+                id: 3,
+                name: 'Node.js',
+                path: '/assets/nodejs.png',
+            },
+            {
+                id: 4,
+                name: 'Mongo DB',
+                path: '/assets/mongodb.png',
+            },
+        ],
+    },
+    {
+        title: 'Leaf & Carry',
+        desc: 'Leaf & Carry is a customizable e-commerce platform for eco-friendly tote bags, built with Next.js, React, Node.js, and MongoDB. It features a sleek user interface, secure payments, and a dynamic tote bag configurator to personalize designs effortlessly.',
+        subdesc:
+            'Leaf & Carry includes an admin dashboard for managing orders and tracking customer engagement, enhancing operational efficiency. It integrates secure authentication and payment processing with Kinde, and offers real-time drag-and-drop file uploads, providing a seamless and secure shopping experience.',
+        href: 'https://leaf-and-carry.vercel.app/',
+        texture: '/textures/project/project1.mp4',
+        logo: '/assets/cactuspointy.svg',
+        logoStyle: {
+            backgroundColor: '#60f5a1',
+            background:
+                'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
+            border: '0.2px solid rgba(208, 213, 221, 1)',
+            boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
+        },
+        spotlight: '/assets/spotlight3.png',
+        tags: [
+            {
+                id: 1,
+                name: 'React.js',
+                path: '/assets/react.svg',
+            },
+            {
+                id: 2,
+                name: 'Next.js',
+                path: '/assets/nextjs.png',
+            },
+            {
+                id: 3,
+                name: 'TypeScript',
+                path: '/assets/typescript.svg',
+            },
+            {
+                id: 4,
+                name: 'Node.js',
+                path: '/assets/nodejs.png',
+            },
+        ],
+    },
+    {
         title: 'Personal Portfolio',
         desc: 'My personal portfolio!',
         subdesc:
             'It showcases interactive 3D elements using Three.js, creating a visually engaging experience. It highlights Rianna\'s skills and projects with dynamic animations, responsive design, and smooth navigation, offering an immersive way to explore my work and expertise in web development.',
         href: 'https://riannalei.com',
-        texture: '/textures/project/project4.mp4',
+        texture: '/textures/project/project3.mp4',
         logo: '/assets/portfo.png',
         logoStyle: {
             backgroundColor: '#0E1F38',
@@ -151,20 +188,67 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
     {
         id: 1,
-        name: 'CodePath Web Development',
-        pos: 'Scholar',
-        duration: '2023 - 2024',
-        title: "Completed three bootcamps in front-end web development and technical interview prep. Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React to create interactive user experiences.",
+        name: 'Richemont',
+        pos: 'Techology and Client Experience Intern',
+        duration: '2025 - present',
+        titles: [
+            "Completed three bootcamps in front-end web development and technical interview prep.",
+            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
+            "Focused on creating interactive user experiences.",
+        ],
         icon: '/assets/codepath.png',
         animation: 'victory',
     },
     {
         id: 2,
-        name: 'Google’s Computer Science Summer Institute',
+        name: 'Breakthrough Tech',
+        pos: 'ML/AI Fellow',
+        duration: '2025 - present',
+        titles: [
+            "Completed three bootcamps in front-end web development and technical interview prep.",
+            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
+            "Focused on creating interactive user experiences.",
+        ],
+        icon: '/assets/codepath.png',
+        animation: 'victory',
+    },
+    {
+        id: 3,
+        name: 'alpha Kappa Delta Phi',
+        pos: 'Web Developer',
+        duration: '2024 - present',
+        titles: [
+            "Completed three bootcamps in front-end web development and technical interview prep.",
+            "Built dynamic web applications using HTML, CSS, JavaScript, Flexbox, CSS Grid, and React.",
+            "Focused on creating interactive user experiences.",
+        ],
+        icon: '/assets/codepath.png',
+        animation: 'victory',
+    },
+    {
+        id: 4,
+        name: "Google's Computer Science Summer Institute",
         pos: 'Intern/Scholar',
         duration: '2022 - 2022',
-        title: "Participated in a four-week intensive web development course led by Google engineers, enhancing skills in HTML, CSS, and JavaScript through daily challenges and collaborative projects. Developed a final web project presented to Google employees, showcasing teamwork, problem-solving, and technical expertise.",
+        titles: [
+            "Participated in a four-week intensive web development course led by Google engineers.",
+            "Enhanced skills in HTML, CSS, and JavaScript through challenges and collaborative projects.",
+            "Developed and presented a final web project to Google employees.",
+        ],
         icon: '/assets/google.png',
         animation: 'clapping',
+    },
+    {
+        id: 5,
+        name: 'Kode With Klossy',
+        pos: 'Scholar/Intern',
+        duration: '2021 - 2021',
+        titles: [
+            "Participated in a two-week program dedicated to educating and empowering young women and non-binary students in STEM.",
+            "Utilized HTML, CSS, and JavaScript to develop a website in three days.",
+            "Developed a website to educate people about fast fashion in a group of four.",
+        ],
+        icon: '/assets/kwk.png', // Replace with the appropriate icon path
+        animation: 'spin',
     },
 ];
