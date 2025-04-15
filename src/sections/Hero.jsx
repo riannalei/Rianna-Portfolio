@@ -12,7 +12,7 @@ import Target from '../components/Target.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
-import { Model as MacBook } from '../components/MacBook.jsx'; // Import the MacBook model component
+import { Model as Macbook } from '../components/Macbook.jsx';
 
 const Hero = () => {
     // Use media queries to determine screen size
@@ -45,7 +45,7 @@ const Hero = () => {
 
                         <HeroCamera isMobile={isMobile}>
                             {/* Adjust the position to move the MacBook down */}
-                            <MacBook scale={2.8} position={[0, -6, 0]} rotation={[0, 0.5, 0]} />
+                            <Macbook scale={2.8} position={[0, -6, 0]} rotation={[0, 0.5, 0]} />
                         </HeroCamera>
 
                         <group>
