@@ -25,39 +25,38 @@ export const myProjects = [
     {
         title: 'aKDPhi Official Website',
         desc: 'Spearheaded the redesign and launch of a modern website for the alpha Kappa Delta Phi sorority chapter at Cal Poly SLO, replacing a restrictive third-party platform with a fully customized, cost-effective solution.',
-        subdesc:
-            'By addressing both financial and usability pain points, I built a platform that saved the chapter $160 annually while significantly improving design flexibility and content management. The new site offers a clean, user-friendly interface for sharing rush details, chapter updates, and internal resources—streamlining communication and elevating the sorority’s online presence.',
+        subdesc: 'By addressing both financial and usability pain points, I built a platform that saved the chapter $160 annually while significantly improving design flexibility and content management. The new site offers a clean, user-friendly interface for sharing rush details, chapter updates, and internal resources—streamlining communication and elevating the sorority\'s online presence.',
         href: 'https://sloakdphi.vercel.app/',
-        texture: '/textures/project/project1.mp4',
+        texture: '/textures/project/project1_compressed.mp4',
         logo: '/assets/iconstar.svg',
         logoStyle: {
             backgroundColor: '#13202F',
             border: '0.2px solid #17293E',
-            boxShadow: '0px 0px 60px 0px #2F6DB54D',
+            boxShadow: '0px 0px 60px 0px #2F6DB54D'
         },
         spotlight: '/assets/spotlight2.png',
         tags: [
             {
                 id: 1,
                 name: 'React.js',
-                path: 'https://cdn.simpleicons.org/react/61DAFB',
+                path: 'https://cdn.simpleicons.org/react/61DAFB'
             },
             {
                 id: 2,
                 name: 'JavaScript',
-                path: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+                path: 'https://cdn.simpleicons.org/javascript/F7DF1E'
             },
             {
                 id: 3,
                 name: 'Material UI',
-                path: 'https://cdn.simpleicons.org/mui/007FFF',
+                path: 'https://cdn.simpleicons.org/mui/007FFF'
             },
             {
                 id: 4,
                 name: 'Next.js',
-                path: 'https://cdn.simpleicons.org/nextdotjs/000000',
-            },
-        ],
+                path: 'https://cdn.simpleicons.org/nextdotjs/000000'
+            }
+        ]
     },
     {
         title: 'TaskStars',
@@ -65,7 +64,7 @@ export const myProjects = [
         subdesc:
             'The app leverages OpenAI to auto-generate task outlines and notes, helping users stay organized and reduce friction in their workflow. A built-in "lock-in" mode encourages deep focus by tracking active work sessions, while social leaderboards and friend challenges introduce a competitive, gamified element that motivates users to stay on top of their goals.',
         href: 'https://github.com/taskStars/TaskStarsProd',
-        texture: '/textures/project/project2.mp4',
+        texture: '/textures/project/project2_compressed.mp4',
         logo: '/assets/iconstar.svg',
         logoStyle: {
             backgroundColor: '#13202F',
@@ -102,7 +101,7 @@ export const myProjects = [
         subdesc:
             'Featuring custom 3D models, animations, and smooth transitions, the site reflects my ability to blend technical skill with creative design. It serves as a dynamic and memorable representation of my work, highlighting both my frontend expertise and eye for detail.',
         href: 'https://www.riannalei.com/',
-        texture: '/textures/project/project3.mp4',
+        texture: '/textures/project/project3_compressed.mp4',
         logo: '/assets/portfo.png',
         logoStyle: {
             backgroundColor: '#0E1F38',
@@ -139,7 +138,7 @@ export const myProjects = [
         subdesc:
             'To ensure a smooth and secure shopping experience, the site integrates Kinde for user authentication and payment processing, along with real-time drag-and-drop file uploads. An admin dashboard streamlines operations by enabling order management and tracking customer engagement, making Leaf & Carry both user-friendly and operationally efficient.',
         href: 'https://leaf-and-carry.vercel.app/',
-        texture: '/textures/project/project4.mp4',
+        texture: '/textures/project/project4_compressed.mp4',
         logo: '/assets/cactuspointy.svg',
         logoStyle: {
             backgroundColor: '#60f5a1',

@@ -101,9 +101,13 @@ const Projects = () => {
               <Canvas
                 gl={{ 
                   powerPreference: "default",
-                  antialias: true
+                  antialias: true,
+                  alpha: true,
+                  preserveDrawingBuffer: false
                 }}
                 dpr={1}
+                performance={{ min: 0.5 }}
+                style={{ background: 'transparent' }}
               >
                 <ambientLight intensity={Math.PI} />
                 <directionalLight position={[10, 10, 5]} />
@@ -114,7 +118,11 @@ const Projects = () => {
                     </group>
                   </Suspense>
                 </Center>
-                <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                <OrbitControls 
+                  maxPolarAngle={Math.PI / 2} 
+                  enableZoom={false}
+                  enableDamping={false}
+                />
               </Canvas>
             </div>
           </div>
