@@ -15,22 +15,22 @@ const About = () => {
         switch (activeTab) {
             case 'about':
                 return (
-                    <div className="flex gap-16">
+                    <div className="flex gap-12">
                         {/* Left Side - Image */}
-                        <div className="w-[350px]">
+                        <div className="w-[320px]">
                             <div className="relative">
                                 <img 
-                                    src="/assets/about-image.jpg" 
+                                    src="/assets/rianna.jpeg" 
                                     alt="Rianna Lei" 
-                                    className="w-[350px] h-[350px] object-cover rounded-lg shadow-lg"
+                                    className="w-[320px] h-[320px] object-cover rounded-lg shadow-lg"
                                 />
                                 <div className="absolute inset-0 bg-[#B7C4AC] opacity-10 rounded-lg"></div>
                             </div>
                         </div>
 
                         {/* Right Side - Content */}
-                        <div className="flex-1 max-w-lg">
-                            <div className="space-y-6">
+                        <div className="flex-1">
+                            <div className="space-y-5">
                                 <p className="text-lg text-gray-600 leading-relaxed">
                                     I'm a Junior Computer Science student at California Polytechnic University, 
                                     San Luis Obispo, with a passion for creating innovative digital experiences. 
@@ -53,7 +53,7 @@ const About = () => {
                         <div className="w-[350px]">
                             <div className="relative">
                                 <img 
-                                    src="/assets/skills-cluster.png" 
+                                    src="/assets/skills-clusters.png" 
                                     alt="Skills Visualization" 
                                     className="w-[350px] h-[350px] object-contain"
                                 />
@@ -90,16 +90,16 @@ const About = () => {
             case 'experience':
                 return (
                     <div className="max-w-2xl mx-auto">
-                        <div className="space-y-10">
+                        <div className="space-y-6">
                             {workExperiences.map((item, index) => (
-                                <div key={index} className="space-y-2">
-                                    <h3 className="text-xl font-medium text-gray-900">{item.name}</h3>
-                                    <p className="text-lg text-gray-600">
+                                <div key={index} className="space-y-1">
+                                    <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                                    <p className="text-base text-gray-600">
                                         {item.pos} — <span className="text-[#B7C4AC]">{item.duration}</span>
                                     </p>
-                                    <ul className="space-y-2 mt-3">
+                                    <ul className="space-y-1 mt-2">
                                         {item.titles.map((title, i) => (
-                                            <li key={i} className="text-lg text-gray-600 flex items-start">
+                                            <li key={i} className="text-base text-gray-600 flex items-start">
                                                 <span className="text-[#B7C4AC] mr-2">•</span>
                                                 {title}
                                             </li>
@@ -117,16 +117,16 @@ const About = () => {
 
     return (
         <PageTransition>
-            <section className="min-h-screen w-full bg-white flex flex-col pt-32 px-4">
-                <div className="max-w-[1000px] mx-auto w-full">
-                    <div className="flex justify-between items-center mb-16">
+            <section className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6 pt-8" id="about">
+                <div className="max-w-[1000px] w-full mx-auto">
+                    <div className="flex justify-between items-center mb-8">
                         {/* Tabs */}
-                        <div className="flex gap-12">
+                        <div className="flex gap-8">
                             {tabs.map(tab => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`text-2xl font-medium transition-colors ${
+                                    className={`text-xl font-medium transition-colors ${
                                         activeTab === tab.id 
                                             ? 'text-[#B7C4AC]' 
                                             : 'text-gray-400 hover:text-gray-600'
@@ -143,11 +143,11 @@ const About = () => {
                                 href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-5 text-[#B7C4AC] hover:text-[#95a68b] transition-colors font-medium"
+                                className="px-4 text-[#B7C4AC] hover:text-[#95a68b] transition-colors font-medium"
                             >
                                 View Resume
                             </a>
-                            <div className="px-5 flex items-center gap-2">
+                            <div className="px-4 flex items-center gap-2">
                                 <span className="text-gray-400">Get in touch:</span>
                                 <a 
                                     href="mailto:rxlei@calpoly.edu"
@@ -160,7 +160,7 @@ const About = () => {
                     </div>
 
                     {/* Tab Content */}
-                    <div className="min-h-[400px] pb-32">
+                    <div className="min-h-[400px] pb-16">
                         {renderTabContent()}
                     </div>
                 </div>

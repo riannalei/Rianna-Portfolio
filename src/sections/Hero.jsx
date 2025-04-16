@@ -14,25 +14,25 @@ const Hero = () => {
 
     return (
         <PageTransition>
-            <section className="min-h-screen w-full bg-white flex items-center justify-center px-8">
-                <div className="max-w-5xl mx-auto flex items-center justify-between">
+            <section className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
+                <div className="w-full md:max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
                     {/* Left Side - Text Content */}
-                    <div className="w-[45%] flex flex-col gap-12">
+                    <div className="w-full md:w-[45%] flex flex-col items-center md:items-start gap-2 md:gap-12 mb-0 text-center md:text-left">
                         <div>
-                            <h1 className="text-6xl font-medium text-gray-900 mb-6 font-generalsans">
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-gray-900 mb-1 md:mb-6 font-generalsans">
                                 Hello, I am Rianna Lei
                             </h1>
-                            <h2 className="text-2xl text-gray-700 mb-6 font-generalsans">
+                            <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-1 md:mb-6 font-generalsans">
                                 Software Developer
                             </h2>
-                            <p className="text-lg text-gray-600 font-generalsans max-w-md leading-relaxed">
+                            <p className="text-sm sm:text-base md:text-lg text-gray-600 font-generalsans max-w-md leading-relaxed">
                                 I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life.
                             </p>
                         </div>
                     </div>
 
                     {/* Right Side - MacBook */}
-                    <div className="w-[55%] h-[700px]">
+                    <div className="w-full md:w-[55%] h-48 sm:h-72 md:h-[700px] flex justify-center items-center">
                         <Canvas className="w-full h-full">
                             <Suspense fallback={<CanvasLoader />}>
                                 <Leva hidden />
@@ -42,9 +42,9 @@ const Hero = () => {
                                 
                                 <HeroCamera isMobile={isMobile}>
                                     <Macbook 
-                                        scale={5} 
+                                        scale={isMobile ? 4.8 : 5} 
                                         rotation={[0, 0.2, 0]}
-                                        position={[0.5, -6.5, 0]}
+                                        position={isMobile ? [0, 0.5, 0] : [0.5, -6.5, 0]}
                                     />
                                 </HeroCamera>
                             </Suspense>
