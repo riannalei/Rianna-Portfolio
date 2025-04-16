@@ -41,13 +41,13 @@ const Projects = () => {
                 className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('previous')}
               >
-                <img src="/assets/left-arrow.png" alt="Previous" className="w-4 h-4 brightness-0 invert" />
+                <img src="/assets/left-arrow.png?v=1" alt="Previous" className="w-4 h-4 brightness-0 invert" />
               </button>
               <button 
                 className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('next')}
               >
-                <img src="/assets/right-arrow.png" alt="Next" className="w-4 h-4 brightness-0 invert" />
+                <img src="/assets/right-arrow.png?v=1" alt="Next" className="w-4 h-4 brightness-0 invert" />
               </button>
               <span className="text-gray-500 font-mono text-sm ml-2">{currentProject.href}</span>
             </div>
@@ -98,7 +98,15 @@ const Projects = () => {
 
             {/* Right Side - 3D Display */}
             <div className="h-[500px] -mt-4">
-              <Canvas>
+              <Canvas
+                gl={{ 
+                  powerPreference: "high-performance",
+                  antialias: true,
+                  stencil: false,
+                  depth: true 
+                }}
+                dpr={[1, 2]}
+              >
                 <ambientLight intensity={Math.PI} />
                 <directionalLight position={[10, 10, 5]} />
                 <Center>
@@ -108,7 +116,11 @@ const Projects = () => {
                     </group>
                   </Suspense>
                 </Center>
-                <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                <OrbitControls 
+                  maxPolarAngle={Math.PI / 2} 
+                  enableZoom={false}
+                  enablePan={false}
+                />
               </Canvas>
             </div>
           </div>
