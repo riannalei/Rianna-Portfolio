@@ -22,7 +22,10 @@
     "react-globe.gl": "^2.27.2",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.30.0",
-    "three": "^0.168.0"
+    "react-simple-typewriter": "^5.0.1",
+    "react-tsparticles": "^2.9.3",
+    "three": "^0.168.0",
+    "tsparticles": "^2.9.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

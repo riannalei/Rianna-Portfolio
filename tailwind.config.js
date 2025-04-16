@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        generalsans: ['General Sans', 'sans-serif'],
+        generalsans: ['GeneralSans-Variable', 'sans-serif'],
       },
       colors: {
         black: {
@@ -26,6 +26,15 @@ export default {
       backgroundImage: {
         terminal: "url('/assets/terminal.png')",
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in forwards',
+      }
     },
   },
   plugins: [],
