@@ -12,7 +12,14 @@ const DemoComputer = (props) => {
   const { nodes, materials, animations } = useGLTF('/models/computer.glb');
   const { actions } = useAnimations(animations, group);
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/2e2e2er2.mp4');
+  let txt;
+  try {
+    txt = useVideoTexture(props.texture);
+  } catch (error) {
+    console.error('Error loading video texture:', error);
+    // Fallback to a default texture or null
+    txt = null;
+  }
 
   useEffect(() => {
     if (txt) {
@@ -33,17 +40,13 @@ const DemoComputer = (props) => {
       <group name="Scene">
         <mesh
           name="monitor-screen"
-          // castShadow
-          // receiveShadow
           geometry={nodes['monitor-screen'].geometry}
           position={[0.127, 1.831, 0.511]}
           rotation={[1.571, -0.005, 0.031]}
           scale={[0.661, 0.608, 0.401]}>
           <meshBasicMaterial 
             map={txt} 
-            toneMapped={false}
-            transparent={true}
-            opacity={1}
+            toneMapped={false} 
           />
         </mesh>
         <group name="RootNode" position={[0, 1.093, 0]} rotation={[-Math.PI / 2, 0, -0.033]} scale={0.045}>

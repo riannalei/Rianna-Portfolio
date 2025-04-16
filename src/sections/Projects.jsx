@@ -97,15 +97,13 @@ const Projects = () => {
             </div>
 
             {/* Right Side - 3D Display */}
-            <div className="h-[500px] -mt-4">
+            <div className="h-[500px] -mt-8">
               <Canvas
                 gl={{ 
-                  powerPreference: "high-performance",
-                  antialias: true,
-                  stencil: false,
-                  depth: true 
+                  powerPreference: "default",
+                  antialias: true
                 }}
-                dpr={[1, 2]}
+                dpr={1}
               >
                 <ambientLight intensity={Math.PI} />
                 <directionalLight position={[10, 10, 5]} />
@@ -116,11 +114,7 @@ const Projects = () => {
                     </group>
                   </Suspense>
                 </Center>
-                <OrbitControls 
-                  maxPolarAngle={Math.PI / 2} 
-                  enableZoom={false}
-                  enablePan={false}
-                />
+                <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
               </Canvas>
             </div>
           </div>
