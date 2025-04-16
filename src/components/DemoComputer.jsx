@@ -6,6 +6,7 @@ import { useRef, useEffect, Suspense } from 'react';
 import { useGLTF, useAnimations, useVideoTexture } from '@react-three/drei';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import * as THREE from 'three';
 
 const DemoComputer = (props) => {
   const group = useRef();
@@ -20,21 +21,35 @@ const DemoComputer = (props) => {
   
   const { actions } = useAnimations(animations, group);
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/2e2e2er2.mp4');
+  // Create video texture with error handling
+  const txt = useVideoTexture(props.texture || '/textures/project/2e2e2er2.mp4', {
+    unsuspend: 'canplay',
+    start: true,
+    crossOrigin: 'anonymous',
+  });
 
   useEffect(() => {
     if (txt) {
       txt.flipY = false;
+      txt.encoding = THREE.sRGBEncoding;
     }
-    
-    // Log when component mounts
-    console.log('DemoComputer mounted, model path:', '/models/computer.glb');
+
+    // Clean up materials to prevent emissive errors
+    Object.values(materials).forEach(material => {
+      if (material.isMeshStandardMaterial) {
+        material.envMapIntensity = 1;
+        material.needsUpdate = true;
+      }
+    });
     
     return () => {
       // Cleanup
-      console.log('DemoComputer unmounting');
+      Object.values(materials).forEach(material => {
+        material.dispose();
+      });
+      txt?.dispose();
     };
-  }, [txt]);
+  }, [txt, materials]);
 
   useGSAP(() => {
     gsap.from(group.current.rotation, {
@@ -42,7 +57,7 @@ const DemoComputer = (props) => {
       duration: 1,
       ease: 'power3.out',
     });
-  }, [txt]);
+  }, []);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -50,11 +65,15 @@ const DemoComputer = (props) => {
         <mesh
           name="monitor-screen"
           geometry={nodes['monitor-screen'].geometry}
-          material={nodes['monitor-screen'].material}
           position={[0.127, 1.831, 0.511]}
           rotation={[1.571, -0.005, 0.031]}
           scale={[0.661, 0.608, 0.401]}>
-          <meshBasicMaterial map={txt} toneMapped={false} />
+          <meshBasicMaterial 
+            map={txt} 
+            toneMapped={false}
+            transparent
+            side={THREE.DoubleSide}
+          />
         </mesh>
         <group name="RootNode" position={[0, 1.093, 0]} rotation={[-Math.PI / 2, 0, -0.033]} scale={0.045}>
           <group

@@ -100,14 +100,18 @@ const Projects = () => {
             <div className="h-[500px] -mt-8">
               <Canvas
                 gl={{ 
-                  powerPreference: "default",
+                  powerPreference: "high-performance",
                   antialias: true,
                   alpha: true,
-                  preserveDrawingBuffer: false
+                  preserveDrawingBuffer: true,
+                  failIfMajorPerformanceCaveat: true
                 }}
-                dpr={1}
+                dpr={window.devicePixelRatio}
                 performance={{ min: 0.5 }}
                 style={{ background: 'transparent' }}
+                onCreated={({ gl }) => {
+                  gl.setClearColor(0x000000, 0);
+                }}
               >
                 <ambientLight intensity={Math.PI} />
                 <directionalLight position={[10, 10, 5]} />
