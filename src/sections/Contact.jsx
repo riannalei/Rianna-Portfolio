@@ -12,7 +12,16 @@ const Contact = () => {
   const [form, setForm] = useState({ from_name: '', reply_to: '', message: '' });
 
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
+    try {
+      emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
+    } catch (error) {
+      console.error('Failed to initialize EmailJS:', error);
+      showAlert({
+        show: true,
+        text: 'Failed to initialize email service. Please try again later.',
+        type: 'error',
+      });
+    }
   }, []);
 
   const handleChange = ({ target: { name, value } }) => {
