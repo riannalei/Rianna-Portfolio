@@ -207,7 +207,7 @@ export const workExperiences = [
       id: 3,
       name: 'Swing Phi',
       pos: 'Software Engineer Intern',
-      duration: 'Jan 2025 - May 2025',
+      duration: 'January 2025 - May 2025',
       titles: [
         "Developed performant, responsive UI components with TypeScript and contributed to frontend architecture at a fast-paced startup."
       ],
@@ -216,7 +216,7 @@ export const workExperiences = [
       id: 4,
       name: 'alpha Kappa Delta Phi International Sorority, Inc.',
       pos: 'Web Developer',
-      duration: 'Dec 2024 - Present',
+      duration: 'December 2024 - Present',
       titles: [
         "Redesigned and built a modern chapter website to replace third-party tools, improving user experience and cutting costs."
       ],
