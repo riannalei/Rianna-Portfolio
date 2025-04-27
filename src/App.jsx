@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from "@vercel/analytics/react";
 
 import Hero from './sections/Hero.jsx';
 import About from "./sections/About.jsx";
@@ -34,6 +35,7 @@ const App = () => {
                 </main>
             </div>
             <Footer />
+            <Analytics />
         </Router>
     );
 };
