@@ -18,7 +18,7 @@ const Navigation = () => {
                             to={link.href.replace('#', '')}
                             className="relative group block mb-6"
                         >
-                            <span className={`text-2xl transition-colors duration-300 ${
+                            <span className={`text-2xl font-semibold transition-colors duration-300 ${
                                 location.pathname === link.href.replace('#', '') 
                                     ? 'text-[#B7C4AC]' 
                                     : 'text-gray-900 hover:text-[#B7C4AC]'

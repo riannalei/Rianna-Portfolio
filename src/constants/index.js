@@ -189,7 +189,7 @@ export const workExperiences = [
       id: 1,
       name: 'Richemont',
       pos: 'Technology & Client Experience Intern',
-      duration: 'June 2025 - August 2025',
+      duration: 'June 2025 - Present 2025',
       titles: [
         "Incoming Summer 2025"
       ],

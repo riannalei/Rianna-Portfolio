@@ -48,44 +48,30 @@ const About = () => {
                 );
             case 'skills':
                 return (
-                    <div className="flex gap-16">
-                        {/* Left Side - Skills Cluster */}
-                        <div className="w-[350px]">
-                            <div className="relative">
-                                <img 
-                                    src="/assets/skills-clusters.png" 
-                                    alt="Skills Visualization" 
-                                    className="w-[350px] h-[350px] object-contain"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Right Side - Skills List */}
-                        <div className="flex-1 max-w-lg">
+                    <>
+                        <div className="w-full">
                             <div className="space-y-8">
                                 <div>
                                     <h3 className="text-xl font-medium text-gray-900 mb-4">Languages</h3>
                                     <p className="text-lg text-gray-600">
-                                        Python, JavaScript, TypeScript, Java, HTML/CSS
+                                        Python, JavaScript, TypeScript, Java, HTML/CSS, C, R
                                     </p>
                                 </div>
-
                                 <div>
                                     <h3 className="text-xl font-medium text-gray-900 mb-4">Technologies</h3>
                                     <p className="text-lg text-gray-600">
-                                        React, Node.js, Next.js, Tailwind CSS, Three.js, Figma, TensorFlow, PyTorch
+                                        React, Node.js, Next.js, Tailwind CSS, Three.js, Express.JS, Figma, TensorFlow, PyTorch, OpenCV
                                     </p>
                                 </div>
-
                                 <div>
                                     <h3 className="text-xl font-medium text-gray-900 mb-4">Tools & Infrastructure</h3>
                                     <p className="text-lg text-gray-600">
-                                        MySQL, PostgreSQL, Linux, Git, GitHub, CI/CD Pipelines, Kaggle
+                                        MySQL, PostgreSQL, MongoDB, Linux, Git, GitHub, CI/CD Pipelines, Kaggle
                                     </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </>
                 );
             case 'experience':
                 return (
@@ -126,7 +112,7 @@ const About = () => {
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`text-xl font-medium transition-colors ${
+                                    className={`text-xl font-semibold transition-colors ${
                                         activeTab === tab.id 
                                             ? 'text-[#B7C4AC]' 
                                             : 'text-gray-400 hover:text-gray-600'

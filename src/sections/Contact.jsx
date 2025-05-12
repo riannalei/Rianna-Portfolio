@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
 import { useRef, useState, useEffect } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
@@ -79,7 +80,7 @@ const Contact = () => {
             {/* Left Side - Contact Info */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-4xl font-medium text-gray-900 mb-3">Let's Connect</h2>
+                <h2 className="text-4xl font-semibold text-gray-900 mb-3">Let's Connect</h2>
                 <p className="text-lg text-gray-600">
                   I am actively seeking a software engineering internship where I can apply my skills in full-stack development and problem-solving.
                 </p>
@@ -155,7 +156,7 @@ const Contact = () => {
                   className="w-full bg-[#B7C4AC] text-gray-900 py-3 px-6 rounded-lg font-medium hover:bg-[#95a68b] transition-colors flex items-center justify-center gap-2"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
-                  <img src="/assets/arrow-right.png" alt="arrow" className="w-4 h-4" />
+                  <FiArrowRight className="w-5 h-5" />
                 </button>
               </form>
             </div>

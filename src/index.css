@@ -10,7 +10,7 @@
 
 body {
   background: #ffffff;
-  font-family: 'General Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @layer utilities {
@@ -187,4 +187,24 @@ body {
   60% { transform: rotate(10deg); }
   70% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
+}
+
+.font-croissant {
+  font-family: 'Croissant One', cursive;
+}
+
+.font-baskerville {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+}
+
+.font-sora {
+  font-family: 'Sora', serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
 }

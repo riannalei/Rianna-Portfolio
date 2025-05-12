@@ -24,16 +24,13 @@ const Hero = () => {
                     {/* Left Side - Text Content */}
                     <div className="w-full md:w-[45%] flex flex-col items-center md:items-start gap-2 md:gap-12 mb-0 text-center md:text-left">
                         <div>
-                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-gray-900 mb-1 md:mb-6 font-generalsans">
-                                <Typewriter
-                                    words={['Hello, I am Rianna Lei']}
-                                    cursor
-                                    cursorStyle="_"
-                                    typeSpeed={70}
-                                    delaySpeed={1000}
-                                />
-                            </h1>
-                            <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-1 md:mb-6 font-generalsans">
+                            <div className="mb-1 md:mb-6">
+                                <span className="block text-lg sm:text-xl md:text-2xl text-gray-700">Hello, I am</span>
+                                <span className="block text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 font-playfair whitespace-nowrap">
+                                    Rianna Lei
+                                </span>
+                            </div>
+                            <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-1 md:mb-6">
                                 <Typewriter
                                     words={['Software Developer']}
                                     cursor
@@ -43,9 +40,16 @@ const Hero = () => {
                                     startDelay={1500}
                                 />
                             </h2>
-                            <p className="text-sm sm:text-base md:text-lg text-gray-600 font-generalsans max-w-md leading-relaxed opacity-0 animate-fadeIn" style={{ animationDelay: '2.0s', animationFillMode: 'forwards' }}>
-                                I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life.
-                            </p>
+                            <span className="block text-sm sm:text-base md:text-lg text-gray-600 max-w-md leading-relaxed">
+                                <Typewriter
+                                    words={["I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life."]}
+                                    cursor
+                                    cursorStyle="_"
+                                    typeSpeed={40}
+                                    delaySpeed={2000}
+                                    startDelay={2500}
+                                />
+                            </span>
                         </div>
                     </div>
 

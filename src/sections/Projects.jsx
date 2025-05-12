@@ -69,7 +69,7 @@ const Projects = () => {
                 <p className="text-sm font-medium tracking-wider text-gray-400 uppercase animatedText">
                   {currentProject.category}
                 </p>
-                <h2 className="text-4xl font-medium text-gray-900 leading-tight animatedText">
+                <h2 className="text-4xl font-medium text-gray-900 leading-tight animatedText font-playfair">
                   {currentProject.title}
                 </h2>
               </div>
