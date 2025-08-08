@@ -187,48 +187,74 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
     {
       id: 1,
-      name: 'Richemont',
-      pos: 'Technology & Client Experience Intern',
-      duration: 'June 2025 - Present 2025',
-      titles: [
-        "Incoming Summer 2025"
-      ],
+      name: 'Bloomberg',
+      pos: 'Tech Insights Fellow',
+      duration: 'June 2025 - Present',
     },
     {
       id: 2,
-      name: 'Break Through Tech AI',
-      pos: 'ML/AI Fellow',
-      duration: 'April 2025 - Present',
-      titles: [
-        "Selected for a year-long fellowship with Cornell faculty, building machine learning models and real-world AI solutions through industry projects and mentorship."
-      ],
+      name: 'Richemont',
+      pos: 'Technology & Client Experience Intern',
+      duration: 'June 2025 - Present 2025',
     },
     {
       id: 3,
-      name: 'Swing Phi',
-      pos: 'Software Engineer Intern',
-      duration: 'January 2025 - May 2025',
-      titles: [
-        "Developed performant, responsive UI components with TypeScript and contributed to frontend architecture at a fast-paced startup."
-      ],
+      name: 'Break Through Tech AI',
+      pos: 'ML/AI Fellow',
+      duration: 'April 2025 - Present',
     },
     {
       id: 4,
-      name: 'alpha Kappa Delta Phi International Sorority, Inc.',
-      pos: 'Web Developer',
-      duration: 'December 2024 - Present',
-      titles: [
-        "Redesigned and built a modern chapter website to replace third-party tools, improving user experience and cutting costs."
-      ],
+      name: 'Swing Phi',
+      pos: 'Software Engineer Intern',
+      duration: 'January 2025 - May 2025',
     },
     {
       id: 5,
+      name: 'alpha Kappa Delta Phi International Sorority, Inc.',
+      pos: 'Web Developer',
+      duration: 'December 2024 - Present',
+    },
+    {
+      id: 6,
       name: "Google's Computer Science Summer Institute",
       pos: 'Intern/Scholar',
       duration: 'July 2022 - August 2022',
-      titles: [
-        "Built a complete web application with HTML, CSS, and JavaScript, collaborating in teams to enhance coding and presentation skills."
-      ],
     },
   ];
+
+export const mySkills = [
+  {
+    category: 'Languages',
+    skills: [
+      { name: 'Python', src: '/assets/pyt.svg', alt: 'Python' },
+      { name: 'JavaScript', src: '/assets/js.svg', alt: 'JavaScript' },
+      { name: 'TypeScript', src: '/assets/ts.svg', alt: 'TypeScript' },
+      { name: 'Java', src: '/assets/java.svg', alt: 'Java' },
+      { name: 'HTML5', src: '/assets/html.svg', alt: 'HTML5' },
+      { name: 'C', src: '/assets/c.svg', alt: 'C' },
+    ]
+  },
+  {
+    category: 'Frameworks & Libraries',
+    skills: [
+      { name: 'React', src: '/assets/reac.svg', alt: 'React' },
+      { name: 'Node.js', src: '/assets/node.svg', alt: 'Node.js' },
+      { name: 'Next.js', src: '/assets/next.svg', alt: 'Next.js' },
+      { name: 'Three.js', src: '/assets/threejs.svg', alt: 'Three.js' },
+      { name: 'Tailwind', src: '/assets/twcss.svg', alt: 'Tailwind CSS' },
+    ]
+  },
+  {
+    category: 'Tools & Database',
+    skills: [
+      { name: 'MongoDB', src: '/assets/mongo.svg', alt: 'MongoDB' },
+      { name: 'PostgreSQL', src: '/assets/postgre.svg', alt: 'PostgreSQL' },
+      { name: 'GitHub', src: '/assets/gith.svg', alt: 'GitHub' },
+      { name: 'AWS', src: '/assets/awss.svg', alt: 'AWS' },
+      { name: 'Figma', src: '/assets/figma.svg', alt: 'Figma' },
+      { name: 'Firebase', src: '/assets/firebase.svg', alt: 'Firebase' },
+    ]
+  }
+];
   

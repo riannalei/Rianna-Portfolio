@@ -8,6 +8,7 @@ import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
 import DemoComputer from '../components/DemoComputer.jsx';
 import PageTransition from '../components/PageTransition.jsx';
+import TextDisperse from '../components/TextDisperse/index.jsx';
 
 const projectCount = myProjects.length;
 
@@ -40,12 +41,14 @@ const Projects = () => {
               <button 
                 className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('previous')}
+                data-cursor-hover
               >
                 <img src="/assets/left-arrow.png?v=1" alt="Previous" className="w-4 h-4 brightness-0 invert" />
               </button>
               <button 
                 className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('next')}
+                data-cursor-hover
               >
                 <img src="/assets/right-arrow.png?v=1" alt="Next" className="w-4 h-4 brightness-0 invert" />
               </button>
@@ -56,21 +59,22 @@ const Projects = () => {
               target="_blank"
               rel="noreferrer"
               className="bg-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
+              data-cursor-hover
             >
               VISIT
             </a>
           </div>
 
           {/* Project Content */}
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Side - Project Info */}
-            <div className="space-y-5">
+            <div className="space-y-5 order-2 lg:order-1">
               <div className="space-y-2">
                 <p className="text-sm font-medium tracking-wider text-gray-400 uppercase animatedText">
-                  {currentProject.category}
+                  {currentProject.category || 'Web Development'}
                 </p>
-                <h2 className="text-4xl font-medium text-gray-900 leading-tight animatedText font-playfair">
-                  {currentProject.title}
+                <h2 className="text-2xl pixel-title text-gray-900 animatedText">
+                  {currentProject.title.toUpperCase()}
                 </h2>
               </div>
 
@@ -88,16 +92,16 @@ const Projects = () => {
 
               <div className="space-y-4">
                 <p className="text-lg text-gray-600 leading-relaxed animatedText">
-                  {currentProject.desc}
+                  <TextDisperse>{currentProject.desc}</TextDisperse>
                 </p>
                 <p className="text-gray-600 leading-relaxed animatedText">
-                  {currentProject.subdesc}
+                  <TextDisperse>{currentProject.subdesc}</TextDisperse>
                 </p>
               </div>
             </div>
 
             {/* Right Side - 3D Display */}
-            <div className="h-[500px] -mt-8">
+            <div className="h-[300px] lg:h-[500px] -mt-0 lg:-mt-8 order-1 lg:order-2">
               <Canvas
                 gl={{ 
                   powerPreference: "high-performance",

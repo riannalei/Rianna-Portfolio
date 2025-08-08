@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        generalsans: ['GeneralSans-Variable', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],
+        'terminal': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],
+        'pixel': ['Press Start 2P', 'VT323', 'Courier New', 'monospace'],
+        generalsans: ['GeneralSans-Variable', 'sans-serif'], // Keep for backward compatibility
       },
       colors: {
         black: {

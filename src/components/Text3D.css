@@ -1,0 +1,60 @@
+.text3d-container {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.text3d-container p {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  backface-visibility: hidden;
+}
+
+.text3d-primary {
+  position: relative;
+  z-index: 2;
+  color: #111827;
+}
+
+.text3d-secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  color: #B7C4AC;
+  transform: rotateX(-90deg) translateY(1.5em);
+  transform-origin: bottom center;
+}
+
+.text3d-container:hover {
+  transform: rotateX(90deg);
+}
+
+.text3d-container:hover .text3d-primary {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.text3d-container:hover .text3d-secondary {
+  opacity: 1;
+}
+
+/* Navigation specific styling */
+.nav-text3d {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.nav-text3d .text3d-primary,
+.nav-text3d .text3d-secondary {
+  font-size: inherit;
+}
+
+.nav-text3d .text3d-secondary {
+  transform: rotateX(-90deg) translateY(1.2em);
+}

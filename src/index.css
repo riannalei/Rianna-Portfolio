@@ -1,4 +1,5 @@
-@import url('https://fonts.cdnfonts.com/css/general-sans');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Courier+Prime&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +7,33 @@
 
 * {
   scroll-behavior: smooth;
+  cursor: none; /* Hide default cursor for custom cursor */
 }
 
 body {
   background: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'JetBrains Mono', 'Courier New', 'Courier', monospace;
+  cursor: none; /* Hide default cursor */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* Perspective utility class */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* GSAP Animation improvements */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Awwwards style animations */
+.awwwards-title,
+.awwwards-subtitle,
+.awwwards-content {
+  transform-style: preserve-3d;
 }
 
 @layer utilities {
@@ -19,11 +42,11 @@ body {
   }
 
   .head-text {
-    @apply text-4xl font-medium text-gray-900;
+    @apply text-4xl font-medium text-gray-900 font-mono;
   }
 
   .subhead-text {
-    @apply text-lg text-gray-600;
+    @apply text-lg text-gray-600 font-mono;
   }
 
   .nav-ul {
@@ -31,7 +54,7 @@ body {
   }
 
   .nav-li {
-    @apply text-gray-600 hover:text-gray-900 font-generalsans max-sm:hover:bg-gray-50 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+    @apply text-gray-600 hover:text-gray-900 font-mono max-sm:hover:bg-gray-50 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
   }
 
   .nav-li_a {
@@ -48,7 +71,7 @@ body {
 
   /* button component */
   .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer px-6 py-3 rounded-lg bg-[#B7C4AC] text-gray-900 hover:bg-[#a5b399] transition-colors font-medium;
+    @apply flex gap-4 items-center justify-center cursor-pointer px-6 py-3 rounded-lg bg-[#B7C4AC] text-gray-900 hover:bg-[#a5b399] transition-colors font-medium font-mono;
   }
 
   .btn-ping {
@@ -61,7 +84,68 @@ body {
 
   /* hero section */
   .hero_tag {
-    @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-generalsans font-black !leading-normal;
+    @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-mono font-bold !leading-normal;
+  }
+
+  /* True Pixelated Bitmap Title Style */
+  .pixel-title {
+    font-family: 'Press Start 2P', 'VT323', 'Courier New', monospace;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    line-height: 1.1;
+  }
+
+  .pixel-block {
+    /* Clean pixel blocks with no extra styling */
+  }
+
+  /* Hide content initially to prevent flash */
+  body {
+    visibility: hidden;
+  }
+  
+  body.loaded {
+    visibility: visible;
+  }
+
+  /* Hide cursor only on non-touch devices */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .pixel-title {
+      font-size: 1.5rem !important;
+      line-height: 1.2;
+    }
+    
+    /* Improve touch targets */
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Better mobile spacing */
+    section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+      overflow-x: hidden;
+    }
   }
 
   /* about section */
@@ -70,11 +154,11 @@ body {
   }
 
   .grid-headtext {
-    @apply text-2xl font-medium text-gray-900 mb-4;
+    @apply text-2xl font-medium text-gray-900 mb-4 font-mono;
   }
 
   .grid-subtext {
-    @apply text-gray-600 text-base;
+    @apply text-gray-600 text-base font-mono;
   }
 
   .copy-container {
@@ -134,7 +218,7 @@ body {
   }
 
   .field-label {
-    @apply text-gray-900 font-medium;
+    @apply text-gray-900 font-medium font-mono;
   }
 
   .field-input {
