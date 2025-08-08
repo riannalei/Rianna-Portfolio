@@ -43,6 +43,8 @@ const App = () => {
     });
     const [transitionActive, setTransitionActive] = useState(true);
     const [showPixelTransition, setShowPixelTransition] = useState(false);
+    const [loadingProgress, setLoadingProgress] = useState(0);
+    const [showLoadingScreen, setShowLoadingScreen] = useState(false);
 
     const updateDimensions = () => {
         const { innerWidth, innerHeight } = window;
@@ -52,18 +54,30 @@ const App = () => {
     const handleHomePageEnter = useCallback(() => {
         setShowPixelTransition(true);
         setTransitionActive(true);
+        setLoadingProgress(0);
         
         // Set dimensions immediately
         updateDimensions();
         
-        // Start the transition immediately, then hide it after animation
+        // Loading counter during pixel transition
+        const loadingInterval = setInterval(() => {
+            setLoadingProgress(prev => {
+                if (prev >= 100) {
+                    clearInterval(loadingInterval);
+                    return 100;
+                }
+                return prev + Math.random() * 8 + 4; // Random increment between 4-12
+            });
+        }, 80); // Update every 80ms
+        
+        // Hide pixel transition after animation
         setTimeout(() => {
             setTransitionActive(false);
-            // Also hide the transition component after animation completes
             setTimeout(() => {
                 setShowPixelTransition(false);
+                setLoadingProgress(0); // Reset for next time
             }, 500);
-        }, 1600); // 1.6 second delay for full animation
+        }, 1600);
     }, []);
 
     useEffect(() => {
@@ -86,10 +100,18 @@ const App = () => {
     return (
         <Router>
             {showPixelTransition && (
-                <PixelTransition 
-                    isActive={transitionActive} 
-                    dimensions={dimensions} 
-                />
+                <>
+                    <PixelTransition 
+                        isActive={transitionActive} 
+                        dimensions={dimensions} 
+                    />
+                    {/* Small loading percentage on top of pixels */}
+                    <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-[70]">
+                        <div className="text-2xl font-mono text-white pixel-title">
+                            {Math.floor(loadingProgress)}%
+                        </div>
+                    </div>
+                </>
             )}
             <CuteCursor />
             <div className="min-h-screen bg-white flex">
