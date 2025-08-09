@@ -58,7 +58,7 @@ const About = () => {
                                     
                                     <div className="space-y-4">
                                         <p className="text-lg text-gray-600 leading-relaxed">
-                                            <TextDisperse>I'm a Junior Computer Science student at California Polytechnic University, San Luis Obispo, with a passion for creating innovative digital experiences. My journey in tech is driven by curiosity and a desire to build solutions that make a difference.</TextDisperse>
+                                            <TextDisperse>I'm a Senior Computer Science student at California Polytechnic University, San Luis Obispo, with a passion for creating innovative digital experiences. My journey in tech is driven by curiosity and a desire to build solutions that make a difference.</TextDisperse>
                                         </p>
                                         <p className="text-gray-600 leading-relaxed">
                                             <TextDisperse>Beyond coding, I find joy in exploring new places, discovering cozy coffee spots, and immersing myself in nature. My love for art and music often inspires creative approaches to my technical projects.</TextDisperse>

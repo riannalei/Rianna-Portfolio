@@ -195,7 +195,7 @@ export const workExperiences = [
       id: 2,
       name: 'Richemont',
       pos: 'Technology & Client Experience Intern',
-      duration: 'June 2025 - Present 2025',
+      duration: 'June 2025 - Present',
     },
     {
       id: 3,
