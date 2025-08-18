@@ -187,21 +187,21 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
     {
       id: 1,
-      name: 'Bloomberg',
-      pos: 'Tech Insights Fellow',
-      duration: 'June 2025 - Present',
-    },
-    {
-      id: 2,
       name: 'Richemont',
       pos: 'Technology & Client Experience Intern',
       duration: 'June 2025 - Present',
     },
     {
-      id: 3,
-      name: 'Break Through Tech AI',
+      id: 2,
+      name: 'Break Through Tech AI / Meta',
       pos: 'ML/AI Fellow',
       duration: 'April 2025 - Present',
+    },
+    {
+        id: 3,
+        name: 'Bloomberg',
+        pos: 'Tech Insights Fellow',
+        duration: 'June 2025 - August 2025',
     },
     {
       id: 4,
