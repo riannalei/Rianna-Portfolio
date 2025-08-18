@@ -74,69 +74,29 @@ const About = () => {
                     <AnimatedTab isActive={activeTab === 'skills'}>
                         <div className="w-full space-y-8">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Languages</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {['Python', 'JavaScript', 'TypeScript', 'Java', 'HTML/CSS', 'C', 'R'].map((skill, index) => (
-                                            <motion.span 
-                                                key={skill} 
-                                                className="px-3 py-1 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-pointer"
-                                                whileHover={{ 
-                                                    scale: 1.05, 
-                                                    backgroundColor: 'rgba(183, 196, 172, 0.3)' 
-                                                }}
-                                                whileTap={{ scale: 0.95 }}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: index * 0.1 }}
-                                            >
-                                                {skill}
-                                            </motion.span>
-                                        ))}
+                                {mySkills.map((skillCategory, categoryIndex) => (
+                                    <div key={skillCategory.category} className="space-y-4">
+                                        <h3 className="text-xl font-medium text-gray-900 mb-4">{skillCategory.category}</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {skillCategory.skills.map((skill, index) => (
+                                                <motion.span 
+                                                    key={skill.name} 
+                                                    className="px-3 py-1 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-pointer"
+                                                    whileHover={{ 
+                                                        scale: 1.05, 
+                                                        backgroundColor: 'rgba(183, 196, 172, 0.3)' 
+                                                    }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: (categoryIndex * skillCategory.skills.length + index) * 0.05 }}
+                                                >
+                                                    {skill.name}
+                                                </motion.span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Frameworks & Libraries</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {['React', 'Node.js', 'Next.js', 'Express.js', 'Three.js', 'TensorFlow', 'PyTorch'].map((skill, index) => (
-                                            <motion.span 
-                                                key={skill} 
-                                                className="px-3 py-1 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-pointer"
-                                                whileHover={{ 
-                                                    scale: 1.05, 
-                                                    backgroundColor: 'rgba(183, 196, 172, 0.3)' 
-                                                }}
-                                                whileTap={{ scale: 0.95 }}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: index * 0.1 }}
-                                            >
-                                                {skill}
-                                            </motion.span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="space-y-4">
-                                    <h3 className="text-xl font-medium text-gray-900 mb-4">Tools & Database</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {['MySQL', 'PostgreSQL', 'MongoDB', 'Git', 'Docker', 'AWS', 'Figma'].map((skill, index) => (
-                                            <motion.span 
-                                                key={skill} 
-                                                className="px-3 py-1 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-pointer"
-                                                whileHover={{ 
-                                                    scale: 1.05, 
-                                                    backgroundColor: 'rgba(183, 196, 172, 0.3)' 
-                                                }}
-                                                whileTap={{ scale: 0.95 }}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: index * 0.1 }}
-                                            >
-                                                {skill}
-                                            </motion.span>
-                                        ))}
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </AnimatedTab>
