@@ -233,6 +233,7 @@ export const mySkills = [
       { name: 'Java', src: '/assets/java.svg', alt: 'Java' },
       { name: 'HTML5', src: '/assets/html.svg', alt: 'HTML5' },
       { name: 'C', src: '/assets/c.svg', alt: 'C' },
+      { name: 'SQL', src: '/assets/sql.svg', alt: 'SQL' },
     ]
   },
   {
@@ -243,6 +244,10 @@ export const mySkills = [
       { name: 'Next.js', src: '/assets/next.svg', alt: 'Next.js' },
       { name: 'Three.js', src: '/assets/threejs.svg', alt: 'Three.js' },
       { name: 'Tailwind', src: '/assets/twcss.svg', alt: 'Tailwind CSS' },
+      { name: 'pandas', src: '/assets/pandas.svg', alt: 'pandas' },
+      { name: 'scikit-learn', src: '/assets/sklearn.svg', alt: 'scikit-learn' },
+      { name: 'TensorFlow', src: '/assets/tensorflow.svg', alt: 'TensorFlow' },
+      { name: 'PyTorch', src: '/assets/pytorch.svg', alt: 'PyTorch' },
     ]
   },
   {
@@ -254,6 +259,9 @@ export const mySkills = [
       { name: 'AWS', src: '/assets/awss.svg', alt: 'AWS' },
       { name: 'Figma', src: '/assets/figma.svg', alt: 'Figma' },
       { name: 'Firebase', src: '/assets/firebase.svg', alt: 'Firebase' },
+      { name: 'Kaggle', src: '/assets/kaggle.svg', alt: 'Kaggle' },
+      { name: 'CI/CD', src: '/assets/cicd.svg', alt: 'CI/CD Pipelines' },
+      { name: 'Linux', src: '/assets/linux.svg', alt: 'Linux' },
     ]
   }
 ];

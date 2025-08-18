@@ -184,7 +184,7 @@ const About = () => {
                         {/* Contact Info - Always visible */}
                         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0 sm:divide-x divide-gray-200">
                             <a 
-                                href="/resume.pdf"
+                                href="/Rianna_Lei_Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-0 sm:px-4 text-[#B7C4AC] hover:text-[#95a68b] transition-colors font-medium text-sm sm:text-base"
