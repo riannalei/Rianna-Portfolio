@@ -262,6 +262,8 @@ export const mySkills = [
       { name: 'Kaggle', src: '/assets/kaggle.svg', alt: 'Kaggle' },
       { name: 'CI/CD', src: '/assets/cicd.svg', alt: 'CI/CD Pipelines' },
       { name: 'Linux', src: '/assets/linux.svg', alt: 'Linux' },
+      { name: 'Google Colab', src: 'https://cdn.simpleicons.org/googlecolab/F9AB00', alt: 'Google Colab' },
+      { name: 'Jupyter Notebook', src: 'https://cdn.simpleicons.org/jupyter/F37626', alt: 'Jupyter Notebook' },
     ]
   }
 ];
