@@ -153,18 +153,12 @@ const Navigation = () => {
                                         GitHub
                                     </a>
                                     <a 
-                                        href="https://linkedin.com/in/rianna-lei" 
+                                        href="https://www.linkedin.com/in/rianna-lei-6b6664216/" 
                                         target="_blank" 
                                         rel="noopener noreferrer"
                                         className="text-white/80 hover:text-white text-sm transition-colors"
                                     >
                                         LinkedIn
-                                    </a>
-                                    <a 
-                                        href="mailto:rxlei@calpoly.edu"
-                                        className="text-white/80 hover:text-white text-sm transition-colors"
-                                    >
-                                        Email
                                     </a>
                                 </div>
                             </div>
