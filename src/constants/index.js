@@ -23,6 +23,44 @@ export const navLinks = [
 
 export const myProjects = [
     {
+        title: 'Richemont',
+        subtitle: 'Internal Data Management Tool',
+        category: 'Intern Project',
+        desc: 'Developed a full-stack internal platform that automated employee data exports, replacing a manual Excel-based process across multiple teams. The tool streamlined data uploads, validation, and export generation through a secure web interface and automatically detected new hires, terminations, and role changes.',
+        subdesc: 'Improved data accuracy and reduced manual effort by 80% by implementing inline editing, filtering, and role-based access. The project strengthened my skills in full-stack development and product thinking while delivering a scalable, user-friendly solution that simplified daily operations.',
+        href: 'Internal Tool - Not Public',
+        texture: '/textures/project/Landing Page.png',
+        logo: '/assets/Settings-Gears.png',
+        logoStyle: {
+            backgroundColor: '#CC0000',
+            border: '0.2px solid #8B0000',
+            boxShadow: '0px 0px 60px 0px rgba(204, 0, 0, 0.4)',
+        },
+        spotlight: '/assets/spotlight1.png',
+        tags: [
+            {
+                id: 1,
+                name: 'React.js',
+                path: 'https://cdn.simpleicons.org/react/61DAFB',
+            },
+            {
+                id: 2,
+                name: 'Node.js',
+                path: 'https://cdn.simpleicons.org/nodedotjs/339933',
+            },
+            {
+                id: 3,
+                name: 'SQL Server',
+                path: '/assets/presSQL.png',
+            },
+            {
+                id: 4,
+                name: 'Figma',
+                path: 'https://cdn.simpleicons.org/figma/F24E1E',
+            },
+        ],
+    },
+    {
         title: 'aKDPhi Official Website',
         desc: 'Spearheaded the redesign and launch of a modern website for the alpha Kappa Delta Phi sorority chapter at Cal Poly SLO, replacing a restrictive third-party platform with a fully customized, cost-effective solution.',
         subdesc: 'By addressing both financial and usability pain points, I built a platform that saved the chapter $160 annually while significantly improving design flexibility and content management. The new site offers a clean, user-friendly interface for sharing rush details, chapter updates, and internal resources—streamlining communication and elevating the sorority\'s online presence.',

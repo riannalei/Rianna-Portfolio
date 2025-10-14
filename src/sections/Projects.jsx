@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 
@@ -29,6 +29,45 @@ const Projects = () => {
     gsap.fromTo(`.animatedText`, { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.2, ease: 'power2.inOut' });
   }, [selectedProjectIndex]);
 
+  // Add pulsing animation to navigation arrows
+  useEffect(() => {
+    // Pulse animation for left arrow
+    gsap.to('.nav-arrow-left', {
+      scale: 1.15,
+      duration: 0.8,
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
+
+    // Pulse animation for right arrow
+    gsap.to('.nav-arrow-right', {
+      scale: 1.15,
+      duration: 0.8,
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+      delay: 0.4, // Offset for alternating effect
+    });
+
+    // Add a subtle horizontal bounce
+    gsap.to('.nav-arrow-left', {
+      x: -3,
+      duration: 1,
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
+
+    gsap.to('.nav-arrow-right', {
+      x: 3,
+      duration: 1,
+      ease: 'power1.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
+  }, []);
+
   const currentProject = myProjects[selectedProjectIndex];
 
   return (
@@ -39,14 +78,14 @@ const Projects = () => {
           <div className="bg-gray-100 rounded-full px-6 py-3 mb-8 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button 
-                className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
+                className="nav-arrow-left bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('previous')}
                 data-cursor-hover
               >
                 <img src="/assets/left-arrow.png?v=1" alt="Previous" className="w-4 h-4 brightness-0 invert" />
               </button>
               <button 
-                className="bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
+                className="nav-arrow-right bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
                 onClick={() => handleNavigation('next')}
                 data-cursor-hover
               >
@@ -54,15 +93,21 @@ const Projects = () => {
               </button>
               <span className="text-gray-500 font-mono text-sm ml-2">{currentProject.href}</span>
             </div>
-            <a
-              href={currentProject.href}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
-              data-cursor-hover
-            >
-              VISIT
-            </a>
+            {currentProject.href === 'Internal Tool - Not Public' ? (
+              <span className="bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-700">
+                🔒 Internal Tool
+              </span>
+            ) : (
+              <a
+                href={currentProject.href}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
+                data-cursor-hover
+              >
+                VISIT
+              </a>
+            )}
           </div>
 
           {/* Project Content */}
@@ -76,6 +121,11 @@ const Projects = () => {
                 <h2 className="text-2xl pixel-title text-gray-900 animatedText">
                   {currentProject.title.toUpperCase()}
                 </h2>
+                {currentProject.subtitle && (
+                  <p className="text-base font-medium text-gray-500 animatedText">
+                    {currentProject.subtitle}
+                  </p>
+                )}
               </div>
 
               <div className="flex items-center gap-3">
