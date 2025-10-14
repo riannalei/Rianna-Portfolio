@@ -50,7 +50,6 @@ const About = () => {
                                             <p className="ml-2 sm:ml-4">name: <span className="text-gray-700">"Rianna Lei"</span>,</p>
                                             <p className="ml-2 sm:ml-4">location: <span className="text-gray-700">"Cal Poly SLO"</span>,</p>
                                             <p className="ml-2 sm:ml-4">passion: <span className="text-gray-700">"Building innovative solutions"</span>,</p>
-                                            <p className="ml-2 sm:ml-4">currentFocus: <span className="text-gray-700">"Full-stack development"</span>,</p>
                                             <p className="ml-2 sm:ml-4">status: <span className="text-gray-700">"Available for opportunities"</span></p>
                                             <p>{`};`}</p>
                                         </div>

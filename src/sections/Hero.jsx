@@ -6,12 +6,8 @@ import { PerspectiveCamera } from '@react-three/drei';
 import { Typewriter } from 'react-simple-typewriter';
 import PageTransition from '../components/PageTransition.jsx';
 import ParticlesBackground from '../components/ParticlesBackground.jsx';
-import PerspectiveText from '../components/PerspectiveText.jsx';
-import MouseImageDistortion from '../components/MouseImageDistortion.jsx';
-import TextDisperse from '../components/TextDisperse/index.jsx';
 import CoolHeroSection from '../components/CoolHeroSection.jsx';
 import TextGooey from '../components/TextGooey.jsx';
-import MagneticButton from '../components/MagneticButton.jsx';
 
 import { Model as Macbook } from '../components/Macbook.jsx';
 import CanvasLoader from '../components/Loading.jsx';
@@ -45,7 +41,7 @@ const Hero = () => {
                                         <div className="relative">
                                             <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
                                                 <Typewriter
-                                                    words={['Software Developer', 'Full-Stack Engineer', 'UI/UX Enthusiast']}
+                                                    words={['Software developer', 'Full-stack developer', 'Product designer']}
                                                     cursor
                                                     cursorStyle="_"
                                                     typeSpeed={70}
@@ -59,7 +55,7 @@ const Hero = () => {
                                         
                                         <div className="relative max-w-lg">
                                             <div className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-                                                <TextDisperse>I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life through code.</TextDisperse>
+                                                I create full-stack applications, design interactive web experiences, and enjoy bringing innovative ideas to life through code.
                                             </div>
                                             <div className="absolute -left-3 top-0 w-1 h-full bg-gradient-to-b from-[#B7C4AC] to-transparent opacity-30"></div>
                                         </div>
@@ -68,7 +64,7 @@ const Hero = () => {
 
                                 {/* Right Side - MacBook with Enhanced Effects */}
                                 <div className="w-full md:w-[55%] h-64 sm:h-80 md:h-[700px] flex justify-center items-center relative">
-                                    <MouseImageDistortion className="w-full h-full rounded-xl relative z-10">
+                                    <div className="w-full h-full rounded-xl relative z-10">
                                         <Canvas className="w-full h-full">
                                             <Suspense fallback={<CanvasLoader />}>
                                                 <Leva hidden />
@@ -86,7 +82,7 @@ const Hero = () => {
                                                 </HeroCamera>
                                             </Suspense>
                                         </Canvas>
-                                    </MouseImageDistortion>
+                                    </div>
                                 </div>
                             </div>
                         </section>
