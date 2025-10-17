@@ -1,24 +1,13 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start end", "end end"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
-
     return (
-        <>
-            {/* Spacer to create sticky effect */}
-            <div className="h-[60vh]" />
-            
-            <div ref={container} className="relative h-screen">
-                <motion.div 
-                    style={{ y }}
-                    className="sticky bottom-0 h-screen bg-[#B7C4AC] flex flex-col items-center justify-center text-white overflow-hidden"
+        <div 
+            className="relative h-screen"
+            style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
+        >
+            <div className="fixed bottom-0 h-screen w-full">
+                <div className="h-full bg-[#B7C4AC] flex flex-col items-center justify-center text-white overflow-hidden"
                 >
                     {/* Footer Content */}
                     <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
@@ -98,9 +87,9 @@ const Footer = () => {
                         transition={{ duration: 1.5, delay: 0.2 }}
                         className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-white"
                     />
-                </motion.div>
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 

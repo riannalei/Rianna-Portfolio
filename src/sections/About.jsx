@@ -1,25 +1,28 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useTransform } from 'framer-motion';
 import { AnimatedTextWords, AnimatedParagraph } from '../components/AnimatedText.jsx';
 
-const About = () => {
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+const About = ({ scrollYProgress }) => {
+    // Perspective transition: scale up and rotate as it comes into view
+    const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
 
     return (
-        <section ref={container} id="about" className="min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-32">
+        <motion.section 
+            style={{ 
+                scale, 
+                rotate,
+                transformOrigin: "top center"
+            }}
+            id="about" 
+            className="sticky top-0 min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-32"
+        >
             <div className="max-w-6xl w-full mx-auto">
                 {/* Section Title */}
                 <motion.div 
-                    initial={{ opacity: 0, y: 60 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                    transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                     className="text-left mb-20"
                 >
                     <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900">
@@ -31,11 +34,10 @@ const About = () => {
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-center">
                     {/* Left Side - Image */}
                     <motion.div 
-                        style={{ y }}
-                        initial={{ opacity: 0, x: -60, scale: 0.9 }}
+                        initial={{ opacity: 0, x: -40, scale: 0.95 }}
                         whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: false, margin: "-100px" }}
-                        transition={{ duration: 1, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
                         className="w-full lg:w-[350px] flex flex-col items-center lg:items-start gap-6"
                     >
                         <div className="relative w-[280px] h-[320px] lg:w-[350px] lg:h-[400px] group">
@@ -55,7 +57,7 @@ const About = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
-                            transition={{ duration: 0.6, delay: 1 }}
+                            transition={{ duration: 0.4, delay: 0.4 }}
                             className="w-full text-center"
                         >
                             <a 
@@ -71,19 +73,19 @@ const About = () => {
 
                     {/* Right Side - Content */}
                     <motion.div 
-                        initial={{ opacity: 0, x: 60, scale: 0.95 }}
+                        initial={{ opacity: 0, x: 40, scale: 0.95 }}
                         whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: false, margin: "-100px" }}
-                        transition={{ duration: 1, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                         className="flex-1 max-w-2xl"
                     >
                         <div className="space-y-8">
                                     {/* Terminal-style intro */}
                             <motion.div 
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false, margin: "-50px" }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
                                 className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 font-mono text-sm shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]"
                             >
                                 <div className="flex items-center gap-2 mb-4">
@@ -115,7 +117,7 @@ const About = () => {
                     </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

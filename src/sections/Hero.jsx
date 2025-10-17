@@ -1,32 +1,32 @@
 import { Leva } from 'leva';
-import { Suspense, useRef } from 'react';
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { PerspectiveCamera } from '@react-three/drei';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 
 import { Model as Macbook } from '../components/Macbook.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { AnimatedTextChars } from '../components/AnimatedText.jsx';
 
-const Hero = () => {
+const Hero = ({ scrollYProgress }) => {
     const isMobile = useMediaQuery({ maxWidth: 768 });
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start start", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"]);
+    
+    // Perspective transition: scale down and rotate as you scroll
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
 
     return (
-        <div ref={container} className="h-screen overflow-hidden">
-            <motion.section 
-                style={{ y }}
-                id="home" 
-                className="relative h-screen w-full bg-white flex flex-col px-6 sm:px-8 md:px-12"
-            >
+        <motion.section 
+            style={{ 
+                scale, 
+                rotate,
+                transformOrigin: "top center"
+            }}
+            id="home" 
+            className="sticky top-0 h-screen w-full bg-white flex flex-col px-6 sm:px-8 md:px-12"
+        >
                 {/* Main Content Container */}
                 <div className="flex-1 flex items-center justify-center max-w-7xl mx-auto w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
@@ -105,8 +105,7 @@ const Hero = () => {
                         />
                     </motion.div>
                 </motion.div>
-            </motion.section>
-        </div>
+        </motion.section>
     );
 };
 
