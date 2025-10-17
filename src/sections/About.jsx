@@ -5,7 +5,7 @@ const About = () => {
     return (
         <section 
             id="about" 
-            className="min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-20 sm:py-32"
+            className="min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-12 sm:py-20"
         >
             <div className="max-w-6xl w-full mx-auto">
                 {/* Section Title */}
@@ -14,7 +14,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, margin: "-100px" }}
                     transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-                    className="text-left mb-20"
+                    className="text-left mb-12"
                 >
                     <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900">
                         <AnimatedTextWords text="About Me" />
@@ -22,14 +22,14 @@ const About = () => {
                 </motion.div>
 
                 {/* Content */}
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-center">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
                     {/* Left Side - Image */}
                     <motion.div 
                         initial={{ opacity: 0, x: -40, scale: 0.95 }}
                         whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
-                        className="w-full lg:w-[350px] flex flex-col items-center lg:items-start gap-6"
+                        className="w-full lg:w-[350px] flex flex-col items-center lg:items-start gap-4"
                     >
                         <div className="relative w-[280px] h-[320px] lg:w-[350px] lg:h-[400px] group">
                             {/* Image container */}
@@ -70,7 +70,7 @@ const About = () => {
                         transition={{ duration: 0.6, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
                         className="flex-1 max-w-2xl"
                     >
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                                     {/* Terminal-style intro */}
                             <motion.div 
                                 initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ const About = () => {
                             </motion.div>
                             
                             {/* Description */}
-                            <div className="space-y-5">
+                            <div className="space-y-4">
                                 <AnimatedParagraph className="text-base sm:text-lg text-gray-700 leading-relaxed" delay={0.4}>
                                     I'm a Senior Computer Science student at California Polytechnic University, San Luis Obispo, with a passion for creating innovative digital experiences. My journey in tech is driven by curiosity and a desire to build solutions that make a difference.
                                 </AnimatedParagraph>
