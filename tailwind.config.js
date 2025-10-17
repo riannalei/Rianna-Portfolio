@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px', // Extra small devices (small phones)
+      },
       fontFamily: {
         'mono': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],
         'terminal': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],

@@ -1,7 +1,7 @@
 .nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     width: 100%;
     padding: 100px 40px 50px 40px;
@@ -10,7 +10,7 @@
     .body {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 10px;
         margin-bottom: 60px;
         
         .linkContainer {
@@ -24,12 +24,14 @@
                 cursor: pointer;
                 background: none;
                 border: none;
-                padding: 0;
+                padding: 8px 0;
                 font-family: inherit;
                 transition: all 0.3s ease;
+                text-align: left;
+                width: 100%;
                 
                 &:hover {
-                    color: #B7C4AC;
+                    color: white;
                 }
             }
         }
@@ -43,7 +45,7 @@
         button {
             cursor: pointer;
             font-size: 14px;
-            color: #6b6b6b;
+            color: #1a1a1a;
             background: none;
             border: none;
             padding: 0;
@@ -52,7 +54,62 @@
             transition: color 0.3s ease;
             
             &:hover {
-                color: #B7C4AC;
+                color: white;
+            }
+        }
+    }
+}
+
+// Mobile full screen menu
+@media (max-width: 768px) {
+    .nav {
+        padding: 80px 40px;
+        justify-content: center;
+
+        .body {
+            gap: 15px;
+            margin-bottom: 50px;
+            
+            .linkContainer {
+                button {
+                    font-size: 42px;
+                    padding: 10px 0;
+                }
+            }
+        }
+
+        .footer {
+            gap: 20px;
+            justify-content: center;
+            
+            button {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 60px 30px;
+
+        .body {
+            gap: 12px;
+            margin-bottom: 40px;
+            
+            .linkContainer {
+                button {
+                    font-size: 36px;
+                    padding: 8px 0;
+                }
+            }
+        }
+
+        .footer {
+            gap: 16px;
+            
+            button {
+                font-size: 13px;
             }
         }
     }

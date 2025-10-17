@@ -31,19 +31,19 @@ const NewNavigation = () => {
                 initial={{ opacity: 1 }}
                 animate={{ opacity: showRL ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
-                className="fixed top-8 left-8 z-40"
+                className="fixed top-6 left-6 sm:top-8 sm:left-8 z-40"
             >
                 <button 
                     onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-2xl font-bold text-gray-900 hover:text-[#B7C4AC] transition-colors"
+                    className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-[#B7C4AC] transition-colors"
                 >
                     RL
                 </button>
             </motion.div>
 
-            {/* Awwwards Menu - Always visible */}
+            {/* Menu - Awwwards style on desktop, hamburger on mobile */}
             <Menu />
         </>
     );

@@ -1,8 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { useScroll } from 'framer-motion';
 import Lenis from 'lenis';
 
 import Hero from './sections/Hero.jsx';
@@ -16,12 +15,6 @@ import Preloader from "./components/Preloader.jsx";
 
 const App = () => {
     const [showLoading, setShowLoading] = useState(true);
-    const container = useRef(null);
-    
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ["start start", "end end"]
-    });
 
     useEffect(() => {
         console.log('App mounted');
@@ -62,12 +55,8 @@ const App = () => {
             </AnimatePresence>
 
             <main className="w-full">
-                {/* Perspective Transition Container */}
-                <div ref={container} className="relative h-[200vh]">
-                    <Hero scrollYProgress={scrollYProgress} />
-                    <About scrollYProgress={scrollYProgress} />
-                </div>
-                
+                <Hero />
+                <About />
                 <Skills />
                 <Experience />
                 <Projects />

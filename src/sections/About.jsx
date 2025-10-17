@@ -1,20 +1,11 @@
-import { motion, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { AnimatedTextWords, AnimatedParagraph } from '../components/AnimatedText.jsx';
 
-const About = ({ scrollYProgress }) => {
-    // Perspective transition: scale up and rotate as it comes into view
-    const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
-
+const About = () => {
     return (
-        <motion.section 
-            style={{ 
-                scale, 
-                rotate,
-                transformOrigin: "top center"
-            }}
+        <section 
             id="about" 
-            className="sticky top-0 min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-32"
+            className="min-h-screen flex items-center justify-center w-full bg-gray-50 px-4 sm:px-6 py-20 sm:py-32"
         >
             <div className="max-w-6xl w-full mx-auto">
                 {/* Section Title */}
@@ -117,7 +108,7 @@ const About = ({ scrollYProgress }) => {
                     </motion.div>
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 };
 
