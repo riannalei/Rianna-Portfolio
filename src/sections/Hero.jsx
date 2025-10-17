@@ -55,7 +55,7 @@ const Hero = () => {
                                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 1, ease: [0.33, 1, 0.68, 1] }}
-                                className="h-[600px]"
+                                className="h-[650px] w-full"
                             >
                                 <Canvas className="w-full h-full">
                                     <Suspense fallback={<CanvasLoader />}>
@@ -68,9 +68,9 @@ const Hero = () => {
                                         
                                         <HeroCamera isMobile={isMobile}>
                                             <Macbook 
-                                                scale={7} 
-                                                rotation={[0, 0.3, 0]}
-                                                position={[0, -7, 0]}
+                                                scale={0.55} 
+                                                rotation={[0.2, 0.25, 0]}
+                                                position={[-1, -4, 0]}
                                             />
                                         </HeroCamera>
                                     </Suspense>
