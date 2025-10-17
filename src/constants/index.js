@@ -2,64 +2,31 @@ export const navLinks = [
     {
         id: 1,
         name: 'Home',
-        href: '/',
+        href: '#home',
     },
     {
         id: 2,
         name: 'About',
-        href: '/about',
+        href: '#about',
     },
     {
         id: 3,
-        name: 'Projects',
-        href: '/projects',
+        name: 'Skills',
+        href: '#skills',
     },
     {
         id: 4,
-        name: 'Contact',
-        href: '/contact',
+        name: 'Experience',
+        href: '#experience',
+    },
+    {
+        id: 5,
+        name: 'Projects',
+        href: '#projects',
     },
 ];
 
 export const myProjects = [
-    {
-        title: 'Richemont',
-        subtitle: 'Internal Data Management Tool',
-        category: 'Intern Project',
-        desc: 'Developed a full-stack internal platform that automated employee data exports, replacing a manual Excel-based process across multiple teams. The tool streamlined data uploads, validation, and export generation through a secure web interface and automatically detected new hires, terminations, and role changes.',
-        subdesc: 'Improved data accuracy and reduced manual effort by 80% by implementing inline editing, filtering, and role-based access. The project strengthened my skills in full-stack development and product thinking while delivering a scalable, user-friendly solution that simplified daily operations.',
-        href: 'Internal Tool - Not Public',
-        texture: '/textures/project/Landing Page.png',
-        logo: '/assets/Settings-Gears.png',
-        logoStyle: {
-            backgroundColor: '#CC0000',
-            border: '0.2px solid #8B0000',
-            boxShadow: '0px 0px 60px 0px rgba(204, 0, 0, 0.4)',
-        },
-        spotlight: '/assets/spotlight1.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: 'https://cdn.simpleicons.org/react/61DAFB',
-            },
-            {
-                id: 2,
-                name: 'Node.js',
-                path: 'https://cdn.simpleicons.org/nodedotjs/339933',
-            },
-            {
-                id: 3,
-                name: 'SQL Server',
-                path: '/assets/presSQL.png',
-            },
-            {
-                id: 4,
-                name: 'Figma',
-                path: 'https://cdn.simpleicons.org/figma/F24E1E',
-            },
-        ],
-    },
     {
         title: 'aKDPhi Official Website',
         desc: 'Spearheaded the redesign and launch of a modern website for the alpha Kappa Delta Phi sorority chapter at Cal Poly SLO, replacing a restrictive third-party platform with a fully customized, cost-effective solution.',
@@ -226,38 +193,109 @@ export const workExperiences = [
     {
       id: 1,
       name: 'Richemont',
-      pos: 'Technology & Client Experience Intern',
-      duration: 'June 2025 - Present',
+      pos: 'Product Design Intern, Technology & Client Experience',
+      duration: 'June 2025 – Present',
+      location: 'New York, NY',
+      description: 'Led the end-to-end design and development of an internal tool that automated user and permission management for Cartier\'s Customer Relations Center, eliminating a biweekly Excel-based workflow and improving operational turnaround.',
+      achievements: [
+        'Partnered with CRC stakeholders to gather requirements and redesign the data schema to support boutique-level tracking and auditability',
+        'Created interactive UX prototypes in Figma and delivered a React-based interface enabling staff to upload HR data and generate system-ready exports on demand',
+        'Collaborated with engineers to design backend workflows in Node.js, introducing automated validation rules that reduced data preparation time by 80%'
+      ],
+      technologies: [],
+      logo: '/assets/Settings-Gears.png',
+      logoStyle: {
+        backgroundColor: '#CC0000',
+        border: '0.2px solid #8B0000',
+        boxShadow: '0px 0px 60px 0px rgba(204, 0, 0, 0.4)',
+      },
+      color: '#F5F3ED'
     },
     {
       id: 2,
-      name: 'Break Through Tech AI / Meta',
-      pos: 'ML/AI Fellow',
-      duration: 'April 2025 - Present',
+      name: 'Break Through Tech AI – Meta AI Studio',
+      pos: 'AI/ML Fellow',
+      duration: 'Apr 2025 – Present',
+      location: 'New York, NY | Remote',
+      description: 'Collaborated in a cross-functional team to investigate demographic bias in NLP datasets, defining sprint goals across three Scrum sprints and improving project velocity and deliverable tracking through Jira.',
+      achievements: [
+        'Engineered text features and fine-tuned BERT models in Google Colab to identify bias patterns in Reddit-based datasets, contributing insights to research on responsible AI systems',
+        'Developed reproducible pipelines using Hugging Face Transformers and PyTorch for large-scale preprocessing, training, and evaluation, reducing setup time for experiments by 40% and ensuring consistent results across thousands of samples'
+      ],
+      technologies: ['Jira', 'Python', 'TensorFlow', 'PyTorch', 'Google Colab'],
+      logo: 'https://cdn.simpleicons.org/meta/0081FB',
+      logoStyle: {
+        backgroundColor: '#ffffff',
+      },
+      color: '#B5C4A7'
     },
     {
-        id: 3,
-        name: 'Bloomberg',
-        pos: 'Tech Insights Fellow',
-        duration: 'June 2025 - August 2025',
+      id: 3,
+      name: 'Swing Phi — Startup',
+      pos: 'UX/Software Engineer Intern',
+      duration: 'Jan 2025 – May 2025',
+      location: 'Nashville, TN | Remote',
+      description: 'Redesigned the platform interface by building reusable React + TypeScript components and creating high-fidelity UX prototypes, improving design consistency and reducing frontend development time by 25%.',
+      achievements: [
+        'Collaborated directly with designers, backend engineers, and the founder in agile sprints to prioritize features and accelerate delivery timelines in a fast-paced startup environment',
+        'Influenced product decisions by presenting usability findings and design tradeoffs, ensuring new features improved user experience and supported key business objectives'
+      ],
+      technologies: ['TypeScript', 'UI/UX Design', 'Agile Development'],
+      logo: 'https://cdn.simpleicons.org/react/61DAFB',
+      logoStyle: {
+        backgroundColor: '#282c34',
+      },
+      color: '#D4D9CD'
     },
     {
       id: 4,
-      name: 'Swing Phi',
-      pos: 'Software Engineer Intern',
-      duration: 'January 2025 - May 2025',
+      name: 'Bloomberg',
+      pos: 'Tech Insights Fellow',
+      duration: 'June 2025 – Aug 2025',
+      location: 'New York, NY | Remote',
+      description: 'Selected for Bloomberg\'s summer fellowship program to strengthen skills in data structures and algorithms through workshops, mock interviews, and collaborative problem-solving with engineers.',
+      achievements: [],
+      technologies: ['Python'],
+      logo: 'https://cdn.simpleicons.org/bloomberg/5E5E5E',
+      logoStyle: {
+        backgroundColor: '#FFF4E6',
+      },
+      color: '#FDFCF8'
     },
     {
       id: 5,
-      name: 'alpha Kappa Delta Phi International Sorority, Inc.',
-      pos: 'Web Developer',
-      duration: 'December 2024 - Present',
+      name: 'alpha Kappa Delta Phi Sorority, Inc.',
+      pos: 'Recruitment Chair & Media Relations Chair',
+      duration: 'Jan 2024 – June 2025',
+      location: 'San Luis Obispo, CA',
+      description: 'Led end-to-end recruitment campaigns by designing outreach strategies, coordinating events, and personally connecting with potential new members, resulting in one of the largest winter new member classes in years.',
+      achievements: [
+        'Planned and executed large-scale recruitment and social events, managing logistics, promotion, and member coordination to strengthen chapter visibility and engagement',
+        'Directed social media and digital marketing initiatives, creating branded graphics and campaigns that increased outreach visibility and applicant interest across multiple platforms',
+        'Proactively reached out to prospective members through personalized conversations and follow-ups, building rapport and demonstrating strong interpersonal and communication skills'
+      ],
+      technologies: [],
+      logo: '/assets/iconstar.svg',
+      logoStyle: {
+        backgroundColor: '#13202F',
+        border: '0.2px solid #17293E',
+      },
+      color: '#B5C4A7'
     },
     {
       id: 6,
-      name: "Google's Computer Science Summer Institute",
-      pos: 'Intern/Scholar',
-      duration: 'July 2022 - August 2022',
+      name: 'Google Computer Science Summer Institute',
+      pos: 'Intern',
+      duration: 'Jul 2022 - Aug 2022',
+      location: 'Los Angeles, CA | Remote',
+      description: 'Collaborated with peers to develop and present a comprehensive web project using HTML/CSS and JavaScript, enhancing technical skills and teamwork in a professional setting.',
+      achievements: [],
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      logo: 'https://cdn.simpleicons.org/google/4285F4',
+      logoStyle: {
+        backgroundColor: '#ffffff',
+      },
+      color: '#D4D9CD'
     },
   ];
 

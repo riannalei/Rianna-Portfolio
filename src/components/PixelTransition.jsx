@@ -47,7 +47,7 @@ const PixelTransition = ({ isActive, dimensions }) => {
                     className="w-full pixel-block"
                     style={{ 
                         height: `${blockSize}px`,
-                        backgroundColor: '#B7C4AC'
+                        backgroundColor: '#000000'
                     }}
                     variants={anim}
                     initial="initial"

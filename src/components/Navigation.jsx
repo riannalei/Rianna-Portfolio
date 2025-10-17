@@ -1,182 +1,171 @@
-import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '../constants/index.js';
-import { useState, useRef } from 'react';
-import Text3D from './Text3D.jsx';
-import Curve from './Curve.jsx';
+import { useState, useEffect } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineDocument } from 'react-icons/hi';
 
 const Navigation = () => {
-    const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
-    const navPlane = useRef(null);
-    const maxRotate = 15;
+    const [activeSection, setActiveSection] = useState('home');
 
-    const manageMouseMove = (e) => {
-        if (!navPlane.current) return;
-        
-        const rect = navPlane.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        const perspective = 800;
-        const rotateX = maxRotate * x - maxRotate / 2;
-        const rotateY = (maxRotate * y - maxRotate / 2) * -1;
-        
-        navPlane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
-    };
+    // Track active section based on scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = navLinks.map(link => ({
+                id: link.href.replace('#', ''),
+                element: document.querySelector(link.href)
+            }));
 
-    const resetTransform = () => {
-        if (navPlane.current) {
-            navPlane.current.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+            const scrollPosition = window.scrollY + 200;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section.element && section.element.offsetTop <= scrollPosition) {
+                    setActiveSection(section.id);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Check initial position
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (href) => {
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        setMenuOpen(false);
     };
 
     return (
         <>
-            {/* Desktop Sidebar */}
-            <nav 
-                className="w-32 fixed left-0 top-0 h-screen items-center bg-white hidden md:flex z-30"
-                onMouseMove={manageMouseMove}
-                onMouseLeave={resetTransform}
-            >
-                <div ref={navPlane} className="p-8 transition-transform duration-300">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.id}
-                            to={link.href.replace('#', '')}
-                            className="relative group block mb-8"
-                        >
-                            <Text3D 
-                                primary={link.name}
-                                secondary={link.name}
-                                className="nav-text3d text-lg"
-                            />
-                            {location.pathname === link.href.replace('#', '') && (
-                                <motion.div
-                                    layoutId="navIndicator"
-                                    className="absolute -left-4 top-1/2 w-2 h-2 bg-[#B7C4AC] rounded-full"
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 350,
-                                        damping: 25
-                                    }}
-                                />
-                            )}
-                        </Link>
-                    ))}
+            {/* Fixed Header */}
+            <nav className="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+                    {/* Logo */}
+                    <button 
+                        onClick={() => scrollToSection('#home')}
+                        className="text-2xl font-bold text-gray-900 pixel-title hover:text-[#B7C4AC] transition-colors"
+                    >
+                        RL
+                    </button>
+
+                    {/* Menu Button */}
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="px-6 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors"
+                    >
+                        MENU
+                    </button>
                 </div>
             </nav>
 
-            {/* Mobile Hamburger */}
-            <button
-                className="fixed top-6 left-4 z-40 flex flex-col justify-center items-center w-10 h-10 md:hidden bg-white rounded-full shadow-md"
-                aria-label="Open menu"
-                onClick={() => setMenuOpen(true)}
-            >
-                <span className="block w-6 h-0.5 bg-[#B7C4AC] mb-1 rounded"></span>
-                <span className="block w-6 h-0.5 bg-[#B7C4AC] mb-1 rounded"></span>
-                <span className="block w-6 h-0.5 bg-[#B7C4AC] rounded"></span>
-            </button>
-
-            {/* Mobile Curved Menu */}
+            {/* Fullscreen Menu Overlay */}
             <AnimatePresence mode="wait">
                 {menuOpen && (
-                    <motion.nav
-                        initial={{ x: '-100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '-100%' }}
-                        transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-                        className="fixed top-0 left-0 w-80 h-full bg-[#B7C4AC] z-50 flex flex-col md:hidden"
-                        role="dialog"
-                        aria-modal="true"
-                    >
-                        <Curve />
-                        
-                        <div className="flex flex-col h-full">
-                            {/* Header */}
-                            <div className="flex justify-between items-center p-8 pb-4">
-                                <h3 className="text-white font-semibold text-sm tracking-wider">NAVIGATION</h3>
-                                <button
-                                    className="text-2xl text-white hover:text-gray-200 focus:outline-none transition-colors"
-                                    aria-label="Close menu"
-                                    onClick={() => setMenuOpen(false)}
-                                >
-                                    &times;
-                                </button>
-                            </div>
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed inset-0 bg-black/50 z-50"
+                            onClick={() => setMenuOpen(false)}
+                        />
 
-                            {/* Navigation Links */}
-                            <div className="flex-1 px-8">
-                                {navLinks.map((link, index) => (
-                                    <motion.div
-                                        key={link.id}
-                                        initial={{ x: 80, opacity: 0 }}
-                                        animate={{ x: 0, opacity: 1 }}
-                                        exit={{ x: 80, opacity: 0 }}
-                                        transition={{ 
-                                            duration: 0.8, 
-                                            delay: 0.1 * index,
-                                            ease: [0.76, 0, 0.24, 1]
-                                        }}
-                                        className="relative mb-8"
+                        {/* Menu Panel */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+                            className="fixed top-0 right-0 w-full sm:w-[500px] h-full bg-white z-50 shadow-2xl"
+                        >
+                            <div className="flex flex-col h-full">
+                                {/* Menu Header */}
+                                <div className="flex justify-between items-center p-6 sm:p-8 border-b border-gray-200">
+                                    <h3 className="text-2xl font-bold text-gray-900 pixel-title">Menu</h3>
+                                    <button
+                                        className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                                        onClick={() => setMenuOpen(false)}
+                                        aria-label="Close menu"
                                     >
-                                        <Link
-                                            to={link.href.replace('#', '')}
-                                            className="block text-white hover:text-gray-200 transition-colors text-3xl font-light"
-                                            onClick={() => setMenuOpen(false)}
-                                        >
-                                            {link.name}
-                                        </Link>
-                                        {location.pathname === link.href.replace('#', '') && (
-                                            <motion.div
-                                                layoutId="mobile-indicator"
-                                                className="absolute -left-4 top-1/2 w-2 h-2 bg-white rounded-full"
-                                                transition={{
-                                                    type: "spring",
-                                                    stiffness: 350,
-                                                    damping: 25
+                                        <span className="text-3xl text-gray-600">&times;</span>
+                                    </button>
+                                </div>
+
+                                {/* Navigation Links */}
+                                <div className="flex-1 px-6 sm:px-8 py-8 overflow-y-auto">
+                                    <div className="space-y-2">
+                                        {navLinks.map((link, index) => (
+                                            <motion.button
+                                                key={link.id}
+                                                initial={{ opacity: 0, x: 50 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ 
+                                                    duration: 0.4, 
+                                                    delay: index * 0.1,
+                                                    ease: [0.76, 0, 0.24, 1]
                                                 }}
-                                            />
-                                        )}
-                                    </motion.div>
-                                ))}
-                            </div>
+                                                onClick={() => scrollToSection(link.href)}
+                                                className={`w-full text-left px-6 py-4 rounded-lg text-2xl font-medium transition-all ${
+                                                    activeSection === link.href.replace('#', '')
+                                                        ? 'bg-[#B7C4AC] text-white'
+                                                        : 'text-gray-700 hover:bg-gray-100'
+                                                }`}
+                                            >
+                                                {link.name}
+                                            </motion.button>
+                                        ))}
+                                    </div>
+                                </div>
 
-                            {/* Footer */}
-                            <div className="p-8 pt-4">
-                                <div className="flex flex-col space-y-3">
-                                    <a 
-                                        href="https://github.com/riannalei" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-white/80 hover:text-white text-sm transition-colors"
-                                    >
-                                        GitHub
-                                    </a>
-                                    <a 
-                                        href="https://www.linkedin.com/in/rianna-lei-6b6664216/" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-white/80 hover:text-white text-sm transition-colors"
-                                    >
-                                        LinkedIn
-                                    </a>
+                                {/* Social Links Footer */}
+                                <div className="p-6 sm:p-8 border-t border-gray-200">
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-sm text-gray-500">Connect with me</span>
+                                        <div className="flex items-center gap-4">
+                                            <a
+                                                href="https://github.com/riannalei"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B7C4AC] transition-colors group"
+                                                aria-label="GitHub"
+                                            >
+                                                <FaGithub className="text-gray-600 group-hover:text-white" size={20} />
+                                            </a>
+                                            <a
+                                                href="https://www.linkedin.com/in/rianna-lei-6b6664216/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B7C4AC] transition-colors group"
+                                                aria-label="LinkedIn"
+                                            >
+                                                <FaLinkedin className="text-gray-600 group-hover:text-white" size={20} />
+                                            </a>
+                                            <a
+                                                href="/Rianna_Lei_Resume.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B7C4AC] transition-colors group"
+                                                aria-label="Resume"
+                                            >
+                                                <HiOutlineDocument className="text-gray-600 group-hover:text-white" size={22} />
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.nav>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
-
-            {/* Overlay when menu is open */}
-            {menuOpen && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-20 z-40 md:hidden"
-                    onClick={() => setMenuOpen(false)}
-                    aria-hidden="true"
-                />
-            )}
         </>
     );
 };
 
-export default Navigation; 
+export default Navigation;

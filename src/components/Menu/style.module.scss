@@ -1,0 +1,35 @@
+.header {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    z-index: 50;
+
+    .menu {
+        background-color: #B7C4AC;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        top: 20px;
+        right: 20px;
+
+        .menu {
+            width: 100px !important;
+            height: 40px !important;
+            
+            &[data-isactive="true"] {
+                width: calc(100vw - 40px) !important;
+                height: calc(100vh - 40px) !important;
+                max-width: 380px;
+                max-height: 600px;
+            }
+        }
+    }
+}
+

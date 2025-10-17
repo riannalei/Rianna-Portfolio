@@ -2,13 +2,14 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Center, OrbitControls } from '@react-three/drei';
+import { Center, PerspectiveCamera } from '@react-three/drei';
+import { motion } from 'framer-motion';
 
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
 import DemoComputer from '../components/DemoComputer.jsx';
 import PageTransition from '../components/PageTransition.jsx';
-import TextDisperse from '../components/TextDisperse/index.jsx';
+import { AnimatedTextWords } from '../components/AnimatedText.jsx';
 
 const projectCount = myProjects.length;
 
@@ -72,10 +73,38 @@ const Projects = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6" id="projects">
-        <div className="max-w-5xl w-full mx-auto">
+      <section className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6 py-32 pb-24" id="projects">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl w-full mx-auto"
+        >
+          {/* Section Title */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="text-left mb-12"
+          >
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900 mb-4">
+              <AnimatedTextWords text="Projects" />
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Explore my work and creative solutions
+            </p>
+          </motion.div>
+
           {/* URL-style Navigation Bar */}
-          <div className="bg-gray-100 rounded-full px-6 py-3 mb-8 flex items-center justify-between">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gray-100 rounded-full px-6 py-3 mb-8 flex items-center justify-between"
+          >
             <div className="flex items-center gap-3">
               <button 
                 className="nav-arrow-left bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
@@ -108,17 +137,17 @@ const Projects = () => {
                 VISIT
               </a>
             )}
-          </div>
+          </motion.div>
 
           {/* Project Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-h-[600px]">
             {/* Left Side - Project Info */}
-            <div className="space-y-5 order-2 lg:order-1">
+            <div className="space-y-5 order-2 lg:order-1 flex flex-col">
               <div className="space-y-2">
                 <p className="text-sm font-medium tracking-wider text-gray-400 uppercase animatedText">
                   {currentProject.category || 'Web Development'}
                 </p>
-                <h2 className="text-2xl pixel-title text-gray-900 animatedText">
+                <h2 className="text-2xl font-medium text-gray-900 animatedText">
                   {currentProject.title.toUpperCase()}
                 </h2>
                 {currentProject.subtitle && (
@@ -140,51 +169,49 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 flex-1 overflow-y-auto">
                 <p className="text-lg text-gray-600 leading-relaxed animatedText">
-                  <TextDisperse>{currentProject.desc}</TextDisperse>
+                  {currentProject.desc}
                 </p>
                 <p className="text-gray-600 leading-relaxed animatedText">
-                  <TextDisperse>{currentProject.subdesc}</TextDisperse>
+                  {currentProject.subdesc}
                 </p>
               </div>
             </div>
 
             {/* Right Side - 3D Display */}
-            <div className="h-[300px] lg:h-[500px] -mt-0 lg:-mt-8 order-1 lg:order-2">
+            <motion.div 
+              key={selectedProjectIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="h-[300px] lg:h-[500px] order-1 lg:order-2"
+            >
               <Canvas
                 gl={{ 
                   powerPreference: "high-performance",
                   antialias: true,
                   alpha: true,
-                  preserveDrawingBuffer: true,
-                  failIfMajorPerformanceCaveat: true
+                  preserveDrawingBuffer: true
                 }}
-                dpr={window.devicePixelRatio}
-                performance={{ min: 0.5 }}
                 style={{ background: 'transparent' }}
-                onCreated={({ gl }) => {
-                  gl.setClearColor(0x000000, 0);
-                }}
               >
-                <ambientLight intensity={Math.PI} />
-                <directionalLight position={[10, 10, 5]} />
+                <PerspectiveCamera makeDefault position={[0, 0.3, 10]} fov={45} />
+                <ambientLight intensity={3} />
+                <directionalLight position={[0, 5, 5]} intensity={2.5} />
+                <pointLight position={[0, 2, 5]} intensity={2} />
+                <spotLight position={[0, 5, 8]} intensity={2} angle={0.6} penumbra={0.5} />
                 <Center>
                   <Suspense fallback={<CanvasLoader />}>
-                    <group scale={2.6} position={[0, -4.4, 0]} rotation={[0, -0.2, 0]}>
+                    <group scale={3} position={[-0.7, -4, 0]} rotation={[0.05, 0, 0]}>
                       <DemoComputer texture={currentProject.texture} />
                     </group>
                   </Suspense>
                 </Center>
-                <OrbitControls 
-                  maxPolarAngle={Math.PI / 2} 
-                  enableZoom={false}
-                  enableDamping={false}
-                />
               </Canvas>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </PageTransition>
   );
