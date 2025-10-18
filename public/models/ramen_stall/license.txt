@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ramen yatai food stall
+* source:	https://sketchfab.com/3d-models/ramen-yatai-food-stall-69a197cb3e214c818723652e23260d19
+* author:	3Dji (https://sketchfab.com/3Dji)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ramen yatai food stall" (https://sketchfab.com/3d-models/ramen-yatai-food-stall-69a197cb3e214c818723652e23260d19) by 3Dji (https://sketchfab.com/3Dji) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
