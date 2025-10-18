@@ -42,7 +42,7 @@ export function RamenBowl({ position, onAnimationComplete }) {
     
     // Add a little bounce scale effect
     const bounceScale = 1 + Math.sin(animationProgress.current * Math.PI) * 0.3
-    bowlRef.current.scale.setScalar(0.6 * bounceScale)
+    bowlRef.current.scale.setScalar(0.5 * bounceScale)
     
     // Gentle rotation as it pops out
     bowlRef.current.rotation.y = animationProgress.current * Math.PI * 2

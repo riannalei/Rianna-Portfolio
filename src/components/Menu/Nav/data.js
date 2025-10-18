@@ -1,9 +1,9 @@
 export const links = [
     { title: "Home", href: "#home" },
     { title: "About", href: "#about" },
-    { title: "Skills", href: "#skills" },
     { title: "Experience", href: "#experience" },
-    { title: "Projects", href: "#projects" }
+    { title: "Projects", href: "#projects" },
+    { title: "Skills", href: "#skills" }
 ];
 
 export const footerLinks = [
