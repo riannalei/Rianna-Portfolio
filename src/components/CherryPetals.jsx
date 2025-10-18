@@ -14,7 +14,8 @@ function Petal({ position, delay = 0, speed = 1 }) {
     
     // Falling and drifting motion
     const fallSpeed = 0.3
-    const driftX = Math.sin(time.current * 0.5) * 2
+    // Reduced drift to stay within bounds, slight rightward bias
+    const driftX = Math.sin(time.current * 0.5) * 1.2 + 0.3
     const driftZ = Math.cos(time.current * 0.7) * 1.5
     
     // Rotating as it falls
@@ -22,8 +23,9 @@ function Petal({ position, delay = 0, speed = 1 }) {
     petalRef.current.rotation.y = time.current * 0.5
     petalRef.current.rotation.z = Math.sin(time.current * 0.8) * 0.5
     
-    // Position with drift
-    petalRef.current.position.x = position[0] + driftX
+    // Position with drift - ensure x stays above a minimum value
+    const finalX = Math.max(position[0] + driftX, -4)
+    petalRef.current.position.x = finalX
     petalRef.current.position.y = position[1] - (time.current * fallSpeed) % 20
     petalRef.current.position.z = position[2] + driftZ
     
@@ -42,19 +44,19 @@ function Petal({ position, delay = 0, speed = 1 }) {
 
 export function CherryPetals(props) {
   // Create multiple petals with different starting positions and speeds
-  // Extended across the entire screen, especially to the left
+  // Positioned to avoid left edge cutoff, staying more center and right
   // Starting at different heights so they're visible immediately
   const petals = [
-    { position: [-6, 3, 0], delay: 0, speed: 0.8 },
-    { position: [-4, 6, -1], delay: 0, speed: 1.0 },
-    { position: [-2, 1, 1], delay: 0, speed: 0.9 },
+    { position: [-3, 3, 0], delay: 0, speed: 0.8 },
+    { position: [-2, 6, -1], delay: 0, speed: 1.0 },
+    { position: [-1, 1, 1], delay: 0, speed: 0.9 },
     { position: [1, 8, 2], delay: 0, speed: 1.1 },
     { position: [3, 4, -2], delay: 0, speed: 0.85 },
-    { position: [-5, -1, 1], delay: 0, speed: 0.95 },
+    { position: [-2, -1, 1], delay: 0, speed: 0.95 },
     { position: [0, 9, 0], delay: 0, speed: 1.05 },
-    { position: [-7, 2, -1], delay: 0, speed: 0.9 },
+    { position: [-3, 2, -1], delay: 0, speed: 0.9 },
     { position: [2, 5, 1], delay: 0, speed: 1.0 },
-    { position: [-3, 7, 0], delay: 0, speed: 0.88 },
+    { position: [-1, 7, 0], delay: 0, speed: 0.88 },
   ]
 
   return (

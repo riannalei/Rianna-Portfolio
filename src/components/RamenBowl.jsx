@@ -14,7 +14,7 @@ export function RamenBowl({ position, onAnimationComplete }) {
 
   useEffect(() => {
     // Random target position - in FRONT of the stall and higher up
-    const randomX = (Math.random() - 0.5) * 3 // -1.5 to 1.5 (spread out horizontally)
+    const randomX = (Math.random() - 0.5) * 2 // -1.0 to 1.0 (narrower spread to prevent cutoff)
     const randomY = -0.8 + Math.random() * 0.3 // Higher up (-0.8 to -0.5)
     const randomZ = 2 + Math.random() * 0.5 // 2.0 to 2.5 (well in front of stall)
     targetPosition.current = new THREE.Vector3(randomX, randomY, randomZ)
