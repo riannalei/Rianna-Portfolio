@@ -1,3 +1,4 @@
+// Navigation menu links - updated order
 export const navLinks = [
     {
         id: 1,
@@ -11,18 +12,18 @@ export const navLinks = [
     },
     {
         id: 3,
-        name: 'Skills',
-        href: '#skills',
-    },
-    {
-        id: 4,
         name: 'Experience',
         href: '#experience',
     },
     {
-        id: 5,
+        id: 4,
         name: 'Projects',
         href: '#projects',
+    },
+    {
+        id: 5,
+        name: 'Skills',
+        href: '#skills',
     },
 ];
 
