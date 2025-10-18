@@ -5,7 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 import { PerspectiveCamera } from '@react-three/drei';
 import { motion } from 'framer-motion';
 
-import { Model as Macbook } from '../components/Macbook.jsx';
+import Diorama from '../components/Diorama.jsx';
+import CherryPetals from '../components/CherryPetals.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { AnimatedTextChars } from '../components/AnimatedText.jsx';
@@ -49,28 +50,42 @@ const Hero = () => {
                             </motion.p>
                         </motion.div>
 
-                        {/* Right Side - 3D MacBook - Hidden on mobile */}
+                        {/* Right Side - 3D Diorama Scene - Hidden on mobile */}
                         {!isMobile && (
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 1, ease: [0.33, 1, 0.68, 1] }}
                                 className="h-[650px] w-full"
                             >
                                 <Canvas className="w-full h-full">
                                     <Suspense fallback={<CanvasLoader />}>
                                         <Leva hidden />
-                                        <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-                                        <ambientLight intensity={2} />
-                                        <directionalLight position={[10, 10, 10]} intensity={1.5} />
-                                        <directionalLight position={[-10, -10, -10]} intensity={0.8} />
-                                        <pointLight position={[0, 5, 5]} intensity={1} color="#B7C4AC" />
+                                        <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+                                        <ambientLight intensity={2.5} />
+                                        <directionalLight position={[10, 10, 10]} intensity={2} />
+                                        <directionalLight position={[-10, -10, -10]} intensity={1} />
+                                        <pointLight position={[0, 5, 5]} intensity={1.5} color="#B7C4AC" />
+                                        <spotLight 
+                                            position={[0, 10, 0]} 
+                                            intensity={1} 
+                                            angle={0.6} 
+                                            penumbra={0.5}
+                                            castShadow 
+                                        />
                                         
                                         <HeroCamera isMobile={isMobile}>
-                                            <Macbook 
-                                                scale={0.55} 
-                                                rotation={[0.2, 0.25, 0]}
-                                                position={[-1, -4, 0]}
+                                            {/* Diorama scene (books, lantern, scroll, lotus) */}
+                                            <Diorama 
+                                                scale={0.4} 
+                                                rotation={[3.6, 3.3, 9.4]}
+                                                position={[0, -3.5, 0]}
+                                            />
+                                            
+                                            {/* Cherry blossom petals falling */}
+                                            <CherryPetals 
+                                                scale={2.8} 
+                                                position={[0, 0, 0]}
                                             />
                                         </HeroCamera>
                                     </Suspense>

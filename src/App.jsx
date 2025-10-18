@@ -57,9 +57,9 @@ const App = () => {
             <main className="w-full">
                 <Hero />
                 <About />
-                <Skills />
                 <Experience />
                 <Projects />
+                <Skills />
             </main>
             
             <Footer />

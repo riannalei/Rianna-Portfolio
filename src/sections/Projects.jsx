@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
-import DemoComputer from '../components/DemoComputer.jsx';
+import ProjectMacbook from '../components/ProjectMacbook.jsx';
 import PageTransition from '../components/PageTransition.jsx';
 import { AnimatedTextWords } from '../components/AnimatedText.jsx';
 
@@ -73,13 +73,13 @@ const Projects = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6 py-32 pb-24" id="projects">
+      <section className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6 py-16 pb-8" id="projects">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl w-full mx-auto"
+          className="max-w-6xl w-full mx-auto"
         >
           {/* Section Title */}
           <motion.div 
@@ -182,10 +182,10 @@ const Projects = () => {
             {/* Right Side - 3D Display */}
             <motion.div 
               key={selectedProjectIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="h-[300px] lg:h-[500px] order-1 lg:order-2"
+              className="h-[400px] lg:h-[600px] order-1 lg:order-2"
             >
               <Canvas
                 gl={{ 
@@ -196,15 +196,15 @@ const Projects = () => {
                 }}
                 style={{ background: 'transparent' }}
               >
-                <PerspectiveCamera makeDefault position={[0, 0.3, 10]} fov={45} />
-                <ambientLight intensity={3} />
-                <directionalLight position={[0, 5, 5]} intensity={2.5} />
-                <pointLight position={[0, 2, 5]} intensity={2} />
-                <spotLight position={[0, 5, 8]} intensity={2} angle={0.6} penumbra={0.5} />
+                <PerspectiveCamera makeDefault position={[0, 0, 25]} fov={50} />
+                <ambientLight intensity={5} />
+                <directionalLight position={[10, 10, 10]} intensity={3.5} />
+                <directionalLight position={[-10, -10, -10]} intensity={2} />
+                <pointLight position={[0, 5, 5]} intensity={10} color="#B7C4AC" />
                 <Center>
                   <Suspense fallback={<CanvasLoader />}>
-                    <group scale={3} position={[-0.7, -4, 0]} rotation={[0.05, 0, 0]}>
-                      <DemoComputer texture={currentProject.texture} />
+                    <group scale={0.6} position={[0, -3, -9]} rotation={[0.3, -0.2, 0]}>
+                      <ProjectMacbook key={selectedProjectIndex} texture={currentProject.texture} />
                     </group>
                   </Suspense>
                 </Center>
