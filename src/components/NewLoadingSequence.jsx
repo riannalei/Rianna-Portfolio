@@ -4,12 +4,25 @@ import { motion } from 'framer-motion';
 
 const NewLoadingSequence = ({ onComplete }) => {
     const [loadingProgress, setLoadingProgress] = useState(0);
+    const [currentGreeting, setCurrentGreeting] = useState(0);
     const containerRef = useRef(null);
     const nameRef = useRef(null);
     const riannaRef = useRef(null);
     const leiRef = useRef(null);
     const trapezoidLeftRef = useRef(null);
     const trapezoidRightRef = useRef(null);
+
+    // Multilingual greetings - Chinese first, English last
+    const greetings = [
+        { text: "你好", lang: "Chinese" },
+        { text: "안녕하세요", lang: "Korean" },
+        { text: "こんにちは", lang: "Japanese" },
+        { text: "Bonjour", lang: "French" },
+        { text: "नमस्ते", lang: "Hindi" },
+        { text: "Habari", lang: "Swahili" },
+        { text: "Hola", lang: "Spanish" },
+        { text: "Hello", lang: "English" }
+    ];
 
     useEffect(() => {
         // Loading counter
@@ -22,6 +35,11 @@ const NewLoadingSequence = ({ onComplete }) => {
                 return prev + Math.random() * 8 + 4;
             });
         }, 80);
+
+        // Cycle through greetings
+        const greetingInterval = setInterval(() => {
+            setCurrentGreeting(prev => (prev + 1) % greetings.length);
+        }, 600);
 
         const tl = gsap.timeline({
             onComplete: () => {
@@ -105,6 +123,7 @@ const NewLoadingSequence = ({ onComplete }) => {
         return () => {
             tl.kill();
             clearInterval(loadingInterval);
+            clearInterval(greetingInterval);
         };
     }, [onComplete]);
 
@@ -113,15 +132,26 @@ const NewLoadingSequence = ({ onComplete }) => {
             ref={containerRef}
             className="fixed inset-0 z-[60] bg-[#B7C4AC] flex items-center justify-center overflow-hidden"
         >
-            {/* Loading Percentage */}
+            {/* Loading Percentage - Centered at Top */}
             <motion.div
                 initial={{ opacity: 1 }}
                 animate={{ opacity: loadingProgress >= 100 ? 0 : 1 }}
-                className="fixed top-8 left-1/2 transform -translate-x-1/2 z-10"
+                className="fixed top-12 left-1/2 transform -translate-x-1/2 z-10 text-center"
             >
-                <div className="text-3xl font-mono text-white pixel-title">
+                <div className="text-5xl sm:text-6xl font-bold text-white mb-4 font-heading">
                     {Math.floor(loadingProgress)}%
                 </div>
+                {/* Cycling Greetings */}
+                <motion.div
+                    key={currentGreeting}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-xl text-white/80 font-body"
+                >
+                    {greetings[currentGreeting].text}
+                </motion.div>
             </motion.div>
 
             {/* Full Name (initial) */}

@@ -82,7 +82,7 @@ const Contact = () => {
           <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-sm border border-gray-100">
             <AnimatedForm formRef={formRef} onSubmit={handleSubmit}>
               <div className="form-element">
-                <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 mb-2 font-body">
                   Name
                 </label>
                 <input
@@ -91,13 +91,13 @@ const Contact = () => {
                   value={form.from_name}
                   onChange={handleChange}
                   placeholder="What's your name?"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all bg-white font-body"
                   required
                 />
               </div>
 
               <div className="form-element">
-                <label htmlFor="reply_to" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="reply_to" className="block text-sm font-medium text-gray-700 mb-2 font-body">
                   Email
                 </label>
                 <input
@@ -106,13 +106,13 @@ const Contact = () => {
                   value={form.reply_to}
                   onChange={handleChange}
                   placeholder="What's your email?"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all bg-white font-body"
                   required
                 />
               </div>
 
               <div className="form-element">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 font-body">
                   Message
                 </label>
                 <textarea
@@ -120,13 +120,13 @@ const Contact = () => {
                   value={form.message}
                   onChange={handleChange}
                   placeholder="What do you want to say?"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all resize-none h-32 bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#B7C4AC] focus:ring-2 focus:ring-[#B7C4AC] focus:ring-opacity-20 outline-none transition-all resize-none h-32 bg-white font-body"
                   required
                 />
               </div>
 
               <MagneticButton 
-                className="submit-button w-full bg-[#B7C4AC] text-white py-4 px-6 rounded-lg font-medium hover:bg-[#95a68b] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="submit-button w-full bg-[#B7C4AC] text-white py-4 px-6 rounded-lg font-medium hover:bg-[#95a68b] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl font-body"
                 intensity={0.8}
                 disabled={loading}
                 type="submit"

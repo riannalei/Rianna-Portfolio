@@ -36,7 +36,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900 mb-4"
+              className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-4 font-heading"
             >
               <AnimatedTextWords text="Skills & Technologies" />
             </motion.h2>
@@ -45,7 +45,7 @@ const Skills = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
-                        className="text-gray-600 text-lg max-w-2xl"
+                        className="text-gray-600 text-lg max-w-2xl font-body"
                     >
                         A comprehensive toolkit of technologies I use to build innovative solutions
                     </motion.p>
@@ -114,7 +114,7 @@ const Skills = () => {
                             className="space-y-4"
                         >
                             {/* Category Title */}
-                            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                            <h3 className="text-xl font-semibold text-gray-900 mb-4 font-heading">
                                 {skillCategory.category}
                             </h3>
                             
@@ -136,7 +136,7 @@ const Skills = () => {
                                         }}
                                         className="group relative"
                                     >
-                                        <div className="px-5 py-2.5 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-default transition-all hover:bg-opacity-30 hover:shadow-sm">
+                                        <div className="px-5 py-2.5 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-default transition-all hover:bg-opacity-30 hover:shadow-sm font-body">
                                             {skill.name}
                                         </div>
                                     </motion.div>

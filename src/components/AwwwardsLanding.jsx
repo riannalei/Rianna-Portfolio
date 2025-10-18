@@ -171,7 +171,7 @@ const AwwwardsLanding = ({ children, className = "" }) => {
         >
             <div className="relative z-10">
                 <div ref={titleRef} className="awwwards-title">
-                    <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 font-playfair mb-4">
+                    <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 font-heading mb-4">
                         Rianna Lei
                     </div>
                 </div>

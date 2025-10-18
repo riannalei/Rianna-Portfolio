@@ -14,10 +14,10 @@ const Footer = () => {
                         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
                             {/* Left: Main CTA */}
                             <div className="flex-1">
-                                <h2 className="text-5xl sm:text-6xl md:text-7xl font-light mb-6">
+                                <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 font-heading">
                                     Let's connect
                                 </h2>
-                                <p className="text-xl text-white/80 max-w-xl">
+                                <p className="text-xl text-white/80 max-w-xl font-body">
                                     I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
                                 </p>
                             </div>
@@ -25,23 +25,23 @@ const Footer = () => {
                             {/* Right: Contact Info */}
                             <div className="flex-1 flex flex-col gap-8">
                                 <div>
-                                    <h3 className="text-sm uppercase tracking-wider text-white/60 mb-3">Email</h3>
+                                    <h3 className="text-sm uppercase tracking-wider text-white/60 mb-3 font-body">Email</h3>
                                     <a 
                                         href="mailto:riannalei@gmail.com" 
-                                        className="text-2xl hover:opacity-70 transition-opacity"
+                                        className="text-2xl hover:opacity-70 transition-opacity font-body"
                                     >
                                         riannalei@gmail.com
                                     </a>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-sm uppercase tracking-wider text-white/60 mb-3">Socials</h3>
+                                    <h3 className="text-sm uppercase tracking-wider text-white/60 mb-3 font-body">Socials</h3>
                                     <div className="flex gap-6">
                                         <a 
                                             href="https://github.com/riannalei" 
                                             target="_blank" 
                                             rel="noreferrer"
-                                            className="text-lg hover:opacity-70 transition-opacity"
+                                            className="text-lg hover:opacity-70 transition-opacity font-body"
                                         >
                                             GitHub
                                         </a>
@@ -49,7 +49,7 @@ const Footer = () => {
                                             href="https://www.linkedin.com/in/riannalei/" 
                                             target="_blank" 
                                             rel="noreferrer"
-                                            className="text-lg hover:opacity-70 transition-opacity"
+                                            className="text-lg hover:opacity-70 transition-opacity font-body"
                                         >
                                             LinkedIn
                                         </a>
@@ -59,18 +59,22 @@ const Footer = () => {
                         </div>
 
                         {/* Bottom Bar */}
-                        <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-                            <p className="text-sm text-white/60">© 2024 Rianna Lei. All rights reserved.</p>
-                            <div className="flex gap-6">
-                                <a 
-                                    href="/Rianna_Lei_Resume.pdf" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="text-sm text-white/80 hover:text-white transition-colors"
-                                >
-                                    Resume
-                                </a>
+                        <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm text-white/60 font-body">© 2025 Rianna Lei. All rights reserved.</p>
+                                <p className="text-xs text-white/50 max-w-2xl font-body">
+                                    Credits: 3D models by ZoeChuiYan (Candleholder, Diorama), jackbaeten (MacBook Pro), 
+                                    Jungle Jim (Ramen Bowl), 3Dji (Ramen Yatai Food Stall), Voyage (Cherry Blossom) - CC Attribution
+                                </p>
                             </div>
+                            <a 
+                                href="/Rianna_Lei_Resume.pdf" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-sm text-white/80 hover:text-white transition-colors font-body"
+                            >
+                                Resume
+                            </a>
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Preloader.css';
 
-const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "你好", "Hallå", "Guten tag", "Hallo"];
+const words = ["Hello", "Ciao", "Bonjour", "こんにちは", "नमस्ते", "안녕하세요", "Hola", "مرحبا", "你好"];
 
 const Preloader = ({ onComplete }) => {
     const [index, setIndex] = useState(0);
@@ -16,12 +16,12 @@ const Preloader = ({ onComplete }) => {
         if (index === words.length - 1) {
             setTimeout(() => {
                 if (onComplete) onComplete();
-            }, 1000);
+            }, 500);
             return;
         }
         const timer = setTimeout(() => {
             setIndex(index + 1);
-        }, index === 0 ? 300 : 150);
+        }, index === 0 ? 1000 : 120); // First word stays 1s, rest cycle at 120ms
         
         return () => clearTimeout(timer);
     }, [index, onComplete]);

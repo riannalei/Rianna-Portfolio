@@ -89,10 +89,10 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
             className="text-left mb-12"
           >
-            <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900 mb-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-4 font-heading">
               <AnimatedTextWords text="Projects" />
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-lg font-body">
               Explore my work and creative solutions
             </p>
           </motion.div>
@@ -120,7 +120,7 @@ const Projects = () => {
               >
                 <img src="/assets/right-arrow.png?v=1" alt="Next" className="w-4 h-4 brightness-0 invert" />
               </button>
-              <span className="text-gray-500 font-mono text-sm ml-2">{currentProject.href}</span>
+              <span className="text-gray-500 font-body text-sm ml-2">{currentProject.href}</span>
             </div>
             {currentProject.href === 'Internal Tool - Not Public' ? (
               <span className="bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-700">
@@ -144,14 +144,14 @@ const Projects = () => {
             {/* Left Side - Project Info */}
             <div className="space-y-5 order-2 lg:order-1 flex flex-col">
               <div className="space-y-2">
-                <p className="text-sm font-medium tracking-wider text-gray-400 uppercase animatedText">
+                <p className="text-sm font-medium tracking-wider text-gray-400 uppercase animatedText font-body">
                   {currentProject.category || 'Web Development'}
                 </p>
-                <h2 className="text-2xl font-medium text-gray-900 animatedText">
+                <h2 className="text-2xl font-bold text-gray-900 animatedText font-heading">
                   {currentProject.title.toUpperCase()}
                 </h2>
                 {currentProject.subtitle && (
-                  <p className="text-base font-medium text-gray-500 animatedText">
+                  <p className="text-base font-medium text-gray-500 animatedText font-body">
                     {currentProject.subtitle}
                   </p>
                 )}
@@ -170,10 +170,10 @@ const Projects = () => {
               </div>
 
               <div className="space-y-4 flex-1 overflow-y-auto">
-                <p className="text-lg text-gray-600 leading-relaxed animatedText">
+                <p className="text-lg text-gray-600 leading-relaxed animatedText font-body">
                   {currentProject.desc}
                 </p>
-                <p className="text-gray-600 leading-relaxed animatedText">
+                <p className="text-gray-600 leading-relaxed animatedText font-body">
                   {currentProject.subdesc}
                 </p>
               </div>

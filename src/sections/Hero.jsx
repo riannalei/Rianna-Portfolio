@@ -27,15 +27,15 @@ const Hero = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
-                            className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left"
+                            className="text-center lg:text-left"
                         >
-                            <div className="overflow-hidden">
-                                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-gray-900 leading-none tracking-tight">
+                            <div className="overflow-hidden mb-2">
+                                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-gray-900 font-heading" style={{ letterSpacing: '-0.03em', lineHeight: '0.9' }}>
                                     <AnimatedTextChars text="RIANNA" delay={0.2} />
                                 </h1>
                             </div>
                             <div className="overflow-hidden">
-                                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-gray-900 leading-none tracking-tight">
+                                <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-gray-900 font-heading" style={{ letterSpacing: '-0.03em', lineHeight: '0.9' }}>
                                     <AnimatedTextChars text="LEI" delay={0.4} />
                                 </h1>
                             </div>
@@ -44,7 +44,7 @@ const Hero = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                                className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                                className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-body mt-6 sm:mt-8 lg:mt-10"
                             >
                                 I'm passionate about crafting software and products that make a real difference. I love solving problems through technology and bringing ideas to life in ways that are both functional and human-centered.
                             </motion.p>

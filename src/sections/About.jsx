@@ -16,7 +16,7 @@ const About = () => {
                     transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                     className="text-left mb-12"
                 >
-                    <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900">
+                    <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 font-heading">
                         <AnimatedTextWords text="About Me" />
                     </h2>
                 </motion.div>
@@ -77,7 +77,7 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false, margin: "-50px" }}
                                 transition={{ duration: 0.5, delay: 0.1 }}
-                                className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 font-mono text-sm shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]"
+                                className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 font-body text-sm shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]"
                             >
                                 <div className="flex items-center gap-2 mb-4">
                                     <div className="w-3 h-3 bg-red-400 rounded-full"></div>

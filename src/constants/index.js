@@ -254,8 +254,11 @@ export const workExperiences = [
       pos: 'Tech Insights Fellow',
       duration: 'June 2025 – Aug 2025',
       location: 'New York, NY | Remote',
-      description: 'Selected for Bloomberg\'s summer fellowship program to strengthen skills in data structures and algorithms through workshops, mock interviews, and collaborative problem-solving with engineers.',
-      achievements: [],
+      description: 'Selected for Bloomberg\'s summer fellowship program to strengthen skills in data structures and algorithms through technical training and collaborative problem-solving.',
+      achievements: [
+        'Engaged in mock interviews with Bloomberg engineers and participated in pair programming exercises with peers and mentors to practice technical interviewing and improve coding skills',
+        'Attended networking and career development events to connect with Bloomberg professionals and explore opportunities in tech'
+      ],
       technologies: ['Python'],
       logo: 'https://cdn.simpleicons.org/bloomberg/5E5E5E',
       logoStyle: {
@@ -289,8 +292,11 @@ export const workExperiences = [
       pos: 'Intern',
       duration: 'Jul 2022 - Aug 2022',
       location: 'Los Angeles, CA | Remote',
-      description: 'Collaborated with peers to develop and present a comprehensive web project using HTML/CSS and JavaScript, enhancing technical skills and teamwork in a professional setting.',
-      achievements: [],
+      description: 'Selected for Google\'s Computer Science Summer Institute (CSSI), a four-week immersive program focused on full-stack web development.',
+      achievements: [
+        'Gained hands-on experience with HTML, CSS, and JavaScript through daily coding exercises and team-based projects',
+        'Participated in workshops on product design, technical interviewing, and career development, culminating in a final web app demo presented to Google engineers'
+      ],
       technologies: ['HTML', 'CSS', 'JavaScript'],
       logo: 'https://cdn.simpleicons.org/google/4285F4',
       logoStyle: {

@@ -77,7 +77,7 @@ const AnimatedSkill = ({ src, alt, name }) => {
           
           {/* Skill name */}
           <motion.span
-            className="text-sm font-mono text-gray-700 text-center"
+            className="text-sm font-body text-gray-700 text-center"
             animate={{
               color: isHovered ? '#B7C4AC' : 'rgb(55 65 81)',
               scale: isHovered ? 1.05 : 1,

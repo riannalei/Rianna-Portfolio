@@ -7,12 +7,15 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useGLTF, useVideoTexture } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 export function ProjectMacbook({ texture, ...props }) {
   const { scene } = useGLTF('/models/macbook_m3.gltf')
   const [videoTexture, setVideoTexture] = useState(null)
   const [isReady, setIsReady] = useState(false)
+  const groupRef = useRef()
+  const clockRef = useRef(0)
 
   // Load video texture
   useEffect(() => {
@@ -106,6 +109,24 @@ export function ProjectMacbook({ texture, ...props }) {
     })
   }, [clonedScene])
 
+  // Animation loop - floating and subtle rotation
+  useFrame((state, delta) => {
+    if (!groupRef.current) return
+    
+    clockRef.current += delta
+    
+    // Gentle floating motion (up and down)
+    groupRef.current.position.y = Math.sin(clockRef.current * 0.8) * 0.3
+    
+    // Subtle rotation/sway
+    groupRef.current.rotation.y = Math.sin(clockRef.current * 0.5) * 0.05
+    groupRef.current.rotation.x = Math.cos(clockRef.current * 0.6) * 0.02
+    
+    // Slight scale breathing effect
+    const scale = 1 + Math.sin(clockRef.current * 0.7) * 0.02
+    groupRef.current.scale.setScalar(scale)
+  })
+
   // Don't render until video is ready
   if (!isReady) {
     return null
@@ -113,14 +134,16 @@ export function ProjectMacbook({ texture, ...props }) {
 
   return (
     <group {...props}>
-      <primitive object={clonedScene} />
-      {/* Custom video screen plane with rounded corners */}
-      {videoTexture && screenMaterial && (
-        <mesh position={[0.12, 11.6, -16.5]} rotation={[-0.33, 0, 0]}>
-          <planeGeometry args={[34.2, 22.1]} />
-          <primitive object={screenMaterial} attach="material" />
-        </mesh>
-      )}
+      <group ref={groupRef}>
+        <primitive object={clonedScene} />
+        {/* Custom video screen plane with rounded corners */}
+        {videoTexture && screenMaterial && (
+          <mesh position={[0.12, 11.6, -16.5]} rotation={[-0.33, 0, 0]}>
+            <planeGeometry args={[34.2, 22.1]} />
+            <primitive object={screenMaterial} attach="material" />
+          </mesh>
+        )}
+      </group>
     </group>
   )
 }

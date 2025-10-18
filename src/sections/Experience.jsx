@@ -21,24 +21,24 @@ const ExperienceCard = ({ item, index, progress, range, targetScale }) => {
         }}
         className="relative w-full max-w-5xl mx-auto rounded-2xl shadow-xl overflow-hidden"
       >
-        <div className="h-auto min-h-[400px] p-6 sm:p-8 flex flex-col relative">
+        <div className="h-auto min-h-[500px] p-6 sm:p-8 flex flex-col relative">
           {/* Decorative gradient orb */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gray-900 opacity-5 rounded-full blur-3xl"></div>
           
           <div className="relative z-10 flex flex-col h-full">
             {/* Header */}
             <div className="flex-shrink-0 mb-6">
-              <h3 className="text-2xl sm:text-3xl font-light text-gray-900 mb-1">{item.name}</h3>
-              <p className="text-lg text-gray-800 mb-1">{item.pos}</p>
-              <p className="text-gray-700 font-light">{item.duration}</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 font-heading">{item.name}</h3>
+              <p className="text-lg text-gray-800 mb-1 font-heading">{item.pos}</p>
+              <p className="text-gray-700 font-light font-body">{item.duration}</p>
               {item.location && (
-                <p className="text-gray-600 text-sm mt-1">{item.location}</p>
+                <p className="text-gray-600 text-sm mt-1 font-body">{item.location}</p>
               )}
             </div>
 
             {/* Description */}
             <div className="flex-shrink-0 mb-4">
-              <p className="text-gray-800 text-base leading-relaxed">
+              <p className="text-gray-800 text-base leading-relaxed font-body">
                 {item.description}
               </p>
             </div>
@@ -48,7 +48,7 @@ const ExperienceCard = ({ item, index, progress, range, targetScale }) => {
               <div className="flex-1 overflow-y-auto mb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">
                 <ul className="space-y-2.5">
                   {item.achievements.map((achievement, i) => (
-                    <li key={i} className="flex items-start text-gray-700">
+                    <li key={i} className="flex items-start text-gray-700 font-body">
                       <span className="text-gray-500 mr-3 mt-1 text-lg">◆</span>
                       <span className="text-sm leading-relaxed">{achievement}</span>
                     </li>
@@ -87,7 +87,7 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.4, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl sm:text-6xl md:text-7xl font-light text-gray-900 mb-4"
+              className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-4 font-heading"
             >
               <AnimatedTextWords text="Experience" />
             </motion.h2>
@@ -96,7 +96,7 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.4, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
-              className="text-gray-600 text-lg max-w-2xl"
+              className="text-gray-600 text-lg max-w-2xl font-body"
             >
               My professional journey and contributions to innovative projects
             </motion.p>

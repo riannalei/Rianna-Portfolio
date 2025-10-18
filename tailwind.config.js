@@ -7,9 +7,11 @@ export default {
         'xs': '375px', // Extra small devices (small phones)
       },
       fontFamily: {
-        'mono': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],
-        'terminal': ['JetBrains Mono', 'Fira Code', 'Courier New', 'Courier', 'monospace'],
-        'pixel': ['Press Start 2P', 'VT323', 'Courier New', 'monospace'],
+        'heading': ['Space Grotesk', 'sans-serif'],
+        'body': ['Space Mono', 'monospace'],
+        'mono': ['Space Mono', 'monospace'], // Keep for backward compatibility
+        'terminal': ['Space Mono', 'monospace'], // Keep for backward compatibility
+        'pixel': ['Press Start 2P', 'VT323', 'Courier New', 'monospace'], // Keep for special cases
         generalsans: ['GeneralSans-Variable', 'sans-serif'], // Keep for backward compatibility
       },
       colors: {

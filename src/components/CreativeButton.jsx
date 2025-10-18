@@ -9,7 +9,7 @@ const CreativeButton = ({ children, isActive, onClick, className = '' }) => {
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative overflow-hidden px-8 py-3 rounded-full font-mono font-medium uppercase tracking-wide border-2 ${className}`}
+      className={`relative overflow-hidden px-8 py-3 rounded-full font-body font-medium uppercase tracking-wide border-2 ${className}`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >

@@ -37,7 +37,7 @@ const NewNavigation = () => {
                     onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-[#B7C4AC] transition-colors"
+                    className="text-xl sm:text-2xl font-bold text-gray-900 hover:text-[#B7C4AC] transition-colors font-heading"
                 >
                     RL
                 </button>

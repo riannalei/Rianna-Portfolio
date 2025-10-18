@@ -8,6 +8,8 @@ export function RamenBowl({ position, onAnimationComplete }) {
   const bowlRef = useRef()
   const animationProgress = useRef(0)
   const targetPosition = useRef(position)
+  const clockRef = useRef(0)
+  const randomOffset = useRef(Math.random() * Math.PI * 2) // Random phase offset for variation
   
   // Clone the scene to allow multiple instances
   const clonedScene = useMemo(() => scene.clone(), [scene])
@@ -21,31 +23,57 @@ export function RamenBowl({ position, onAnimationComplete }) {
   }, [])
 
   useFrame((state, delta) => {
-    if (!bowlRef.current || animationProgress.current >= 1) return
+    if (!bowlRef.current) return
     
-    animationProgress.current += delta * 2 // Animation speed
+    clockRef.current += delta
     
-    if (animationProgress.current > 1) {
-      animationProgress.current = 1
-      if (onAnimationComplete) onAnimationComplete()
+    // Initial pop-out animation
+    if (animationProgress.current < 1) {
+      animationProgress.current += delta * 2 // Animation speed
+      
+      if (animationProgress.current > 1) {
+        animationProgress.current = 1
+        if (onAnimationComplete) onAnimationComplete()
+      }
+      
+      // Ease out cubic for smooth deceleration
+      const easeProgress = 1 - Math.pow(1 - animationProgress.current, 3)
+      
+      // Pop out from center (0, 0, 0) to target position
+      bowlRef.current.position.lerpVectors(
+        new THREE.Vector3(0, 0, 0),
+        targetPosition.current,
+        easeProgress
+      )
+      
+      // Add a little bounce scale effect
+      const bounceScale = 1 + Math.sin(animationProgress.current * Math.PI) * 0.3
+      bowlRef.current.scale.setScalar(0.5 * bounceScale)
+      
+      // Gentle rotation as it pops out
+      bowlRef.current.rotation.y = animationProgress.current * Math.PI * 2
+    } 
+    // Continuous floating animation after pop-out completes
+    else {
+      const time = clockRef.current + randomOffset.current
+      
+      // Gentle floating motion with random offset for variation
+      const floatY = Math.sin(time * 0.7) * 0.08
+      const floatX = Math.cos(time * 0.5) * 0.05
+      
+      bowlRef.current.position.x = targetPosition.current.x + floatX
+      bowlRef.current.position.y = targetPosition.current.y + floatY
+      bowlRef.current.position.z = targetPosition.current.z + Math.sin(time * 0.4) * 0.03
+      
+      // Gentle swaying rotation
+      bowlRef.current.rotation.y = Math.sin(time * 0.6) * 0.15
+      bowlRef.current.rotation.x = Math.cos(time * 0.5) * 0.08
+      bowlRef.current.rotation.z = Math.sin(time * 0.8) * 0.05
+      
+      // Subtle breathing scale
+      const breatheScale = 1 + Math.sin(time * 0.5) * 0.02
+      bowlRef.current.scale.setScalar(0.5 * breatheScale)
     }
-    
-    // Ease out cubic for smooth deceleration
-    const easeProgress = 1 - Math.pow(1 - animationProgress.current, 3)
-    
-    // Pop out from center (0, 0, 0) to target position
-    bowlRef.current.position.lerpVectors(
-      new THREE.Vector3(0, 0, 0),
-      targetPosition.current,
-      easeProgress
-    )
-    
-    // Add a little bounce scale effect
-    const bounceScale = 1 + Math.sin(animationProgress.current * Math.PI) * 0.3
-    bowlRef.current.scale.setScalar(0.5 * bounceScale)
-    
-    // Gentle rotation as it pops out
-    bowlRef.current.rotation.y = animationProgress.current * Math.PI * 2
   })
 
   return (
