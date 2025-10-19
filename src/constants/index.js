@@ -194,7 +194,7 @@ export const workExperiences = [
     {
       id: 1,
       name: 'Richemont',
-      pos: 'Product Design Intern, Technology & Client Experience',
+      pos: 'Technology & Client Experience Intern',
       duration: 'June 2025 – Present',
       location: 'New York, NY',
       description: 'Led the end-to-end design and development of an internal tool that automated user and permission management for Cartier\'s Customer Relations Center, eliminating a biweekly Excel-based workflow and improving operational turnaround.',
@@ -232,24 +232,6 @@ export const workExperiences = [
     },
     {
       id: 3,
-      name: 'Swing Phi — Startup',
-      pos: 'UX/Software Engineer Intern',
-      duration: 'Jan 2025 – May 2025',
-      location: 'Nashville, TN | Remote',
-      description: 'Redesigned the platform interface by building reusable React + TypeScript components and creating high-fidelity UX prototypes, improving design consistency and reducing frontend development time by 25%.',
-      achievements: [
-        'Collaborated directly with designers, backend engineers, and the founder in agile sprints to prioritize features and accelerate delivery timelines in a fast-paced startup environment',
-        'Influenced product decisions by presenting usability findings and design tradeoffs, ensuring new features improved user experience and supported key business objectives'
-      ],
-      technologies: ['TypeScript', 'UI/UX Design', 'Agile Development'],
-      logo: 'https://cdn.simpleicons.org/react/61DAFB',
-      logoStyle: {
-        backgroundColor: '#282c34',
-      },
-      color: '#D4D9CD'
-    },
-    {
-      id: 4,
       name: 'Bloomberg',
       pos: 'Tech Insights Fellow',
       duration: 'June 2025 – Aug 2025',
@@ -265,6 +247,24 @@ export const workExperiences = [
         backgroundColor: '#FFF4E6',
       },
       color: '#FDFCF8'
+    },
+    {
+      id: 4,
+      name: 'Swing Phi — Startup',
+      pos: 'Software Engineer Intern',
+      duration: 'Jan 2025 – May 2025',
+      location: 'Nashville, TN | Remote',
+      description: 'Redesigned the platform interface by building reusable React + TypeScript components and creating high-fidelity UX prototypes, improving design consistency and reducing frontend development time by 25%.',
+      achievements: [
+        'Collaborated directly with designers, backend engineers, and the founder in agile sprints to prioritize features and accelerate delivery timelines in a fast-paced startup environment',
+        'Influenced product decisions by presenting usability findings and design tradeoffs, ensuring new features improved user experience and supported key business objectives'
+      ],
+      technologies: ['TypeScript', 'UI/UX Design', 'Agile Development'],
+      logo: 'https://cdn.simpleicons.org/react/61DAFB',
+      logoStyle: {
+        backgroundColor: '#282c34',
+      },
+      color: '#D4D9CD'
     },
     {
       id: 5,
