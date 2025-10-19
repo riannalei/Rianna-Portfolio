@@ -36,9 +36,23 @@ export function ProjectMacbook({ texture, ...props }) {
     vidTexture.flipY = true
     vidTexture.needsUpdate = true
     
+    // Add timeout fallback to show MacBook even if video is slow
+    const timeout = setTimeout(() => {
+      console.log('Video loading timeout, showing MacBook anyway')
+      setIsReady(true)
+    }, 3000)
+    
     // Wait for video to be ready before showing
     video.addEventListener('loadeddata', () => {
+      clearTimeout(timeout)
       setIsReady(true)
+    })
+    
+    // Handle errors
+    video.addEventListener('error', (e) => {
+      console.error('Video load error:', e, 'for texture:', texture)
+      clearTimeout(timeout)
+      setIsReady(true) // Show MacBook anyway
     })
     
     // Set texture immediately
@@ -48,6 +62,7 @@ export function ProjectMacbook({ texture, ...props }) {
     video.play().catch(err => console.log('Video play error:', err))
     
     return () => {
+      clearTimeout(timeout)
       video.pause()
       video.src = ''
       vidTexture.dispose()
