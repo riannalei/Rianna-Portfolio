@@ -269,8 +269,7 @@ export const workExperiences = [
     {
       id: 5,
       name: 'alpha Kappa Delta Phi Sorority, Inc.',
-      pos: 'Recruitment Chair & Media Relations Chair',
-
+      pos: 'Web Developer & Recruitment Chair & Media Relations Chair',
       duration: 'Jan 2024 – June 2025',
       location: 'San Luis Obispo, CA',
       description: 'Led end-to-end recruitment campaigns by designing outreach strategies, coordinating events, and personally connecting with potential new members, resulting in one of the largest winter new member classes in years.',

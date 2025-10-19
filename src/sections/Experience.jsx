@@ -21,7 +21,7 @@ const ExperienceCard = ({ item, index, progress, range, targetScale }) => {
         }}
         className="relative w-full max-w-5xl mx-auto rounded-2xl shadow-xl overflow-hidden"
       >
-        <div className="h-auto min-h-[500px] p-6 sm:p-8 flex flex-col relative">
+        <div className="h-[600px] sm:h-[550px] p-6 sm:p-8 flex flex-col relative">
           {/* Decorative gradient orb */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-gray-900 opacity-5 rounded-full blur-3xl"></div>
           
@@ -108,13 +108,14 @@ const Experience = () => {
       <div ref={container} className="relative px-4 sm:px-6 pb-20">
         {workExperiences.map((item, index) => {
           const targetScale = 1 - ((workExperiences.length - index) * 0.05);
+          const range = [index / workExperiences.length, 1];
           return (
             <ExperienceCard
               key={item.id}
               item={item}
               index={index}
               progress={scrollYProgress}
-              range={[index * 0.25, 1]}
+              range={range}
               targetScale={targetScale}
             />
           );
