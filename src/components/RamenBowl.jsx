@@ -27,6 +27,12 @@ export function RamenBowl({ position, onAnimationComplete }) {
     
     clockRef.current += delta
     
+    // Calculate floating offsets for smooth transition
+    const time = clockRef.current + randomOffset.current
+    const floatY = Math.sin(time * 0.7) * 0.08
+    const floatX = Math.cos(time * 0.5) * 0.05
+    const floatZ = Math.sin(time * 0.4) * 0.03
+    
     // Initial pop-out animation
     if (animationProgress.current < 1) {
       animationProgress.current += delta * 2 // Animation speed
@@ -39,10 +45,15 @@ export function RamenBowl({ position, onAnimationComplete }) {
       // Ease out cubic for smooth deceleration
       const easeProgress = 1 - Math.pow(1 - animationProgress.current, 3)
       
-      // Pop out from center (0, 0, 0) to target position
+      // Pop out from center (0, 0, 0) to target position WITH floating offset
+      // This ensures the animation ends exactly where floating begins
+      const endX = targetPosition.current.x + (animationProgress.current >= 1 ? floatX : 0)
+      const endY = targetPosition.current.y + (animationProgress.current >= 1 ? floatY : 0)
+      const endZ = targetPosition.current.z + (animationProgress.current >= 1 ? floatZ : 0)
+      
       bowlRef.current.position.lerpVectors(
         new THREE.Vector3(0, 0, 0),
-        targetPosition.current,
+        new THREE.Vector3(endX, endY, endZ),
         easeProgress
       )
       
@@ -55,15 +66,10 @@ export function RamenBowl({ position, onAnimationComplete }) {
     } 
     // Continuous floating animation after pop-out completes
     else {
-      const time = clockRef.current + randomOffset.current
-      
       // Gentle floating motion with random offset for variation
-      const floatY = Math.sin(time * 0.7) * 0.08
-      const floatX = Math.cos(time * 0.5) * 0.05
-      
       bowlRef.current.position.x = targetPosition.current.x + floatX
       bowlRef.current.position.y = targetPosition.current.y + floatY
-      bowlRef.current.position.z = targetPosition.current.z + Math.sin(time * 0.4) * 0.03
+      bowlRef.current.position.z = targetPosition.current.z + floatZ
       
       // Gentle swaying rotation
       bowlRef.current.rotation.y = Math.sin(time * 0.6) * 0.15
