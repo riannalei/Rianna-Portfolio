@@ -46,7 +46,8 @@ export default function Index() {
                 {/* Hamburger Button */}
                 <button
                     onClick={() => setIsActive(!isActive)}
-                    className="fixed top-6 right-6 z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5 group"
+                    className="fixed top-6 right-6 z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5 group touch-manipulation"
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
                     aria-label="Toggle menu"
                 >
                     <motion.span
@@ -54,20 +55,23 @@ export default function Index() {
                             rotate: isActive ? 45 : 0,
                             y: isActive ? 8 : 0,
                         }}
-                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC]"
+                        initial={false}
+                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC] will-change-transform"
                     />
                     <motion.span
                         animate={{
                             opacity: isActive ? 0 : 1,
                         }}
-                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC]"
+                        initial={false}
+                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC] will-change-transform"
                     />
                     <motion.span
                         animate={{
                             rotate: isActive ? -45 : 0,
                             y: isActive ? -8 : 0,
                         }}
-                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC]"
+                        initial={false}
+                        className="w-6 h-0.5 bg-gray-900 transition-colors group-hover:bg-[#B7C4AC] will-change-transform"
                     />
                 </button>
 

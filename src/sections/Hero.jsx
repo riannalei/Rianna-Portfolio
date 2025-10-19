@@ -17,7 +17,7 @@ const Hero = () => {
     return (
         <section 
             id="home" 
-            className="h-screen w-full bg-white flex flex-col px-4 sm:px-6 md:px-8 lg:px-12"
+            className="relative h-screen w-full bg-white flex flex-col px-4 sm:px-6 md:px-8 lg:px-12"
         >
                 {/* Main Content Container */}
                 <div className="flex-1 flex items-center justify-center max-w-7xl mx-auto w-full">
@@ -50,48 +50,46 @@ const Hero = () => {
                             </motion.p>
                         </motion.div>
 
-                        {/* Right Side - 3D Diorama Scene - Hidden on mobile */}
-                        {!isMobile && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 1, ease: [0.33, 1, 0.68, 1] }}
-                                className="h-[650px] w-full"
-                            >
-                                <Canvas className="w-full h-full">
-                                    <Suspense fallback={<CanvasLoader />}>
-                                        <Leva hidden />
-                                        <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-                                        <ambientLight intensity={2.5} />
-                                        <directionalLight position={[10, 10, 10]} intensity={2} />
-                                        <directionalLight position={[-10, -10, -10]} intensity={1} />
-                                        <pointLight position={[0, 5, 5]} intensity={1.5} color="#B7C4AC" />
-                                        <spotLight 
-                                            position={[0, 10, 0]} 
-                                            intensity={1} 
-                                            angle={0.6} 
-                                            penumbra={0.5}
-                                            castShadow 
+                        {/* Right Side - 3D Diorama Scene */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 1, ease: [0.33, 1, 0.68, 1] }}
+                            className={isMobile ? "h-[400px] w-full" : "h-[650px] w-full"}
+                        >
+                            <Canvas className="w-full h-full">
+                                <Suspense fallback={<CanvasLoader />}>
+                                    <Leva hidden />
+                                    <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+                                    <ambientLight intensity={2.5} />
+                                    <directionalLight position={[10, 10, 10]} intensity={2} />
+                                    <directionalLight position={[-10, -10, -10]} intensity={1} />
+                                    <pointLight position={[0, 5, 5]} intensity={1.5} color="#B7C4AC" />
+                                    <spotLight 
+                                        position={[0, 10, 0]} 
+                                        intensity={1} 
+                                        angle={0.6} 
+                                        penumbra={0.5}
+                                        castShadow 
+                                    />
+                                    
+                                    <HeroCamera isMobile={isMobile}>
+                                        {/* Diorama scene (books, lantern, scroll, lotus) */}
+                                        <Diorama 
+                                            scale={isMobile ? 0.3 : 0.4} 
+                                            rotation={[3.6, 3.3, 9.4]}
+                                            position={[0, -3.5, 0]}
                                         />
                                         
-                                        <HeroCamera isMobile={isMobile}>
-                                            {/* Diorama scene (books, lantern, scroll, lotus) */}
-                                            <Diorama 
-                                                scale={0.4} 
-                                                rotation={[3.6, 3.3, 9.4]}
-                                                position={[0, -3.5, 0]}
-                                            />
-                                            
-                                            {/* Cherry blossom petals falling */}
-                                            <CherryPetals 
-                                                scale={2.8} 
-                                                position={[0, 0, 0]}
-                                            />
-                                        </HeroCamera>
-                                    </Suspense>
-                                </Canvas>
-                            </motion.div>
-                        )}
+                                        {/* Cherry blossom petals falling */}
+                                        <CherryPetals 
+                                            scale={isMobile ? 2.0 : 2.8} 
+                                            position={[0, 0, 0]}
+                                        />
+                                    </HeroCamera>
+                                </Suspense>
+                            </Canvas>
+                        </motion.div>
                     </div>
                 </div>
 
@@ -100,9 +98,9 @@ const Hero = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.5, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                    className="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2"
+                    className="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 z-10"
                 >
-                    <span className="text-[10px] sm:text-sm text-gray-400 font-light tracking-wider">SCROLL</span>
+                    <span className="text-[10px] sm:text-sm text-gray-400 font-light tracking-wider text-center">SCROLL</span>
                     <motion.div
                         animate={{ y: [0, 8, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

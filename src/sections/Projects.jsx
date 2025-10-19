@@ -103,35 +103,35 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-100 rounded-full px-6 py-3 mb-8 flex items-center justify-between"
+            className="bg-gray-100 rounded-full px-4 sm:px-6 py-3 mb-8 flex items-center justify-between gap-3"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
               <button 
-                className="nav-arrow-left bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
+                className="nav-arrow-left bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm flex-shrink-0 flex items-center justify-center"
                 onClick={() => handleNavigation('previous')}
                 data-cursor-hover
               >
-                <img src="/assets/left-arrow.png?v=1" alt="Previous" className="w-4 h-4 brightness-0 invert" />
+                <img src="/assets/left-arrow.png?v=1" alt="Previous" className="w-4 h-4 brightness-0 invert block" />
               </button>
               <button 
-                className="nav-arrow-right bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm"
+                className="nav-arrow-right bg-[#B7C4AC] p-2 rounded-full text-white hover:bg-[#95a68b] transition-colors shadow-sm flex-shrink-0 flex items-center justify-center"
                 onClick={() => handleNavigation('next')}
                 data-cursor-hover
               >
-                <img src="/assets/right-arrow.png?v=1" alt="Next" className="w-4 h-4 brightness-0 invert" />
+                <img src="/assets/right-arrow.png?v=1" alt="Next" className="w-4 h-4 brightness-0 invert block" />
               </button>
-              <span className="text-gray-500 font-body text-sm ml-2">{currentProject.href}</span>
+              <span className="text-gray-500 font-body text-sm ml-2 truncate leading-none">{currentProject.href}</span>
             </div>
             {currentProject.href === 'Internal Tool - Not Public' ? (
-              <span className="bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-700">
-                🔒 Internal Tool
+              <span className="bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 flex-shrink-0 whitespace-nowrap leading-none flex items-center">
+                🔒 Internal
               </span>
             ) : (
               <a
                 href={currentProject.href}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors"
+                className="bg-white px-3 py-1.5 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-shrink-0 leading-none flex items-center"
                 data-cursor-hover
               >
                 VISIT
