@@ -1,0 +1,11 @@
+Model Information:
+* title:	Soy sauce cup
+* source:	https://sketchfab.com/3d-models/soy-sauce-cup-c2bd80794a3947238fe610f5733be9d2
+* author:	Just8 (https://sketchfab.com/Just8)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Soy sauce cup" (https://sketchfab.com/3d-models/soy-sauce-cup-c2bd80794a3947238fe610f5733be9d2) by Just8 (https://sketchfab.com/Just8) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

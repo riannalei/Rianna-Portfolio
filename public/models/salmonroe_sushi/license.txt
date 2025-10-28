@@ -1,0 +1,11 @@
+Model Information:
+* title:	Salmonroe sushi
+* source:	https://sketchfab.com/3d-models/salmonroe-sushi-8f99b8098c0c4cdfbe9b57cdfcad66e0
+* author:	NestaEric (https://sketchfab.com/Nestaeric)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Salmonroe sushi" (https://sketchfab.com/3d-models/salmonroe-sushi-8f99b8098c0c4cdfbe9b57cdfcad66e0) by NestaEric (https://sketchfab.com/Nestaeric) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

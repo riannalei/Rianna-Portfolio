@@ -1,0 +1,11 @@
+Model Information:
+* title:	Toro sushi
+* source:	https://sketchfab.com/3d-models/toro-sushi-14d73356e0484cc1936680b4b2a87cd5
+* author:	NestaEric (https://sketchfab.com/Nestaeric)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Toro sushi" (https://sketchfab.com/3d-models/toro-sushi-14d73356e0484cc1936680b4b2a87cd5) by NestaEric (https://sketchfab.com/Nestaeric) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
