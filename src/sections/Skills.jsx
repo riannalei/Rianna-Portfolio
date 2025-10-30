@@ -60,9 +60,9 @@ const Skills = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                        className="h-[600px] w-full relative"
+                        className="h-[600px] w-full relative overflow-hidden rounded-lg"
                     >
-                        <Canvas className="w-full h-full">
+                        <Canvas className="w-full h-full" gl={{ preserveDrawingBuffer: true }}>
                             <Suspense fallback={<CanvasLoader />}>
                                 <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
                                 <ambientLight intensity={3} />
