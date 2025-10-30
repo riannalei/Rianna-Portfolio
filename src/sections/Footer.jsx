@@ -53,28 +53,31 @@ const Footer = () => {
                                         >
                                             LinkedIn
                                         </a>
+                                        <a 
+                                            href="/Rianna_Lei_Resume.pdf" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="text-base sm:text-lg hover:opacity-70 transition-opacity font-body"
+                                        >
+                                            Resume
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Bottom Bar */}
-                        <div className="border-t border-white/20 pt-4 sm:pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
-                            <div className="flex flex-col gap-2 pr-2">
+                        <div className="border-t border-white/20 pt-4 sm:pt-6">
+                            <div className="flex flex-col gap-2">
                                 <p className="text-xs sm:text-sm text-white/60 font-body">© 2025 Rianna Lei. All rights reserved.</p>
-                                <p className="text-xs text-white/50 max-w-full sm:max-w-2xl font-body break-words">
-                                    Credits: 3D models by ZoeChuiYan (Candleholder, Diorama), jackbaeten (MacBook Pro), 
-                                    Jungle Jim (Ramen Bowl), 3Dji (Ramen Yatai Food Stall), Voyage (Cherry Blossom) - CC Attribution
-                                </p>
+                                <div className="flex flex-col gap-1.5">
+                                    <p className="text-xs text-white/50 max-w-full sm:max-w-2xl font-body break-words">
+                                        Credits: 3D models by ZoeChuiYan (Candleholder, Diorama), jackbaeten (MacBook Pro), 
+                                        Jungle Jim (Ramen Bowl), 3Dji (Ramen Yatai Food Stall), Voyage (Cherry Blossom), 
+                                        pokemon-cards-css by simeydotme - CC Attribution
+                                    </p>
+                                </div>
                             </div>
-                            <a 
-                                href="/Rianna_Lei_Resume.pdf" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-xs sm:text-sm text-white/80 hover:text-white transition-colors font-body flex-shrink-0"
-                            >
-                                Resume
-                            </a>
                         </div>
                     </div>
 

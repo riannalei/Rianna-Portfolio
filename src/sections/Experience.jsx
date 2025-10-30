@@ -74,7 +74,7 @@ const Experience = () => {
     <section id="experience" className="bg-gray-50">
       {/* Section Title */}
       <div className="w-full bg-gray-50 pt-32 pb-12 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -120,6 +120,8 @@ const Experience = () => {
             />
           );
         })}
+        {/* Spacer to allow lingering on the last card before transitioning */}
+        <div className="h-[50vh] sm:h-[60vh]" aria-hidden="true" />
       </div>
     </section>
   );

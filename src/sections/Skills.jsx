@@ -22,7 +22,7 @@ const Skills = () => {
 
     return (
         <section id="skills" className="min-h-screen flex items-center justify-center w-full bg-white px-4 sm:px-6 py-20 sm:py-32">
-            <div className="max-w-7xl w-full mx-auto">
+            <div className="max-w-6xl w-full mx-auto">
                 {/* Section Title */}
                 <motion.div 
                     initial={{ opacity: 0, y: 60 }}
