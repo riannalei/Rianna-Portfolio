@@ -103,7 +103,7 @@ const Skills = () => {
                     </motion.div>
 
                     {/* RIGHT: Skills Grid */}
-                    <div className="grid grid-cols-1 gap-10">
+                    <div className="grid grid-cols-1 gap-6">
                     {mySkills.map((skillCategory, categoryIndex) => (
                         <motion.div
                             key={skillCategory.category}
@@ -111,15 +111,15 @@ const Skills = () => {
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: false, margin: "-50px" }}
                             transition={{ duration: 0.8, delay: categoryIndex * 0.15, ease: [0.33, 1, 0.68, 1] }}
-                            className="space-y-4"
+                            className="space-y-2.5"
                         >
                             {/* Category Title */}
-                            <h3 className="text-xl font-semibold text-gray-900 mb-4 font-heading">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2 font-heading">
                                 {skillCategory.category}
                             </h3>
                             
                             {/* Skills */}
-                            <div className="flex flex-wrap gap-2.5 items-center">
+                            <div className="flex flex-wrap gap-1.5 items-center">
                                 {skillCategory.skills.map((skill, index) => (
                                     <motion.div
                                         key={skill.name}
@@ -136,7 +136,7 @@ const Skills = () => {
                                         }}
                                         className="group relative"
                                     >
-                                        <div className="px-5 py-2.5 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-sm font-medium cursor-default transition-all hover:bg-opacity-30 hover:shadow-sm font-body">
+                                        <div className="px-3.5 py-1.5 bg-[#B7C4AC] bg-opacity-20 text-[#8A9B7E] rounded-full text-xs font-medium cursor-default transition-all hover:bg-opacity-30 hover:shadow-sm font-body">
                                             {skill.name}
                                         </div>
                                     </motion.div>

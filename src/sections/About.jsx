@@ -133,10 +133,10 @@ const About = () => {
                             {/* Description */}
                             <div className="space-y-3 sm:space-y-4">
                                 <AnimatedParagraph className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed" delay={0.4}>
-                                    I'm a Senior Computer Science student at California Polytechnic University, San Luis Obispo, with a passion for creating innovative digital experiences. My journey in tech is driven by curiosity and a desire to build solutions that make a difference.
+                                    I'm a Computer Science student at California Polytechnic University, San Luis Obispo, with a passion for creating innovative digital experiences. My journey in tech is driven by curiosity and a desire to build solutions that make a difference.
                                 </AnimatedParagraph>
                                 <AnimatedParagraph className="text-sm sm:text-base text-gray-600 leading-relaxed" delay={0.6}>
-                                    Beyond coding, I find joy in exploring new places, discovering cozy coffee spots, and immersing myself in nature. My love for art and music often inspires creative approaches to my technical projects.
+                                    I enjoy exploring new places, discovering cozy coffee spots, and immersing myself in nature. My love for art and music often inspires creative approaches to my technical projects.
                                 </AnimatedParagraph>
                             </div>
                         </div>
