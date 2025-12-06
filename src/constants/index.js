@@ -29,38 +29,40 @@ export const navLinks = [
 
 export const myProjects = [
     {
-        title: 'aKDPhi Official Website',
-        desc: 'Spearheaded the redesign and launch of a modern website for the alpha Kappa Delta Phi sorority chapter at Cal Poly SLO, replacing a restrictive third-party platform with a fully customized, cost-effective solution.',
-        subdesc: 'By addressing both financial and usability pain points, I built a platform that saved the chapter $160 annually while significantly improving design flexibility and content management. The new site offers a clean, user-friendly interface for sharing rush details, chapter updates, and internal resources—streamlining communication and elevating the sorority\'s online presence.',
-        href: 'https://sloakdphi.vercel.app/',
-        texture: '/textures/project/project1_compressed.mp4',
-        logo: '/assets/iconstar.svg',
+        title: 'Finding Dataset Bias using LMs',
+        desc: 'This project, Finding Dataset Bias using Language Models, was developed as the Meta AI Studio Final Project. The central goal was to train a language model to detect demographic bias in datasets. This addresses how LLMs can learn and perpetuate harmful stereotypes, such as wrongly associating professional roles with specific genders.',
+        subdesc:
+            'The methodology involved optimizing a fine-tuning pipeline using a BERT model and the Hugging Face framework. The team rigorously cleaned and processed over 28,000 raw data points from the RedditBias Dataset for binary classification. This work resulted in a functional AI Bias Detection Tool capable of identifying harmful associations and informing future model refinement.',
+        href: 'https://github.com/Rytham1/Meta-NLP-Bias.git',
+        texture: '/textures/project/project5.mp4',
+        category: 'WEB DEVELOPMENT / NATURAL LANGUAGE PROCESSING',
+        logo: 'https://cdn.simpleicons.org/meta/0081FB',
         logoStyle: {
-            backgroundColor: '#13202F',
-            border: '0.2px solid #17293E',
-            boxShadow: '0px 0px 60px 0px #2F6DB54D'
+            backgroundColor: '#ffffff',
+            border: '0.2px solid #e0e0e0',
+            boxShadow: '0px 0px 60px 0px rgba(0, 129, 251, 0.3)'
         },
         spotlight: '/assets/spotlight2.png',
         tags: [
             {
                 id: 1,
-                name: 'React.js',
-                path: 'https://cdn.simpleicons.org/react/61DAFB'
+                name: 'Python',
+                path: 'https://cdn.simpleicons.org/python/3776AB'
             },
             {
                 id: 2,
-                name: 'JavaScript',
-                path: 'https://cdn.simpleicons.org/javascript/F7DF1E'
+                name: 'Hugging Face',
+                path: 'https://cdn.simpleicons.org/huggingface/FFD21E'
             },
             {
                 id: 3,
-                name: 'Material UI',
-                path: 'https://cdn.simpleicons.org/mui/007FFF'
+                name: 'PyTorch',
+                path: 'https://cdn.simpleicons.org/pytorch/EE4C2C'
             },
             {
                 id: 4,
-                name: 'Next.js',
-                path: 'https://cdn.simpleicons.org/nextdotjs/000000'
+                name: 'scikit-learn',
+                path: 'https://cdn.simpleicons.org/scikitlearn/F7931E'
             }
         ]
     },
@@ -100,6 +102,42 @@ export const myProjects = [
                 path: 'https://cdn.simpleicons.org/mongodb/47A248',
             },
         ],
+    },
+    {
+        title: 'aKDPhi Official Website',
+        desc: 'Spearheaded the redesign and launch of a modern website for the alpha Kappa Delta Phi sorority chapter at Cal Poly SLO, replacing a restrictive third-party platform with a fully customized, cost-effective solution.',
+        subdesc: 'By addressing both financial and usability pain points, I built a platform that saved the chapter $160 annually while significantly improving design flexibility and content management. The new site offers a clean, user-friendly interface for sharing rush details, chapter updates, and internal resources—streamlining communication and elevating the sorority\'s online presence.',
+        href: 'https://sloakdphi.vercel.app/',
+        texture: '/textures/project/project1_compressed.mp4',
+        logo: '/assets/iconstar.svg',
+        logoStyle: {
+            backgroundColor: '#13202F',
+            border: '0.2px solid #17293E',
+            boxShadow: '0px 0px 60px 0px #2F6DB54D'
+        },
+        spotlight: '/assets/spotlight2.png',
+        tags: [
+            {
+                id: 1,
+                name: 'React.js',
+                path: 'https://cdn.simpleicons.org/react/61DAFB'
+            },
+            {
+                id: 2,
+                name: 'JavaScript',
+                path: 'https://cdn.simpleicons.org/javascript/F7DF1E'
+            },
+            {
+                id: 3,
+                name: 'Material UI',
+                path: 'https://cdn.simpleicons.org/mui/007FFF'
+            },
+            {
+                id: 4,
+                name: 'Next.js',
+                path: 'https://cdn.simpleicons.org/nextdotjs/000000'
+            }
+        ]
     },
     {
         title: 'Personal Portfolio',
