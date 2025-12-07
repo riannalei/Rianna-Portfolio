@@ -35,7 +35,7 @@ export const myProjects = [
             'The methodology involved optimizing a fine-tuning pipeline using a BERT model and the Hugging Face framework. The team rigorously cleaned and processed over 28,000 raw data points from the RedditBias Dataset for binary classification. This work resulted in a functional AI Bias Detection Tool capable of identifying harmful associations and informing future model refinement.',
         href: 'https://github.com/Rytham1/Meta-NLP-Bias.git',
         texture: '/textures/project/project5.mp4',
-        category: 'WEB DEVELOPMENT / NATURAL LANGUAGE PROCESSING',
+        category: 'MACHINE LEARNING / NATURAL LANGUAGE PROCESSING',
         logo: 'https://cdn.simpleicons.org/meta/0081FB',
         logoStyle: {
             backgroundColor: '#ffffff',
