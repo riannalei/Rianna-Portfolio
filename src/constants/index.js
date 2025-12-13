@@ -230,43 +230,62 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 
 export const workExperiences = [
     {
+      id: 0,
+      name: 'Twitch',
+      pos: 'Solutions Architect Intern',
+      duration: '(Incoming) Summer 2026',
+      location: 'San Francisco, CA',
+      description: ':)',
+      achievements: [],
+      technologies: [],
+      logo: '/assets/twitch_tv_logo.jpeg',
+      logoStyle: {
+        backgroundColor: '#FFFFFF',
+        boxShadow: '0px 0px 20px 0px rgba(145, 70, 255, 0.2)',
+      },
+      color: '#E8E5F5',
+      pokemonCard: '/assets/mew.jpg'
+    },
+    {
       id: 1,
       name: 'Richemont',
-      pos: 'Technology & Client Experience Intern',
+      pos: 'Tech & Client Experience Intern',
       duration: 'June 2025 – Present',
       location: 'New York, NY',
-      description: 'Led the end-to-end design and development of an internal tool that automated user and permission management for Cartier\'s Customer Relations Center, eliminating a biweekly Excel-based workflow and improving operational turnaround.',
+      description: 'Designed and shipped a React-based automation tool that eliminated manual workflows, cutting data prep time by 80%.',
       achievements: [
         'Partnered with CRC stakeholders to gather requirements and redesign the data schema to support boutique-level tracking and auditability',
         'Created interactive UX prototypes in Figma and delivered a React-based interface enabling staff to upload HR data and generate system-ready exports on demand',
         'Collaborated with engineers to design backend workflows in Node.js, introducing automated validation rules that reduced data preparation time by 80%'
       ],
       technologies: [],
-      logo: '/assets/Settings-Gears.png',
+      logo: '/assets/richemont_logo.jpeg',
       logoStyle: {
-        backgroundColor: '#CC0000',
-        border: '0.2px solid #8B0000',
-        boxShadow: '0px 0px 60px 0px rgba(204, 0, 0, 0.4)',
+        backgroundColor: '#FFFFFF',
+        boxShadow: '0px 0px 20px 0px rgba(204, 0, 0, 0.2)',
       },
-      color: '#F5F3ED'
+      color: '#F5F3ED',
+      pokemonCard: '/assets/clefairy.jpg'
     },
     {
       id: 2,
-      name: 'Break Through Tech AI – Meta AI Studio',
+      name: 'BTT – Meta AI Studio',
       pos: 'AI/ML Fellow',
       duration: 'Apr 2025 – Present',
       location: 'New York, NY | Remote',
-      description: 'Collaborated in a cross-functional team to investigate demographic bias in NLP datasets, defining sprint goals across three Scrum sprints and improving project velocity and deliverable tracking through Jira.',
+      description: 'Engineered a BERT pipeline using Weights & Biases to optimize schedulers, boosting F1 score by 12% (0.74 → 0.83).',
       achievements: [
         'Engineered text features and fine-tuned BERT models in Google Colab to identify bias patterns in Reddit-based datasets, contributing insights to research on responsible AI systems',
         'Developed reproducible pipelines using Hugging Face Transformers and PyTorch for large-scale preprocessing, training, and evaluation, reducing setup time for experiments by 40% and ensuring consistent results across thousands of samples'
       ],
       technologies: ['Jira', 'Python', 'TensorFlow', 'PyTorch', 'Google Colab'],
-      logo: 'https://cdn.simpleicons.org/meta/0081FB',
+      logo: '/assets/meta_logo.jpeg',
       logoStyle: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FFFFFF',
+        boxShadow: '0px 0px 20px 0px rgba(0, 129, 251, 0.1)',
       },
-      color: '#B5C4A7'
+      color: '#B5C4A7',
+      pokemonCard: '/assets/dragonite.jpg'
     },
     {
       id: 3,
@@ -274,35 +293,39 @@ export const workExperiences = [
       pos: 'Tech Insights Fellow',
       duration: 'June 2025 – Aug 2025',
       location: 'New York, NY | Remote',
-      description: 'Selected for Bloomberg\'s summer fellowship program to strengthen skills in data structures and algorithms through technical training and collaborative problem-solving.',
+      description: 'Sharpened technical interview skills and DSA fundamentals through intensive training with Bloomberg engineers.',
       achievements: [
         'Engaged in mock interviews with Bloomberg engineers and participated in pair programming exercises with peers and mentors to practice technical interviewing and improve coding skills',
         'Attended networking and career development events to connect with Bloomberg professionals and explore opportunities in tech'
       ],
       technologies: ['Python'],
-      logo: 'https://cdn.simpleicons.org/bloomberg/5E5E5E',
+      logo: '/assets/bloomberg_lp_logo.jpeg',
       logoStyle: {
-        backgroundColor: '#FFF4E6',
+        backgroundColor: '#FFFFFF',
+        boxShadow: '0px 0px 20px 0px rgba(94, 94, 94, 0.1)',
       },
-      color: '#FDFCF8'
+      color: '#FDFCF8',
+      pokemonCard: '/assets/duck.jpg'
     },
     {
       id: 4,
-      name: 'Swing Phi — Startup',
+      name: 'Swing Phi',
       pos: 'Software Engineer Intern',
       duration: 'Jan 2025 – May 2025',
       location: 'Nashville, TN | Remote',
-      description: 'Redesigned the platform interface by building reusable React + TypeScript components and creating high-fidelity UX prototypes, improving design consistency and reducing frontend development time by 25%.',
+      description: 'Shipped reusable React components and UX prototypes in a fast-paced startup, cutting dev time by 25%.',
       achievements: [
         'Collaborated directly with designers, backend engineers, and the founder in agile sprints to prioritize features and accelerate delivery timelines in a fast-paced startup environment',
         'Influenced product decisions by presenting usability findings and design tradeoffs, ensuring new features improved user experience and supported key business objectives'
       ],
       technologies: ['TypeScript', 'UI/UX Design', 'Agile Development'],
-      logo: 'https://cdn.simpleicons.org/react/61DAFB',
+      logo: '/assets/swingphi_logo.jpeg',
       logoStyle: {
-        backgroundColor: '#282c34',
+        backgroundColor: '#FFFFFF',
+        boxShadow: '0px 0px 20px 0px rgba(97, 218, 251, 0.1)',
       },
-      color: '#D4D9CD'
+      color: '#D4D9CD',
+      pokemonCard: '/assets/gengar.jpg'
     },
     {
       id: 5,

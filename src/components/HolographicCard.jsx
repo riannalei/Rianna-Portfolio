@@ -77,7 +77,7 @@ const HolographicCard = ({ src, alt, isFlipped }) => {
                 alt={alt}
                 loading="lazy"
                 decoding="async"
-                className="block w-full h-full object-contain rounded-2xl"
+                className="block w-full h-full object-cover rounded-2xl"
                 style={{ position: 'relative', zIndex: 1 }}
             />
             
@@ -111,7 +111,7 @@ const HolographicCard = ({ src, alt, isFlipped }) => {
                             `,
                             transform: `translateX(${(glareX - 50) * 0.1}px) translateY(${(glareY - 50) * 0.1}px)`,
                             mixBlendMode: 'overlay',
-                            opacity: isHovering ? 0.8 : 0.5,
+                            opacity: isHovering ? 0.9 : 0.7,
                             transition: 'opacity 0.3s ease, transform 0.1s ease',
                             zIndex: 2,
                         }}
@@ -139,7 +139,7 @@ const HolographicCard = ({ src, alt, isFlipped }) => {
                             `,
                             transform: `translateX(${-(glareX - 50) * 0.15}px) translateY(${-(glareY - 50) * 0.15}px)`,
                             mixBlendMode: 'overlay',
-                            opacity: isHovering ? 0.7 : 0.4,
+                            opacity: isHovering ? 0.8 : 0.6,
                             transition: 'opacity 0.3s ease, transform 0.1s ease',
                             zIndex: 3,
                         }}
@@ -161,7 +161,7 @@ const HolographicCard = ({ src, alt, isFlipped }) => {
                                 )
                             `,
                             mixBlendMode: 'color-dodge',
-                            opacity: isHovering ? 0.6 : 0.3,
+                            opacity: isHovering ? 0.7 : 0.5,
                             transition: 'background 0.1s ease, opacity 0.3s ease',
                             zIndex: 4,
                         }}
