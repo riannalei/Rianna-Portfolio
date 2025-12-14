@@ -13,6 +13,17 @@ const HolographicCard = ({ src, alt, isFlipped }) => {
         const card = cardRef.current;
         if (!card) return;
 
+        // Check if device supports hover (desktop)
+        const hasHover = window.matchMedia('(hover: hover)').matches;
+        
+        // Only add mouse interactions on devices that support hover
+        if (!hasHover) {
+            // On touch devices, set a default glare position
+            setGlareX(50);
+            setGlareY(50);
+            return;
+        }
+
         const handleMouseMove = (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
