@@ -9,45 +9,45 @@ const PokemonExperienceCard = ({ item, index }) => {
   const pokemonCardImage = item.pokemonCard || '/assets/flaffy.jpg';
 
   return (
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
-        transition={{ duration: 0.5, delay: index * 0.1, ease: [0.33, 1, 0.68, 1] }}
-        whileHover={{ 
-          y: -8,
-          transition: { duration: 0.3, ease: "easeOut" }
-        }}
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.33, 1, 0.68, 1] }}
+      whileHover={{ 
+        y: -8,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
         className="w-full mx-auto max-w-[280px] sm:max-w-none"
-      >
-        <motion.div
-          animate={{ 
-            y: [0, -6, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: index * 0.3
-          }}
+    >
+      <motion.div
+        animate={{ 
+          y: [0, -6, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: index * 0.3
+        }}
           className="relative w-full aspect-[5/7] group cursor-pointer touch-none"
-          style={{ 
-            perspective: '1200px', 
-            WebkitPerspective: '1200px', 
-            background: 'transparent' 
-          }}
-          onClick={() => setIsFlipped((v) => !v)}
+        style={{ 
+          perspective: '1200px', 
+          WebkitPerspective: '1200px', 
+          background: 'transparent' 
+        }}
+        onClick={() => setIsFlipped((v) => !v)}
           onTouchEnd={(e) => {
             e.preventDefault();
             setIsFlipped((v) => !v);
           }}
-          role="button"
-          aria-label={`Flip ${item.name} experience card`}
-        >
+        role="button"
+        aria-label={`Flip ${item.name} experience card`}
+      >
           {/* Tap/Click to interact hint - hidden on mobile, shown on hover for desktop */}
           <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 text-[#B7C4AC] hover:text-[#8A9B7E] text-xs sm:text-sm font-light whitespace-nowrap transition-colors duration-300 opacity-0 group-hover:opacity-100 font-body hidden sm:block">
-            Click to flip
-          </div>
+          Click to flip
+        </div>
         
         {/* 3D flip container */}
         <div 

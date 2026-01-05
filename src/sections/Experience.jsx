@@ -5,8 +5,10 @@ import PokemonExperienceCard from '../components/PokemonExperienceCard.jsx';
 
 const Experience = () => {
   // Filter to only show the 5 main experiences (including Twitch)
+  // Commented out Twitch (id: 0) for now
   const featuredExperiences = workExperiences.filter(exp => 
-    exp.id === 0 || exp.id === 1 || exp.id === 2 || exp.id === 3 || exp.id === 4
+    // exp.id === 0 || // Twitch - commented out
+    exp.id === 1 || exp.id === 2 || exp.id === 3 || exp.id === 4
   );
 
   return (
