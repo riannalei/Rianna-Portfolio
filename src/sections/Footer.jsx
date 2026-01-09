@@ -74,6 +74,7 @@ const Footer = () => {
                                     <p className="text-xs text-white/50 max-w-full sm:max-w-2xl font-body break-words">
                                         Credits: 3D models by ZoeChuiYan (Candleholder, Diorama), jackbaeten (MacBook Pro), 
                                         Jungle Jim (Ramen Bowl), 3Dji (Ramen Yatai Food Stall), Voyage (Cherry Blossom), 
+                                        besturkan (Poké Ball) - CC Attribution-NonCommercial, 
                                         pokemon-cards-css by simeydotme - CC Attribution
                                     </p>
                                 </div>

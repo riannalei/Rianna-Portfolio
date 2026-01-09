@@ -12,6 +12,7 @@ import Projects from "./sections/Projects.jsx";
 import Footer from "./sections/Footer.jsx";
 import NewNavigation from "./components/NewNavigation.jsx";
 import Preloader from "./components/Preloader.jsx";
+import PokeballCursor from "./components/PokeballCursor.jsx";
 
 const App = () => {
     const [showLoading, setShowLoading] = useState(true);
@@ -46,6 +47,7 @@ const App = () => {
 
     return (
         <Router>
+            <PokeballCursor />
             <NewNavigation />
             
             <AnimatePresence mode="wait">

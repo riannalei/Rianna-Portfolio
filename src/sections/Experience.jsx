@@ -53,9 +53,9 @@ const Experience = () => {
               className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(25%-1.5rem)] max-w-[280px] sm:max-w-none"
             >
               <PokemonExperienceCard
-                item={item}
-                index={index}
-              />
+              item={item}
+              index={index}
+            />
             </div>
           ))}
         </div>
