@@ -42,14 +42,21 @@ const Experience = () => {
           </motion.p>
         </motion.div>
 
-        {/* Pokemon Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8 lg:gap-6 pb-8 sm:pb-12">
+        {/* Pokemon Cards Grid - Zigzag Layout */}
+        <div className="flex flex-wrap justify-center items-start gap-6 sm:gap-8 lg:gap-6 pb-8 sm:pb-12 xl:max-w-6xl xl:mx-auto">
           {featuredExperiences.map((item, index) => (
-            <PokemonExperienceCard
+            <div
               key={item.id}
-              item={item}
-              index={index}
-            />
+              style={{
+                transform: `translateY(${index % 2 === 1 ? '1.5rem' : '0'})`,
+              }}
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(25%-1.5rem)] max-w-[280px] sm:max-w-none"
+            >
+              <PokemonExperienceCard
+                item={item}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>

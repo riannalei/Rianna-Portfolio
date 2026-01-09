@@ -10,10 +10,10 @@ const PokemonExperienceCard = ({ item, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.33, 1, 0.68, 1] }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.33, 1, 0.68, 1] }}
       whileHover={{ 
         y: -8,
         transition: { duration: 0.3, ease: "easeOut" }
@@ -22,13 +22,14 @@ const PokemonExperienceCard = ({ item, index }) => {
     >
       <motion.div
         animate={{ 
-          y: [0, -6, 0],
+          y: [0, -18, 0],
+          rotate: [0, 1, -1, 0],
         }}
         transition={{
-          duration: 5,
+          duration: 4 + (index * 0.5),
           repeat: Infinity,
           ease: "easeInOut",
-          delay: index * 0.3
+          delay: index * 0.4
         }}
           className="relative w-full aspect-[5/7] group cursor-pointer touch-none"
         style={{ 
