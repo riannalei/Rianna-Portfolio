@@ -82,22 +82,24 @@ const PokemonExperienceCard = ({ item, index }) => {
 
           {/* Back - Experience Details */}
           <div
-            className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl"
+            className="absolute inset-0 rounded-2xl overflow-hidden"
             style={{
               transform: isFlipped ? 'rotateY(0deg) translateZ(0.1px)' : 'rotateY(180deg) translateZ(0.1px)',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
               transition: 'transform 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55)',
               willChange: 'transform',
-              background: '#FFFFFF'
+              background: '#FFFFFF',
+              border: '1.5px solid #B7C4AC',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
             }}
           >
-            <div className="w-full h-full p-4 sm:p-5 md:p-6 flex flex-col text-left overflow-y-auto">
-              {/* Logo & Header - Horizontal Layout - Fixed Height */}
-              <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 min-h-[60px] sm:min-h-[72px]">
+            <div className="w-full h-full p-4 sm:p-5 flex flex-col text-left">
+              {/* Logo & Header */}
+              <div className="flex items-start gap-2 sm:gap-3 mb-3">
                 {/* Company Logo */}
                 {item.logo && (
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 flex items-center justify-center">
                     <img 
                       src={item.logo} 
                       alt={`${item.name} logo`}
@@ -107,20 +109,20 @@ const PokemonExperienceCard = ({ item, index }) => {
                 )}
 
                 {/* Company Name & Title */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5 font-heading leading-tight break-words">{item.name}</h3>
-                  <p className="text-[10px] sm:text-xs font-semibold text-gray-800 font-body leading-tight break-words">{item.pos}</p>
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5 font-heading leading-tight">{item.name}</h3>
+                  <p className="text-[10px] sm:text-xs font-semibold text-gray-600 font-body leading-tight">{item.pos}</p>
                 </div>
               </div>
               
-              {/* Time & Location - Fixed Height */}
-              <div className="space-y-0.5 mb-2 sm:mb-3 text-[10px] sm:text-xs text-gray-600 font-body min-h-[32px] sm:min-h-[36px]">
-                <p className="break-words">{item.duration}</p>
-                {item.location && <p className="break-words">{item.location}</p>}
+              {/* Time & Location */}
+              <div className="space-y-0.5 mb-3 text-[10px] sm:text-xs text-gray-500 font-body">
+                <p className="font-medium">{item.duration}</p>
+                {item.location && <p>{item.location}</p>}
               </div>
 
-              {/* Short Description - Starts at same height */}
-              <p className="text-[10px] sm:text-xs leading-relaxed text-gray-700 font-body flex-1 break-words">
+              {/* Description */}
+              <p className="text-[10px] sm:text-xs leading-relaxed text-gray-600 font-body flex-1 overflow-y-auto">
                 {item.description}
               </p>
             </div>
